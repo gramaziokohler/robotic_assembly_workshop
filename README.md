@@ -54,6 +54,7 @@ By now, you should be up and running and ready to start playing with the framewo
 ### COMPAS concepts
 
 > PLACEHOLDER: This section deals with basics of COMPAS: the ecosystem of backends & frontends, an overview of the main datastructures, an overview of algorithms, etc
+> Include installation/setup and running a few snippets to check installation is correct.
 
 ### Python for COMPAS
 
