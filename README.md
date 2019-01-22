@@ -58,7 +58,7 @@ You can use any development environment that you're comfortable with, but for th
   * `EditorConfig for VS Code` (optional -but recommended)
 * On the bottom left status bar, select the python interpreter to use. The list will contain Anaconda environments, select the one created above: `robotic-assembly-workshop`.
 
-As a starting point, download (or clone) the contents of the [`examples`](examples) folder and open it with VS Code (right-click the folder from Explorer -> `Open with Code`). Open `ex_00.py` and press `F5` to run it.
+As a starting point, download (or clone) the contents of the [`examples`](examples) folder and open it with VS Code (right-click the folder from Explorer -> `Open with Code`). Open `ex00_hello_compas.py` and press `F5` to run it.
 
 ---
 
