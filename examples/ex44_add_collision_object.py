@@ -1,4 +1,4 @@
-from ex20_load_compas_fab_robot import robot
+from ex21_load_compas_fab_robot import robot
 
 from compas.datastructures import Mesh
 from compas_fab.backends import RosClient
