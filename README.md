@@ -14,17 +14,25 @@ Materials for the Robotic Assembly workshop using COMPAS framework
 * [Docker Community Edition](https://www.docker.com/get-started): Download it for [Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) or [Mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).
 * X11 Server: On Windows use [XMing](https://sourceforge.net/projects/xming/), on Mac use [XQuartz](https://www.xquartz.org/) (see details [here](https://medium.com/@mreichelt/how-to-show-x11-windows-within-docker-on-mac-50759f4b65cb)).
 * Git: [official command-line client](https://git-scm.com/) or visual GUI (e.g. [Github Desktop](https://desktop.github.com/) or [SourceTree](https://www.sourcetreeapp.com/))
+* [ABB RobotStudio](https://new.abb.com/products/robotics/robotstudio/downloads): 6.08 (only available for Windows). After install, **make sure you add RobotWare 6.03.02** (`Add-Ins` -> `RobotApps` -> `RobotWare` and add `6.03.02`)
 
 > Note: if you get an error, scroll down to the [Troubleshooting](#troubleshooting) section.
 
 ## Getting started
 
-The very first thing to get started is to install **COMPAS** using Anaconda. To install the main library and the packages we will use, start your Anaconda Prompt and run the following:
+The very first thing to get started is to install **COMPAS** using Anaconda. Anaconda uses **environments** to create isolated spaces for projects' depedencies, it is recommendable that you do all the exercises in a newly created environment:
+
+      conda create --name robotic-assembly-workshop python=3.6
+      activate robotic-assembly-workshop
+
+To install the main library and the packages we will use, start your Anaconda Prompt and run the following:
 
       conda config --add channels conda-forge
       conda install compas compas_fab
 
-Great! Now type `python` in your Anaconda Prompt, and test if the installation went well:
+> **TODO**: Add here the setup for the other packages of the workshop (rbe & tna?)
+
+Great! Now type `python` in your Anaconda Prompt (**run as administrator**), and test if the installation went well:
 
       >>> import compas
       >>> import compas_fab
@@ -35,13 +43,22 @@ Now let's make **compas** and **compas_fab** packages available inside Rhino. On
 
       python -m compas_fab.rhino.install 6.0
 
+Congrats! 🎉 You are all set! Open Rhino and try to import compas to verify everything is working fine.
+
 > **NOTE:** 
-> You might need to be running as administrator. If the previous command throws an error, open the Anaconda Prompt as an **Administrator**.
+> If the previous command throws an error, make sure you run the Anaconda Prompt as an **Administrator**.
 
-## Development environment: Setting up a new project
+## Setting up your development environment
 
-> PLACEHOLDER: On this section, I suggest we start off with the `python_template` and show how to customize it for our workshop. 
-> Regarding setup, I will propose a conda environment mode that is local to the project itself, I will prepare an `environment.yml` in the next few days to demo it.
+You can use any development environment that you're comfortable with, but for this workshop, we suggest using [VS Code](https://code.visualstudio.com/), since it provides very deep integration with Anaconda, debugging and many other niceties.
+
+* Install [VS Code](https://code.visualstudio.com/) and open it
+* Go to `Extensions` and install:
+  * `Python` (official extension)
+  * `EditorConfig for VS Code` (optional -but recommended)
+* On the bottom left status bar, select the python interpreter to use. The list will contain Anaconda environments, select the one created above: `robotic-assembly-workshop`.
+
+As a starting point, download (or clone) the contents of the [`examples`](examples) folder and open it with VS Code (right-click the folder from Explorer -> `Open with Code`). Open `ex00_hello_compas.py` and press `F5` to run it.
 
 ---
 
@@ -122,13 +139,13 @@ Make sure you have opened Rhino 6 and Grasshopper at least once, so that it fini
 
 > Q: It fails when trying to install on Rhino.
 
-Try starting the command prompt as administrator. Depending on the version of Python, it might be required or not.
+Try running the command prompt as administrator. Depending on the version of Python, it might be required or not.
 
 > Q: error: Microsoft Visual C++ 14.0 is required
 
 Follow the link to install Microsoft Visual C++ 14.0
 https://www.scivision.co/python-windows-visual-c++-14-required/
 
-> Q: When installing `conda install compas_fab`, I get the error: `cannot find Frame`
+> Q: When running `conda install compas_fab`, I get the error: `cannot find Frame`
 
 You have already installed an older, pre-release version of COMPAS. Please remove it.
