@@ -1,7 +1,7 @@
 import os
 
 import compas
-import compas.robots
+from compas.robots import RobotModel
 from compas.robots import LocalPackageMeshLoader
 from compas.robots import Joint
 
@@ -24,10 +24,10 @@ srdf_filename = "ur5.srdf"
 urdf_filename = os.path.join(path, package, "urdf", urdf_filename)
 srdf_filename = os.path.join(path, package, srdf_filename)
 
-model = compas.robots.Robot.from_urdf_file(urdf_filename)
-#model.load_geometry(loader)
+model = RobotModel.from_urdf_file(urdf_filename)
+# model.load_geometry(loader)
 artist = None
-#artist = RobotArtist(model)
+# artist = RobotArtist(model)
 semantics = RobotSemantics.from_srdf_file(srdf_filename, model)
 
 robot = Robot(model, artist, semantics)
