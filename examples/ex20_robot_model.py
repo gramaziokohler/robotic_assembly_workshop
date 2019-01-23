@@ -1,8 +1,8 @@
-from compas.robots import Robot
+from compas.robots import RobotModel
 from compas.robots import Joint
 from compas.robots import Link
 
-robot = Robot('ur5',
+robot = RobotModel('ur5',
               joints=[
                   Joint('shoulder_pan_joint', 'revolute',
                         parent='base_link', child='shoulder_link'),
