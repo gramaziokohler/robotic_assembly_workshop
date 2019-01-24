@@ -1,13 +1,12 @@
 import os
 
 import compas
-import compas.robots
-from compas.robots import LocalPackageMeshLoader
 from compas.robots import Joint
-
+from compas.robots import LocalPackageMeshLoader
+from compas.robots import RobotModel
+from compas_fab.backends import RosClient
 from compas_fab.robots import Robot
 from compas_fab.robots import RobotSemantics
-from compas_fab.backends import RosClient
 
 #from compas_fab.ghpython import RobotArtist
 
@@ -25,7 +24,7 @@ package = "rfl"
 urdf_filename = os.path.join(path, package, "urdf", urdf_filename)
 srdf_filename = os.path.join(path, package, srdf_filename)
 
-model = compas.robots.Robot.from_urdf_file(urdf_filename)
+model = RobotModel.from_urdf_file(urdf_filename)
 #model.load_geometry(loader)
 artist = None
 #artist = RobotArtist(model)
@@ -46,4 +45,3 @@ for joint in robot.get_configurable_joints(robot.main_group_name):
     print(info)
 
 """
-
