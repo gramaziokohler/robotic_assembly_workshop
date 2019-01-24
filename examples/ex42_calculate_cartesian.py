@@ -1,9 +1,9 @@
 from ex21_load_compas_fab_robot import robot
 
 from compas.geometry import Frame
-from compas_fab.robots import Configuration
 from compas_fab.backends import RosClient
 from compas_fab.backends.ros import MoveItErrorCodes
+from compas_fab.robots import Configuration
 
 robot.client = RosClient('127.0.0.1', 9090)
 robot.client.run()
@@ -14,10 +14,18 @@ frames.append(Frame([0.20, 0.38, 0.32], [0, 1, 0], [0, 0, 1]))
 
 start_configuration = Configuration.from_revolute_values([-0.042, 4.295, -4.110, -3.327, 4.755, 0.])
 group = "manipulator" # or robot.main_group_name
-max_step = 0.01
-avoid_collisions = True
 
-response = robot.compute_cartesian_path(frames, start_configuration, max_step, avoid_collisions, group)
+response = robot.compute_cartesian_path(frames,
+                                        start_configuration,
+                                        max_step=0.01,
+                                        avoid_collisions=True,
+                                        group=group,
+                                        path_constraints=None)
 
-for config in response.configurations:
-    print(config)
+print("Computed cartesian path with %d configurations, " % len(response.configurations))
+print("following %d%% of requested trajectory." % (response.fraction * 100))
+print("Executing this path at full speed would take approx. %.3f seconds." % response.solution.joint_trajectory.points[-1].time_from_start.seconds())
+print(response.configurations)
+
+robot.client.close()
+robot.client.terminate()
