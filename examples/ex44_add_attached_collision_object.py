@@ -11,7 +11,9 @@ robot.client.run()
 
 group = robot.main_group_name
 brick = Mesh.from_obj(os.path.join(os.path.dirname(__file__), "brick.obj"))
-robot.add_attached_collision_mesh('brick', brick, group)
-# robot.remove_attached_collision_mesh('brick', group)
 
-time.sleep(1)
+robot.add_attached_collision_mesh('brick', brick, group)
+time.sleep(2)
+
+robot.remove_attached_collision_mesh('brick', group)
+time.sleep(2)
