@@ -1,12 +1,14 @@
 from compas_fab.backends import RosClient
 
 client = RosClient()
+client.run()
 
+client.on_ready(lambda: print('Is ROS connected?', client.is_connected))
 
-def hello_ros():
-    print('Connected: %s' % client.is_connected)
-    client.terminate()
+try:
+    while True:
+        pass
+except KeyboardInterrupt:
+    pass
 
-
-client.on_ready(hello_ros)
-client.run_forever()
+client.terminate()
