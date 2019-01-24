@@ -31,11 +31,6 @@ artist = None
 #artist = RobotArtist(model)
 semantics = RobotSemantics.from_srdf_file(srdf_filename, model)
 
-client = RosClient('127.0.0.1', 9090)
-client.run()
-
-robot = Robot(model, artist, semantics, client)
+robot = Robot(model, artist, semantics)
 #robot.info()
 
-mesh = Mesh.from_stl(os.path.join(path, package, 'meshes', 'collision', 'platform.stl'))
-robot.add_collision_mesh_to_planning_scene('platform', mesh)

@@ -20,7 +20,16 @@ from compas_fab.backends.ros import MoveItErrorCodes
 from compas_fab.backends.ros import Constraints
 from compas_fab.backends.ros import JointConstraint
 
-from abb_linear_axis import robot
+from ex50_abb_linear_axis_robot import robot
+
+robot.client = RosClient('127.0.0.1', 9090)
+robot.client.run()
+
+path = r"C:\Users\rustr\workspace\robot_description"
+package = "abb_linear_axis"
+mesh = Mesh.from_stl(os.path.join(path, package, 'meshes', 'collision', 'platform.stl'))
+robot.add_collision_mesh_to_planning_scene('platform', mesh)
+
 
 # Load frames 
 path = os.path.dirname(__file__)
