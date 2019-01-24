@@ -52,7 +52,7 @@ response = await_callback(robot.compute_cartesian_path,
                           max_step=0.01, 
                           avoid_collisions=True, 
                           group=group, 
-                          constraints=pc)
+                          path_constraints=pc)
 
 if response.error_code != MoveItErrorCodes.SUCCESS:
     if response.fraction != 1.:
@@ -106,7 +106,7 @@ for i, placing_frames in enumerate(layers):
                                   max_step=0.01, 
                                   avoid_collisions=True, 
                                   group=group, 
-                                  constraints=pc)
+                                  path_constraints=pc)
 
         if response.error_code == MoveItErrorCodes.SUCCESS:
             if response.fraction == 1.:
