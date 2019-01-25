@@ -103,7 +103,8 @@ for i, placing_frames in enumerate(layers):
                                                     path_constraints=pc, 
                                                     planner_id='RRT',
                                                     num_planning_attempts=20, 
-                                                    allowed_planning_time=8.)
+                                                    allowed_planning_time=8.,
+                                                    attached_collision_object=aco)
             configurations = response.configurations
             solutions.append(configurations)
         except RosError as error:

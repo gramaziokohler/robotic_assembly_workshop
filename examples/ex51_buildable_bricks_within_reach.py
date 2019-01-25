@@ -120,8 +120,7 @@ for i, indices in enumerate(solutions):
         #print("Calculating %d. of %d brick placing paths..." % (j + 1, len(placing_frames)))
         print(i, j)
 
-        acm = robot.create_collision_mesh_attached_to_end_effector('brick', brick, group)
-        print("acm", acm)
+        aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick, group)
 
         try:
             response = robot.motion_plan_goal_frame(frame_WCF=savelevel_frame2, 
@@ -133,7 +132,7 @@ for i, indices in enumerate(solutions):
                                                     planner_id='RRT',
                                                     num_planning_attempts=20, 
                                                     allowed_planning_time=8.,
-                                                    attached_collision_object=acm)
+                                                    attached_collision_object=aco)
             configurations = response.configurations
             #solutions.append(configurations)
             print(configurations[-1])
