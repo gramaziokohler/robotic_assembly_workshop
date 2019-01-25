@@ -8,8 +8,8 @@ Materials for the Robotic Assembly workshop using COMPAS framework
 
 ## Requirements
 
-* Operating System: on Windows, the only Windows version that supports many of the requirements is **Windows 10** Pro, on Mac the minimum version required is **||TO BE COMPLETED||**.
-* [Rhinoceros 3D 6.0](https://www.rhino3d.com/): Focus on will only on Rhino 6.0. [See here if you use Rhino 5.0](#rhino-50)
+* Operating System: the only Windows version that supports many of the requirements is **Windows 10** Pro.
+* [Rhinoceros 3D 6.0](https://www.rhino3d.com/): Focus on Rhino 6.0 only. [See here if you use Rhino 5.0](#rhino-50)
 * [Anaconda Python Distribution](https://www.anaconda.com/download/): 2.7 or 3.x
 * [Docker Community Edition](https://www.docker.com/get-started): Download it for [Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) or [Mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).
 * X11 Server: On Windows use [XMing](https://sourceforge.net/projects/xming/), on Mac use [XQuartz](https://www.xquartz.org/) (see details [here](https://medium.com/@mreichelt/how-to-show-x11-windows-within-docker-on-mac-50759f4b65cb)).
@@ -29,8 +29,6 @@ To install the main library and the packages we will use, start your Anaconda Pr
 
       conda config --add channels conda-forge
       conda install compas compas_fab
-
-> **TODO**: Add here the setup for the other packages of the workshop (rbe & tna?)
 
 Great! Now type `python` in your Anaconda Prompt (**run as administrator**), and test if the installation went well:
 
@@ -59,51 +57,6 @@ You can use any development environment that you're comfortable with, but for th
 * On the bottom left status bar, select the python interpreter to use. The list will contain Anaconda environments, select the one created above: `robotic-assembly-workshop`.
 
 As a starting point, download (or clone) the contents of the [`examples`](examples) folder and open it with VS Code (right-click the folder from Explorer -> `Open with Code`). Open `ex00_hello_compas.py` and press `F5` to run it.
-
----
-
-## Let's get to work!
-
-By now, you should be up and running and ready to start playing with the framework!
-
-> Are you new to programming? Check out [this tutorial to learn some basics of Python and compas datastructures](https://compas-dev.github.io/main/tutorial/meshes.html)
-
-### COMPAS concepts
-
-> PLACEHOLDER: This section deals with basics of COMPAS: the ecosystem of backends & frontends, an overview of the main datastructures, an overview of algorithms, etc
-> Include installation/setup and running a few snippets to check installation is correct.
-
-### Python for COMPAS
-
-> PLACEHOLDER: Explain some Python idioms and specifics applied or used in COMPAS, e.g. geometric key/maps, the use of callbacks, etc.
-
-### Data Structures
-
-> PLACEHOLDER: Explain COMPAS data structures, focus on Network as the rest of the workshop will work with that. Start working on an exercise to develop a custom data structure derived from `Network` in order to create an assembly.
-
-### Assembly Design
-
-> PLACEHOLDER: How to build an assembly based on COMPAS, how to identify interfaces, etc.
-
-### Equilibrium
-
-> PLACEHOLDER: Intro to compas_rbe, computing equilibrium, intermediate configurations, etc.
-
-### Robotic fabrication
-
-> PLACEHOLDER: Intro to compas_fab, robotics fundamentals (frame, transformation, kinematic chains), robot description models. Examples and exercises on fundamentals, and robot visualizations, FK, IK, etc.
-
-### ROS Concepts
-
-> PLACEHOLDER: Intro to ROS, main concepts (topics, actions, services, protocol), setup, distribution, etc. Execises on the very basics of ROS (Listener/Talker, basic interfacing, etc). Describe also Python concepts specific to dealing with ROS (async, etc).
-
-### Path planning
-
-> PLACEHOLDER: Setting up and path planning with ROS and MoveIt
-
-### Assembly Process Simulation
-
-> PLACEHOLDER: Integrate custom data structure for assembly with ROS tooling for path planning and simulate the assembly process entirely. Show simulated robot control (using either URSim or ABB Robot Studio).
 
 ---
 
