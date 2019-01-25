@@ -14,7 +14,7 @@ Materials for the Robotic Assembly workshop using COMPAS framework
 * [Docker Community Edition](https://www.docker.com/get-started): Download it for [Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) or [Mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).
 * X11 Server: On Windows use [XMing](https://sourceforge.net/projects/xming/), on Mac use [XQuartz](https://www.xquartz.org/) (see details [here](https://medium.com/@mreichelt/how-to-show-x11-windows-within-docker-on-mac-50759f4b65cb)).
 * Git: [official command-line client](https://git-scm.com/) or visual GUI (e.g. [Github Desktop](https://desktop.github.com/) or [SourceTree](https://www.sourcetreeapp.com/))
-* [ABB RobotStudio](https://new.abb.com/products/robotics/robotstudio/downloads): 6.08 (only available for Windows). After install, **make sure you add RobotWare 6.03.02** (`Add-Ins` -> `RobotApps` -> `RobotWare` and add `6.03.02`)
+* [ABB RobotStudio](https://new.abb.com/products/robotics/robotstudio/downloads): 6.08 (only available for Windows). After install, **make sure you add RobotWare 6.03.02** (`Add-Ins` -> `RobotApps` -> `RobotWare` and add `6.03.02`). After completing the setup, you can open the [ABB Linear Axis station](robot_station) in RobotStudio.
 
 > Note: if you get an error, scroll down to the [Troubleshooting](#troubleshooting) section.
 
@@ -45,7 +45,7 @@ Now let's make **compas** and **compas_fab** packages available inside Rhino. On
 
 Congrats! 🎉 You are all set! Open Rhino and try to import compas to verify everything is working fine.
 
-> **NOTE:** 
+> **NOTE:**
 > If the previous command throws an error, make sure you run the Anaconda Prompt as an **Administrator**.
 
 ## Setting up your development environment
