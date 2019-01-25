@@ -30,8 +30,6 @@ To install the main library and the packages we will use, start your Anaconda Pr
       conda config --add channels conda-forge
       conda install compas compas_fab
 
-> **TODO**: Add here the setup for the other packages of the workshop (rbe & tna?)
-
 Great! Now type `python` in your Anaconda Prompt (**run as administrator**), and test if the installation went well:
 
       >>> import compas
@@ -59,51 +57,6 @@ You can use any development environment that you're comfortable with, but for th
 * On the bottom left status bar, select the python interpreter to use. The list will contain Anaconda environments, select the one created above: `robotic-assembly-workshop`.
 
 As a starting point, download (or clone) the contents of the [`examples`](examples) folder and open it with VS Code (right-click the folder from Explorer -> `Open with Code`). Open `ex00_hello_compas.py` and press `F5` to run it.
-
----
-
-## Let's get to work!
-
-By now, you should be up and running and ready to start playing with the framework!
-
-> Are you new to programming? Check out [this tutorial to learn some basics of Python and compas datastructures](https://compas-dev.github.io/main/tutorial/meshes.html)
-
-### COMPAS concepts
-
-> PLACEHOLDER: This section deals with basics of COMPAS: the ecosystem of backends & frontends, an overview of the main datastructures, an overview of algorithms, etc
-> Include installation/setup and running a few snippets to check installation is correct.
-
-### Python for COMPAS
-
-> PLACEHOLDER: Explain some Python idioms and specifics applied or used in COMPAS, e.g. geometric key/maps, the use of callbacks, etc.
-
-### Data Structures
-
-> PLACEHOLDER: Explain COMPAS data structures, focus on Network as the rest of the workshop will work with that. Start working on an exercise to develop a custom data structure derived from `Network` in order to create an assembly.
-
-### Assembly Design
-
-> PLACEHOLDER: How to build an assembly based on COMPAS, how to identify interfaces, etc.
-
-### Equilibrium
-
-> PLACEHOLDER: Intro to compas_rbe, computing equilibrium, intermediate configurations, etc.
-
-### Robotic fabrication
-
-> PLACEHOLDER: Intro to compas_fab, robotics fundamentals (frame, transformation, kinematic chains), robot description models. Examples and exercises on fundamentals, and robot visualizations, FK, IK, etc.
-
-### ROS Concepts
-
-> PLACEHOLDER: Intro to ROS, main concepts (topics, actions, services, protocol), setup, distribution, etc. Execises on the very basics of ROS (Listener/Talker, basic interfacing, etc). Describe also Python concepts specific to dealing with ROS (async, etc).
-
-### Path planning
-
-> PLACEHOLDER: Setting up and path planning with ROS and MoveIt
-
-### Assembly Process Simulation
-
-> PLACEHOLDER: Integrate custom data structure for assembly with ROS tooling for path planning and simulate the assembly process entirely. Show simulated robot control (using either URSim or ABB Robot Studio).
 
 ---
 
