@@ -8,7 +8,7 @@ Materials for the Robotic Assembly workshop using COMPAS framework
 
 ## Requirements
 
-* Operating System: on Windows, the only Windows version that supports many of the requirements is **Windows 10** Pro, on Mac the minimum version required is **||TO BE COMPLETED||**.
+* Operating System: the only Windows version that supports many of the requirements is **Windows 10** Pro.
 * [Rhinoceros 3D 6.0](https://www.rhino3d.com/): Focus on will only on Rhino 6.0. [See here if you use Rhino 5.0](#rhino-50)
 * [Anaconda Python Distribution](https://www.anaconda.com/download/): 2.7 or 3.x
 * [Docker Community Edition](https://www.docker.com/get-started): Download it for [Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) or [Mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).
