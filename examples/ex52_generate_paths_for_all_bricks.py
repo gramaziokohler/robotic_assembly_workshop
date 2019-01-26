@@ -75,6 +75,9 @@ start_configuration = robot.merge_group_with_full_configuration(start_configurat
 print("start_configuration", start_configuration)
 
 brick = Mesh.from_obj(os.path.join(os.path.dirname(__file__), "brick.obj"))
+brick = Mesh.from_obj(os.path.join(os.path.dirname(__file__), "brick.obj"))
+aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick, group)
+
 robot.add_attached_collision_mesh('brick', brick, group)
 robot.remove_collision_mesh_from_planning_scene("brick_wall")
 
@@ -122,7 +125,8 @@ for i, placing_frames in enumerate(layers):
                                                     max_step=0.01, 
                                                     avoid_collisions=True, 
                                                     group=group, 
-                                                    path_constraints=pc)
+                                                    path_constraints=pc,
+                                                    attached_collision_object=aco)
             if response.fraction == 1.:
                 configurations = response.configurations
                 solutions.append(configurations)
@@ -148,7 +152,8 @@ for i, placing_frames in enumerate(layers):
                                                     path_constraints=pc, 
                                                     planner_id='RRT',
                                                     num_planning_attempts=20, 
-                                                    allowed_planning_time=8.)
+                                                    allowed_planning_time=8.,
+                                                    attached_collision_object=aco)
 
             configurations = response.configurations
             solutions.append(configurations)

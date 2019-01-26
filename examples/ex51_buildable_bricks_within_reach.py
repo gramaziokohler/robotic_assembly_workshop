@@ -101,7 +101,7 @@ solutions = [[0, 1, 2, 3, 4, 5, 6], [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5, 6], [
 pc = None
 
 brick = Mesh.from_obj(os.path.join(os.path.dirname(__file__), "brick.obj"))
-
+aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick, group)
 
 for i, indices in enumerate(solutions):
 
@@ -120,7 +120,7 @@ for i, indices in enumerate(solutions):
         #print("Calculating %d. of %d brick placing paths..." % (j + 1, len(placing_frames)))
         print(i, j)
 
-        aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick, group)
+        
 
         try:
             response = robot.motion_plan_goal_frame(frame_WCF=savelevel_frame2, 
