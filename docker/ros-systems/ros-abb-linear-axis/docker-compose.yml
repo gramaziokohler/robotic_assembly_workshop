@@ -1,0 +1,64 @@
+version: '3'
+services:
+  ros-master:
+    image: gramaziokohler/robotic-assembly:workshop-19.01
+    container_name: ros-master
+    ports:
+      - "11311:11311"
+    command:
+      - roscore
+
+  ros-bridge:
+    image: gramaziokohler/robotic-assembly:workshop-19.01
+    container_name: ros-bridge
+    environment:
+      - ROS_HOSTNAME=ros-bridge
+      - ROS_MASTER_URI=http://ros-master:11311
+    ports:
+      - "9090:9090"
+    depends_on:
+      - ros-master
+    command:
+      - roslaunch
+      - --wait
+      - rosbridge_server
+      - rosbridge_websocket.launch
+
+  ros-fileserver:
+    image: gramaziokohler/robotic-assembly:workshop-19.01
+    container_name: ros-fileserver
+    environment:
+      - ROS_HOSTNAME=ros-fileserver
+      - ROS_MASTER_URI=http://ros-master:11311
+    depends_on:
+      - ros-master
+    command:
+      - roslaunch
+      - --wait
+      - file_server
+      - file_server.launch
+
+  abb-linear-axis-planner:
+    image: gramaziokohler/robotic-assembly:workshop-19.01
+    container_name: abb-linear-axis-planner
+    environment:
+      # We redirect the container's GUI to a X11 server running on the host OS.
+      # On Windows using XMing, make sure you add your IP Address to the file %ProgramFiles(x86)%\XMing\X0.hosts 
+      # On *nix systems, run `xhost +local:root` (and disable later with `xhost -local:root`)
+      # NOTE: the previous setting is a lazy and unsecure way of giving access to your X11 server
+      # There are better, more elaborate ways of doing this with less risk
+      # - DISPLAY=docker.for.mac.localhost:0.0   (swap this with the next one for Mac)
+      - DISPLAY=docker.for.win.localhost:0.0
+      - ROS_HOSTNAME=abb-linear-axis-planner
+      - ROS_MASTER_URI=http://ros-master:11311
+      - QT_X11_NO_MITSHM=1
+    privileged: true     # This might be needed in some systems
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    depends_on:
+      - ros-master
+    command:
+      - roslaunch
+      - --wait
+      - abb_linear_axis_brick_moveit_config
+      - demo.launch

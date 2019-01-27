@@ -1,5 +1,10 @@
 # Container for robotic assembly packages (ABB & UR)
-# docker pull gramaziokohler/robotic-assembly:workshop
+#
+# Build:
+#  docker build --rm -f "docker\docker-images\Dockerfile" -t gramaziokohler/robotic-assembly:workshop-19.01 docker\docker-images
+#
+# Usage:
+#  docker pull gramaziokohler/robotic-assembly:workshop-19.01
 
 FROM moveit/moveit:kinetic-release
 LABEL maintainer "Gonzalo Casas <casas@arch.ethz.ch>"
