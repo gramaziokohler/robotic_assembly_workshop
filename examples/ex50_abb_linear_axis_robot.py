@@ -20,10 +20,7 @@ path = r"C:\Users\rustr\workspace\robot_description"
 
 urdf_filename = "abb_linear_axis_brick_suction_tool.urdf"
 srdf_filename = "abb_linear_axis_suction_tool.srdf"
-#urdf_filename = "abb_linear_axis.urdf"
-#srdf_filename = "abb_linear_axis.srdf"
 package = "abb_linear_axis"
-
 urdf_filename = os.path.join(path, package, "urdf", urdf_filename)
 srdf_filename = os.path.join(path, package, srdf_filename)
 

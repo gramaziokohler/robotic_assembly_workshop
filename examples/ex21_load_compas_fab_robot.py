@@ -1,3 +1,7 @@
+"""
+Creates a ur5 robot from a urdf model and loads
+the semantics from a srdf file.
+"""
 import os
 import compas
 from compas.robots import RobotModel
@@ -15,6 +19,7 @@ urdf_filename = os.path.join(path, package, "urdf", "ur5.urdf")
 srdf_filename = os.path.join(path, package, "ur5.srdf")
 
 model = RobotModel.from_urdf_file(urdf_filename)
+#model.load_geometry(loader)
 artist = None
 #artist = RobotArtist(model)
 semantics = RobotSemantics.from_srdf_file(srdf_filename, model)
