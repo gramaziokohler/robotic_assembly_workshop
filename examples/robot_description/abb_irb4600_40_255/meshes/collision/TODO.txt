@@ -1,0 +1,2 @@
+These are the same meshes as in visual/.
+TODO: create meshes in low-res and save here.

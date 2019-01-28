@@ -14,7 +14,10 @@ from compas_fab.backends import RosError
 
 compas.PRECISION = '12f'
 
-path = r"C:\Users\rustr\workspace\robot_description"
+HERE = os.path.dirname(__file__)
+
+path = os.path.join(HERE, "robot_description")
+
 #packages = ['abb_irb4600_40_255', 'abb_linear_axis', 'abb_end_effectors']
 #loaders = [LocalPackageMeshLoader(path, package) for package in packages]
 
