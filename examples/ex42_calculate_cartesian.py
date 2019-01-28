@@ -15,7 +15,7 @@ frames = []
 frames.append(Frame([0.3, 0.1, 0.5], [1, 0, 0], [0, 1, 0]))
 frames.append(Frame([0.4, 0.3, 0.4], [0, 1, 0], [0, 0, 1]))
 
-start_configuration = Configuration.from_revolute_values([-0.042, 4.295, -4.110, -3.327, 4.755, 0.])
+start_configuration = Configuration.from_revolute_values((-0.042, -1.988, 2.174, -3.327, -1.528, -6.283))
 group = "manipulator" # or robot.main_group_name
 
 response = robot.compute_cartesian_path(frames,
