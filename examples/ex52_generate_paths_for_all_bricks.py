@@ -1,5 +1,4 @@
 """
-Some clever text what this example is about...
 """
 
 import os
