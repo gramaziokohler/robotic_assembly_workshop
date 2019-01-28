@@ -25,7 +25,7 @@ robot.client.run()
 group = "abb"
 
 picking_frame = Frame([1.926, 1.5, 1], [0, 1, 0], [1, 0, 0])
-# Define a "good" picking congfiguration
+# Define a "good" picking configuration
 picking_configuration = ?
 
 save_vector = Vector(0, 0, 0.1)
