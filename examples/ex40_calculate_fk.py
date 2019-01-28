@@ -1,4 +1,4 @@
-from ex21_load_compas_fab_robot import robot
+from ex22_load_compas_fab_robot import robot
 
 from compas.geometry import Frame
 from compas_fab.robots import Configuration
