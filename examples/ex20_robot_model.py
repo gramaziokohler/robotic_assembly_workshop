@@ -1,3 +1,6 @@
+"""
+Creates a robot model programmatically, in-memory.
+"""
 from compas.robots import RobotModel
 from compas.robots import Joint
 from compas.robots import Link
