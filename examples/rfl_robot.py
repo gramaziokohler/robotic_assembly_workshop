@@ -12,7 +12,9 @@ from compas_fab.robots import RobotSemantics
 
 compas.PRECISION = '12f'
 
-path = r"C:\Users\rustr\workspace\robot_description"
+HERE = os.path.dirname(__file__)
+
+path = os.path.join(HERE, "robot_description")
 packages = ['abb_irb4600_40_255', 'rfl']
 
 loaders = [LocalPackageMeshLoader(path, package) for package in packages]

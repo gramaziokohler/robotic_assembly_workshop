@@ -20,11 +20,14 @@ from compas_fab.backends.ros import JointConstraint
 
 from ex50_abb_linear_axis_robot import robot
 
+HERE = os.path.dirname(__file__)
+
+path = os.path.join(HERE, "robot_description")
+
 robot.client = RosClient('127.0.0.1', 9090)
 robot.client.run()
 
 # Add platform as collision mesh
-path = r"C:\Users\rustr\workspace\robot_description"
 package = "abb_linear_axis"
 
 group = "axis_abb"
@@ -37,12 +40,11 @@ robot.add_collision_mesh_to_planning_scene('platform', mesh)
 robot.remove_collision_mesh_from_planning_scene("brick_wall")
 
 # Create attached collision object
-brick = Mesh.from_obj(os.path.join(os.path.dirname(__file__), "brick.obj"))
+brick = Mesh.from_obj(os.path.join(HERE, "brick.obj"))
 aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick, group)
 
 # Load frames 
-path = os.path.dirname(__file__)
-filename = os.path.join(path, 'frames.json')
+filename = os.path.join(HERE, 'frames.json')
 with open(filename, 'r') as f:
     layers = json.load(f)
 layers = [[Frame.from_data(frame) for frame in frames] for frames in layers]

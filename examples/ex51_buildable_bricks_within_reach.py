@@ -15,18 +15,20 @@ from compas_fab.backends import RosError
 
 from ex50_abb_linear_axis_robot import robot
 
+HERE = os.path.dirname(__file__)
+
+path = os.path.join(HERE, "robot_description")
+
 robot.client = RosClient('127.0.0.1', 9090)
 robot.client.run()
 
 # Add platform as collision mesh
-path = r"C:\Users\rustr\workspace\robot_description"
 package = "abb_linear_axis"
 mesh = Mesh.from_stl(os.path.join(path, package, 'meshes', 'collision', 'platform.stl'))
 robot.add_collision_mesh_to_planning_scene('platform', mesh)
 
 # Load frames 
-path = os.path.dirname(__file__)
-filename = os.path.join(path, 'frames.json')
+filename = os.path.join(HERE, 'frames.json')
 with open(filename, 'r') as f:
     layers = json.load(f)
 layers = [[Frame.from_data(frame) for frame in frames] for frames in layers]
