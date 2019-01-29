@@ -1,5 +1,20 @@
 """
-Example to calculate collision free paths for a brick wall.
+Generate paths for brick building sequence.
+
+1. Add platform as collision mesh
+2. Load assembly from '02_wall_buildable.json'
+3. Generate building sequence from assembly through the defined key.
+4. Check cartesian path *p1* between picking_frame and saveframe_pick
+5. Iterate over assembly sequence
+6.   Calulate placing_frame and saveframe_place
+7.   Calculate kinematic path *p2* between last configuration of *p1* and frame
+     saveframe_place by adding the brick as attached collision object.
+8.   Calculate cartesian path *p3* between last configuarion of *p2* and 
+     placing_frame by adding the brick as attached collision object.
+9.   Add newly placed brick as collision object "brick_wall" to planning scence.
+10.  If solution is found for all 3 paths, add {'paths': [p1, p2, p3]} as 
+     attribute to the brick of the assembly.
+11. Save assembly into '03_wall_paths.json'
 """
 
 import os
@@ -19,7 +34,13 @@ from compas_fab.backends import RosError
 from compas_fab.backends.ros import Constraints
 from compas_fab.backends.ros import JointConstraint
 
+from compas_assembly.datastructures import Assembly
+from compas_assembly.datastructures import assembly_block_building_sequence
+from compas_assembly.datastructures import assembly_block_placing_frame
+
 from ex50_abb_linear_axis_robot import robot
+
+HERE = os.path.dirname(__file__)
 
 robot.client = RosClient('127.0.0.1', 9090)
 robot.client.run()
@@ -30,7 +51,10 @@ robot.client.run()
 
 # From the brick.obj create an attached collision object attached to the end-effector
 
-# Load the assembly from the saved json file
+# Load assembly
+path = os.path.abspath(os.path.join(HERE, "..", "data"))
+filepath = os.path.join(path, "02_wall_buildable.json")
+assembly = Assembly.from_json(filepath)
 
 # Settings
 group = "abb"
@@ -45,13 +69,11 @@ saveframe_pick = Frame(picking_frame.point + save_vector, picking_frame.xaxis, p
 # Optional: constrain movement of one or several axes 
 path_constraints = ?
 
-solutions = []
-
+# Define the sequence to be build:
 # Select a top brick and generate a building sequence from the assembly
 sequence = ?
 
-
-# Calculate cartesian path between picking frame and saveframe_pick
+# Calculate cartesian path between picking frame and saveframe_pick (this will always be the same)
 
 
 # Take last configuration of cartesian path as start configuration for kinematic path
@@ -62,22 +84,26 @@ start_configuration = robot.merge_group_with_full_configuration(start_configurat
 
 # Iterate over sequence
 
-    # calculate the placing frame
-    placing_frame = ?
+    # Read the placing frame from brick, zaxis down
+    o, uvw = assembly_block_placing_frame(assembly, key)
+    placing_frame = Frame(o, uvw[1], uvw[0])
+
+    # create attached collision object
 
     # Calculate the saveframe at placing frame
     saveframe_place = Frame(placing_frame.point + save_vector, placing_frame.xaxis, placing_frame.yaxis)
 
-    # Calculate kinematic path between saveframe_pick and saveframe_place and
-    # attach the brick collision object
+    # Calculate kinematic path between saveframe_pick and saveframe_place with
+    # attached brick collision object
 
-    # Calculate cartesian path between saveframe_place and placing_frame
+    # Calculate cartesian path between saveframe_place and placing_frame with
+    # attached brick collision object
     
 
     # Add placed brick as collision mesh to planning scene
 
-
-# Save solutions to json.
+# save assembly
+assembly.to_json(os.path.join(path, "03_wall_paths.json"))
 
 robot.client.close()
 robot.client.terminate()

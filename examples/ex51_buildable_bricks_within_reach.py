@@ -1,10 +1,14 @@
 """
 Search for buildable bricks within the robot's reach.
 
-1. Load assembly
-2. Add platform as collision mesh
-3. Iterate over bricks and check ik for placing frame and saveframe
-4. Save solution.
+1. Add platform as collision mesh
+2. Load assembly from '01_wall_transformed.json'
+3. Generate building sequence from assembly by a defined key.
+4. Iterate over sequence and check inverse kinematic for placing_frame and 
+   saveframe_place
+5. If solution is found for both, add {'is_buildable': True} as attribute to
+   the assembly.
+4. Save the assembly as '02_wall_buildable.json'.
 """
 
 import os
@@ -57,7 +61,7 @@ picking_configuration = Configuration.from_prismatic_and_revolute_values([-1.800
 save_vector = Vector(0, 0, 0.1)
 saveframe_pick = Frame(picking_frame.point + save_vector, picking_frame.xaxis, picking_frame.yaxis)
 
-# Iterate over placing frames
+# Iterate over the assembly
 for key in sequence:
 
     start_configuration = picking_configuration
