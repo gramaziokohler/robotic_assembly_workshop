@@ -2,7 +2,7 @@
 Calculate the inverse kinematics of a robot based on the frame and a starting
 configuration.
 """
-from ex21_load_compas_fab_robot import robot
+from ex22_load_compas_fab_robot import robot
 
 from compas.geometry import Frame
 from compas_fab.backends import RosClient
