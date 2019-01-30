@@ -11,5 +11,9 @@ path = os.path.join(HERE, '../data/stack.json')
 
 assembly = Assembly.from_json(path)
 assembly.draw({
-
+    'layer': 'Assembly',
+    'show.vertices': True,
+    'show.edges': True,
+    'show.forces': True,
+    'show.selfweight': True
 })

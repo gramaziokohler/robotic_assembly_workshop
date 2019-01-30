@@ -22,12 +22,28 @@ from compas_assembly.plotter import AssemblyPlotter
 
 # load assembly
 
+assembly = Assembly.from_json('stack.json')
 
 # compute interface forces
 
+compute_interface_forces_cvx(assembly, solver='CPLEX', verbose=True)
 
 # serialise
 
+assembly.to_json('stack.json')
 
 # visualise
 
+R = Rotation.from_axis_and_angle([1.0, 0.0, 0.0], -pi / 2)
+assembly_transform(assembly, R)
+
+plotter = AssemblyPlotter(assembly, figsize=(10, 7))
+
+plotter.draw_vertices(text={key: str(key) for key in assembly.vertices()})
+plotter.draw_edges()
+
+plotter.draw_blocks(
+    facecolor={key: (255, 0, 0) for key in assembly.vertices_where({'is_support': True})}
+)
+
+plotter.show()
