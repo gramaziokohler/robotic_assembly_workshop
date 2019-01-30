@@ -24,24 +24,45 @@ from compas_assembly.datastructures import Block
 
 # load assembly from JSON
 
+assembly = Assembly.from_json(compas_assembly.get('wall.json'))
 
 # list the coordinates of all vertices of all blocks
 
+points = []
+for key in assembly.vertices():
+    block = assembly.blocks[key]
+    xyz = block.get_vertices_attributes('xyz')
+    points.extend(xyz)
 
 # compute the XY bounding box of all listed vertices
 
+bbox = bounding_box_xy(points)
 
 # make a support block of the same size as the bounding box
 
+support = Block.from_vertices_and_faces(bbox, [[0, 1, 2, 3]])
 
 # scale the support
 
+lx = length_vector(subtract_vectors(bbox[1], bbox[0]))
+ly = length_vector(subtract_vectors(bbox[2], bbox[1]))
+sx = (0.0 + lx) / lx
+sy = (0.0 + ly) / ly
+
+S = Scale([sx, sy, 1.0])
+mesh_transform(support, S)
 
 # align the centroid of the support with the centroid of the bounding box
 
+b = centroid_points(bbox)
+a = support.centroid()
+
+mesh_transform(support, Translation(subtract_vectors(b, a)))
 
 # add the support to the assembly
 
+assembly.add_block(support, is_support=True, is_placed=True)
 
 # serialise
 
+assembly.to_json(compas_assembly.get('wall_supported.json'))

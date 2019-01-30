@@ -7,10 +7,12 @@ from compas.geometry import Transformation
 RCF = Frame(Point(1., -1., 0.), 
             Vector(0.707, -0.707, 0.),
             Vector(0.707, 0.707, 0.))
+            
 # Object coordinate frame
 OCF = Frame(Point(3., -3., 0.), 
             Vector(0.456, 0.890, 0.), 
             Vector(-0.890, 0.456, 0.))
+
 # Frame defined in OCF
 frame_OCF = Frame([0.1, 0.1, 0.1], [1, 0, 0], [0, 1, 0])
 # Frame expressed in WCF

@@ -15,9 +15,12 @@ from compas_assembly.datastructures import assembly_interfaces_numpy
 
 # load assembly from JSON
 
+assembly = Assembly.from_json(compas_assembly.get('wall_supported.json'))
 
 # identify the interfaces
 
+assembly_interfaces_numpy(assembly, nmax=100, amin=0.0001)
 
 # serialise
 
+assembly.to_json(compas_assembly.get('wall_interfaces.json'))
