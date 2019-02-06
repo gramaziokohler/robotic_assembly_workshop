@@ -103,3 +103,8 @@ https://www.scivision.co/python-windows-visual-c++-14-required/
 > Q: When running `conda install compas_fab`, I get the error: `cannot find Frame`
 
 You have already installed an older, pre-release version of COMPAS. Please remove it.
+
+> Q: When installing `shapely`, I get the error: `HTTP 000 Connection Failed`
+
+Your environment has an outdated version of OpenSSL. Go to your root environment (i.e. run `conda deactivate`) and then run the same command to install `shapely` on the workshop's environment.
+
