@@ -8,7 +8,7 @@ Materials for the Robotic Assembly workshop using COMPAS framework
 
 ## Requirements
 
-* Operating System: the only Windows version that supports many of the requirements is **Windows 10** Pro.
+* Operating System: **Windows 10** Pro or better <sup>(1)</sup>.
 * [Rhinoceros 3D 6.0](https://www.rhino3d.com/): Focus on Rhino 6.0 only. [See here if you use Rhino 5.0](#rhino-50)
 * [Anaconda Python Distribution](https://www.anaconda.com/download/): 2.7 or 3.x
 * [Docker Community Edition](https://www.docker.com/get-started): Download it for [Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) or [Mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).
@@ -18,12 +18,16 @@ Materials for the Robotic Assembly workshop using COMPAS framework
 
 > Note: if you get an error, scroll down to the [Troubleshooting](#troubleshooting) section.
 
+<sup>(1): Windows 10 Home does not support running Docker.</sup>
+
 ## Getting started
 
-The very first thing to get started is to install **COMPAS** using Anaconda. Anaconda uses **environments** to create isolated spaces for projects' depedencies, it is recommendable that you do all the exercises in a newly created environment:
+The very first thing to get started is to install **COMPAS** using Anaconda. Anaconda uses **environments** to create isolated spaces for projects' depedencies, it is recommendable that you do all the exercises in a newly created environment.
 
-      conda create --name robotic-assembly-workshop python=3.6
-      activate robotic-assembly-workshop
+Create an environment named `workshop` with Python 3.6:
+
+      conda create --name workshop python=3.6
+      conda activate workshop
 
 To install the main library and the packages we will use, start your Anaconda Prompt and run the following:
 
@@ -58,6 +62,12 @@ You can use any development environment that you're comfortable with, but for th
 * On the bottom left status bar, select the python interpreter to use. The list will contain Anaconda environments, select the one created above: `robotic-assembly-workshop`.
 
 As a starting point, download (or clone) the contents of the [`examples`](examples) folder and open it with VS Code (right-click the folder from Explorer -> `Open with Code`). Open `ex00_hello_compas.py` and press `F5` to run it.
+
+---
+
+## Exercises
+
+> [PLACEHOLDER]
 
 ---
 
