@@ -1,0 +1,16 @@
+name: workshop-01
+channels:
+    - conda-forge
+    - cvxgrp
+
+dependencies:
+   - python=3.6
+   - compas
+   - compas_fab
+   - shapely
+   - cvxpy
+   - cvxopt
+   - flake8
+   - pip:
+     - git+https://github.com/BlockResearchGroup/compas_assembly.git#egg=compas_assembly
+     - git+https://github.com/BlockResearchGroup/compas_rbe.git#egg=compas_rbe
