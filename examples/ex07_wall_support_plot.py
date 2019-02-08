@@ -9,7 +9,7 @@ from compas_assembly.datastructures import assembly_transform
 from compas_assembly.plotter import AssemblyPlotter
 
 
-assembly = Assembly.from_json(compas_assembly.get('wall_supported.json'))
+assembly = Assembly.from_json('data/wall_supported.json')
 
 # visualise
 

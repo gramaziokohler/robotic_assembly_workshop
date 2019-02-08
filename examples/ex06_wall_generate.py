@@ -97,4 +97,4 @@ for i in range(number_of_courses):
 
 # export to json
 
-assembly.to_json(compas_assembly.get('wall.json'))
+assembly.to_json('data/wall.json')

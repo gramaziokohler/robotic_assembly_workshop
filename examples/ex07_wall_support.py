@@ -24,7 +24,7 @@ from compas_assembly.datastructures import Block
 
 # load assembly from JSON
 
-assembly = Assembly.from_json(compas_assembly.get('wall.json'))
+assembly = Assembly.from_json('data/wall.json')
 
 # list the coordinates of all vertices of all blocks
 
@@ -65,4 +65,4 @@ assembly.add_block(support, is_support=True, is_placed=True)
 
 # serialise
 
-assembly.to_json(compas_assembly.get('wall_supported.json'))
+assembly.to_json('data/wall_supported.json')
