@@ -7,13 +7,12 @@ from compas.geometry import Frame
 from compas.datastructures import Mesh
 from compas_fab.robots import Configuration
 from compas_fab.backends import RosClient
-from compas_fab.backends.ros import MoveItErrorCodes
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
 PATH = os.path.join(DATA, 'brick.obj')
 
-robot.client = RosClient('127.0.0.1', 9090)
+robot.client = RosClient()
 robot.client.run()
 
 goal_frame = Frame([0.20, 0.38, 0.32], [0, 1, 0], [0, 0, 1])

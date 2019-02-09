@@ -5,7 +5,7 @@ from compas.geometry import Frame
 from compas_fab.robots import Configuration
 from compas_fab.backends import RosClient
 
-robot.client = RosClient('127.0.0.1', 9090)
+robot.client = RosClient()
 robot.client.run()
 
 goal_frame = Frame([0.20, 0.38, 0.32], [0, 1, 0], [0, 0, 1])

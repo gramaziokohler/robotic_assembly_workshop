@@ -10,7 +10,7 @@ HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
 PATH = os.path.join(DATA, 'brick.obj')
 
-robot.client = RosClient('127.0.0.1', 9090)
+robot.client = RosClient()
 robot.client.run()
 
 group = robot.main_group_name

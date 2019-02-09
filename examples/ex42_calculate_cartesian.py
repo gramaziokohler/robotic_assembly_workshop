@@ -7,7 +7,7 @@ from compas.geometry import Frame
 from compas_fab.backends import RosClient
 from compas_fab.robots import Configuration
 
-robot.client = RosClient('127.0.0.1', 9090)
+robot.client = RosClient()
 robot.client.run()
 
 frames = []

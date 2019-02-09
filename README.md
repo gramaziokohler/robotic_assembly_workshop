@@ -124,14 +124,18 @@ By now, you should be up and running and ready to start playing with **compas**,
   > **NOTE:** The following requires ROS. Make sure you run *docker-compose* to start the `ROS Basic` system<br>
   > ([See more details on how to do that](docker-help.md)).
   * [x] Hello ROS ([example](examples/ex30_hello_ros.py))
+  * [x] ROS Talker & Listener nodes ([talker](examples/ex31_talker.py) | [listener](examples/ex32_listener.py))
+  * [x] Using ROS as mesh transport between CADs ([Grasshopper mesh publisher](examples/ex34_mesh_publisher.py) | [Grasshopper mesh subscriber](examples/ex34_mesh_listener.py))
 * Robotic fabrication exercises:
-  * [x] Create `RobotModel`
-  * [x] Create `RobotArtist`
-  * [x] Create `RobotClient`
-  * [x] Create `Robot`
-  * [x] Create a UR5 `Robot` from a `RobotModel` (URDF file), `RobotArtist` from compas_rhino, `RobotSemantics` (SRDF file), and a `RobotClient`.
-  * [x] Create `Configuration`
-  * [x] ..
+  > **NOTE:** The following requires ROS with UR5 loaded. Make sure you run *docker-compose* to start the `ROS UR5` system<br>
+  > ([See more details on how to do that](docker-help.md)).
+  * [x] Calculate forward kinematics ([example](examples/ex40_calculate_fk.py))
+  * [x] Calculate inverse kinematics ([example](examples/ex41_calculate_ik.py))
+  * [x] Calculate cartesian path ([example](examples/ex42_calculate_cartesian.py))
+  * [x] Calculate kinematic path ([example](examples/ex43_calculate_kinematic.py))
+  * [x] Add collision object attached to the robot ([example](examples/ex44_add_attached_collision_object.py))
+  * [x] Add collision object to a scene ([example](examples/ex45_add_collision_object.py))
+  * [x] Calculate kinematic path with attached collision object ([example](examples/ex46_calculate_kinematic_with_aco.py))
 
 ---
 
