@@ -67,6 +67,14 @@ As a starting point, download (or clone) the contents of the [`examples`](exampl
 ## Exercises
 
 > [PLACEHOLDER]
+**ex21**: Create `RobotModel`
+**ex21**: Create `RobotArtist`
+**ex21**: Create `RobotClient`
+      ..
+**ex22**: Create `Robot`
+      This example creates a UR5 `Robot` from a `RobotModel` (URDF file), `RobotArtist` from compas_rhino, `RobotSemantics` (SRDF file), and a `RobotClient`.
+**ex23**: Create `Configuration`
+      ...
 
 ---
 
