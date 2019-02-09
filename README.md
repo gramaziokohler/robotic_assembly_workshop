@@ -1,4 +1,4 @@
-**Quick links:** [compas: main library docs](https://compas-dev.github.io/main/) | [compas_fab docs](https://gramaziokohler.github.io/compas_fab/latest/) | [slides](https://docs.google.com/presentation/d/1PsRl-eQNKiS1NvbXI4aQfWoPb0sP291kvo6l8Ps3w20/edit?usp=sharing)
+**Quick links:** [compas: main library docs](https://compas-dev.github.io/main/) | [compas_assembly docs](https://blockresearchgroup.github.io/compas_assembly/) | [compas_fab docs](https://gramaziokohler.github.io/compas_fab/latest/) | [slides](https://docs.google.com/presentation/d/1PsRl-eQNKiS1NvbXI4aQfWoPb0sP291kvo6l8Ps3w20/edit?usp=sharing)
 
 # Workshop: Robotic Assembly with COMPAS framework
 
