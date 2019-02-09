@@ -101,21 +101,27 @@ As a starting point, download (or clone) the contents of the [`examples`](exampl
 
 ## Exercises
 
-> [PLACEHOLDER]
+By now, you should be up and running and ready to start playing with **compas**, **compas_assembly** and **compas_fab**!
 
-**ex21**: Create `RobotModel`
-
-**ex21**: Create `RobotArtist`
-
-**ex21**: Create `RobotClient`
-      ...
-      
-**ex22**: Create `Robot`
-
-This example creates a UR5 `Robot` from a `RobotModel` (URDF file), `RobotArtist` from compas_rhino, `RobotSemantics` (SRDF file), and a `RobotClient`.
-
-**ex23**: Create `Configuration`
-      ...
+- Assembly stacking exercises:
+  - [x] Generate a stack ([code](examples/ex02_stack_generate.py))
+  - [x] Identify interfaces of a stack ([code](examples/ex03_stack_interfaces.py))
+  - [x] Compute the contact forces required for static equilibrium of an assembly ([code](examples/ex04_stack_equilibrium.py))
+  - [x] Draw stack in Rhino ([code](examples/ex05_stack_rhino.py))
+- Wall assembly exercises: 
+  - [x] ...
+- Robotic fundamental exercises:
+  - [x] ...
+- ROS exercises:
+  - [x] ...
+- Robotic fabrication exercises:
+  - [x] Create `RobotModel`
+  - [x] Create `RobotArtist`
+  - [x] Create `RobotClient`
+  - [x] Create `Robot`
+  - [x] Create a UR5 `Robot` from a `RobotModel` (URDF file), `RobotArtist` from compas_rhino, `RobotSemantics` (SRDF file), and a `RobotClient`.
+  - [x] Create `Configuration`
+  - [x] ..
 
 ---
 
