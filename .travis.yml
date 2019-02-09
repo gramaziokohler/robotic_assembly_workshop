@@ -26,7 +26,7 @@ install:
       echo ""
       echo "Configuring conda."
       source /Users/travis/miniconda3/bin/activate root
-      conda install pip=19.0.1
+      conda install pip=19.0.1 --yes
     # Create environment
     - conda env create -f workshop.yml
 
