@@ -121,7 +121,8 @@ By now, you should be up and running and ready to start playing with **compas**,
   * [x] Load complete robot ([example](examples/ex22_load_compas_fab_robot.py) | [exercise](examples/ex22_load_compas_fab_robot_template.py))
   * [x] Represent robot configurations / joint state ([example](examples/ex23_configuration.py))
 * ROS:
-  > **NOTE:** The following requires ROS. Make sure you run *docker-compose* to start the `ROS Basic` system ([docker instructions](docker-help.md)).
+  > **NOTE:** The following requires ROS. Make sure you run *docker-compose* to start the `ROS Basic` system<br>
+  > ([See more details on how to do that](docker-help.md)).
   * [x] Hello ROS ([example](examples/ex30_hello_ros.py))
 * Robotic fabrication exercises:
   * [x] Create `RobotModel`
