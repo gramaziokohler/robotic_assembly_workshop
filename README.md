@@ -121,14 +121,14 @@ By now, you should be up and running and ready to start playing with **compas**,
   * [x] Load complete robot ([example](examples/ex22_load_compas_fab_robot.py) | [exercise](examples/ex22_load_compas_fab_robot_template.py))
   * [x] Represent robot configurations / joint state ([example](examples/ex23_configuration.py))
 * ROS:
-  > **NOTE:** The following requires ROS. Make sure you run *docker-compose* to start the [`ROS Basic` system](docker/ros-systems/ros-basic/docker-compose.yml)<br>
-  > ([See more details on how to do that](docker-help.md)).
+  > **NOTE:** These examples need ROS:
+  > 1. Run *docker-compose* to start the [`ROS Basic`](docker/ros-systems/ros-basic/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
   * [x] Hello ROS ([example](examples/ex30_hello_ros.py))
   * [x] ROS Talker & Listener nodes ([talker](examples/ex31_talker.py) | [listener](examples/ex32_listener.py))
   * [x] Using ROS as mesh transport between CADs ([Grasshopper mesh publisher](examples/ex34_mesh_publisher.py) | [Grasshopper mesh subscriber](examples/ex34_mesh_listener.py))
 * Planning with robots:
-  > **NOTE:** The following requires ROS with UR5 loaded. Make sure you run *docker-compose* to start the [`ROS UR5` system](docker/ros-systems/ros-ur5/docker-compose.yml)<br>
-  > ([See more details on how to do that](docker-help.md)).
+  > **NOTE:** These examples need ROS with a UR5 model loaded:
+  > 1. Run *docker-compose* to start the [`ROS UR5`](docker/ros-systems/ros-ur5/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
   * [x] Calculate forward kinematics ([example](examples/ex40_calculate_fk.py))
   * [x] Calculate inverse kinematics ([example](examples/ex41_calculate_ik.py))
   * [x] Calculate cartesian path ([example](examples/ex42_calculate_cartesian.py))
@@ -137,14 +137,16 @@ By now, you should be up and running and ready to start playing with **compas**,
   * [x] Add collision object to a scene ([example](examples/ex45_add_collision_object.py))
   * [x] Calculate kinematic path with attached collision object ([example](examples/ex46_calculate_kinematic_with_aco.py))
 * Planning robotic fabrication of assembly:
-  > **NOTE:** The following requires ROS with ABB linear axis loaded. Make sure you run *docker-compose* to start the [`ROS ABB Linear Axis` system](docker/ros-systems/ros-abb-linear-axis/docker-compose.yml)<br>
-  > ([See more details on how to do that](docker-help.md)).
+  > **NOTE:** These examples need ROS with the ABB linear axis loaded:
+  > 1. Run *docker-compose* to start the [`ROS ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
   * [x] Load ABB linear axis model ([example](examples/ex50_abb_linear_axis_robot.py))
   * [x] Search buildable bricks within robot's reach ([example](examples/ex51_buildable_bricks_within_reach.py) | [exercise](examples/ex51_buildable_bricks_within_reach_template.py))
   * [x] Generate paths for brick building sequence ([example](examples/ex52_generate_paths_for_all_bricks.py) | [exercise](examples/ex52_generate_paths_for_all_bricks_template.py))
 * Executing robotic fabrication:
-  > **NOTE:** The following requires ROS with ABB linear axis loaded and a real or simulated (via RobotStudio) ABB controller. Make sure you run *docker-compose* to start the [`ROS ABB Linear Axis` system](docker/ros-systems/ros-abb-linear-axis-real/docker-compose.yml) and configure the `ROBOT_IP` variable to point to the ABB controller.<br>
-  > ([See more details on how to do that](docker-help.md)).
+  > **NOTE:** These examples need ROS with an ABB linear axis loaded and a real or simulated (via RobotStudio) ABB controller:
+  > 1. Configure the `ROBOT_IP` environment variable to point to your controller.
+  > 1. Run the RobotStudio station and start all tasks.
+  > 1. Run *docker-compose* to start the [`ROS Real ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis-real/docker-compose.yml) system  [<small>(*need help?*)</small>](docker-help.md).
   * [x] ...
 
 ---
