@@ -34,4 +34,6 @@ artist = BaseRobotArtist(model)
 semantics = RobotSemantics.from_srdf_file(srdf_filename, model)
 
 robot = Robot(model, artist, semantics)
-# robot.info()
+
+if __name__ == '__main__':
+    robot.info()

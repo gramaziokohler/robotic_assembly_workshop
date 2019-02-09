@@ -101,5 +101,3 @@ assembly.to_json(PATH_TO)
 
 robot.client.close()
 robot.client.terminate()
-
-
