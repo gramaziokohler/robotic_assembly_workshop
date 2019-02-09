@@ -1,10 +1,26 @@
+os: osx
+osx_image: xcode9.4
 language: python
 
 python:
   - "3.6"
 
 install:
-- conda env create -f environment.yml
+    # Install Miniconda.
+    - |
+      echo ""
+      echo "Installing a fresh version of Miniconda."
+      MINICONDA_URL="https://repo.continuum.io/miniconda"
+      MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
+      curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
+      bash $MINICONDA_FILE -b
+    # Configure conda.
+    - |
+      echo ""
+      echo "Configuring conda."
+      source /Users/travis/miniconda3/bin/activate root
+    # Create environment
+    - conda env create -f environment.yml
 
 script:
 - conda activate workshop-01
