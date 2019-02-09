@@ -103,21 +103,26 @@ As a starting point, check the contents of the [`examples`](examples) folder and
 
 By now, you should be up and running and ready to start playing with **compas**, **compas_assembly** and **compas_fab**!
 
-* Assembly stacking exercises:
-  * [x] Generate a stack ([code](examples/ex02_stack_generate.py))
-  * [x] Identify interfaces of a stack ([code](examples/ex03_stack_interfaces.py))
-  * [x] Compute contact forces required for static equilibrium of an assembly ([code](examples/ex04_stack_equilibrium.py))
-  * [x] Draw stack in Rhino ([code](examples/ex05_stack_rhino.py))
-* Wall assembly exercises:
-  * [x] Generate an assembly for a brick wall ([code](examples/ex06_wall_generate.py))
-  * [x] Add assembly support plate ([code](examples/ex07_wall_support.py))
-  * [x] Identify interfaces of the brick wall assembly ([code](examples/ex08_wall_interfaces.py))
-  * [x] Identify the courses of the assembly ([code](examples/ex09_wall_courses.py))
-* Robotic fundamental exercises:
-  * [x] Frame orientation specs ([code](examples/ex10_frame_orientation_specs.py))
-  * [x] Expressing frames in multiple coordinate systems ([code](examples/ex11_transformation_frame.py))
-* ROS exercises:
-  * [x] ...
+* Assembly: stack:
+  * [x] Generate a stack ([example](examples/ex02_stack_generate.py))
+  * [x] Identify interfaces of a stack ([example](examples/ex03_stack_interfaces.py))
+  * [x] Compute contact forces required for static equilibrium of an assembly ([example](examples/ex04_stack_equilibrium.py))
+  * [x] Draw stack in Rhino ([example](examples/ex05_stack_rhino.py))
+* Assembly: brick wall:
+  * [x] Generate an assembly for a brick wall ([example](examples/ex06_wall_generate.py))
+  * [x] Add assembly support plate ([example](examples/ex07_wall_support.py))
+  * [x] Identify interfaces of the brick wall assembly ([example](examples/ex08_wall_interfaces.py))
+  * [x] Identify the courses of the assembly ([example](examples/ex09_wall_courses.py))
+* Robotic fundamentals:
+  * [x] Frame orientation specs ([example](examples/ex10_frame_orientation_specs.py))
+  * [x] Expressing frames in different coordinate systems ([example](examples/ex11_transformation_frame.py))
+  * [x] Create a robot model programmatically ([example](examples/ex20_robot_model))
+  * [x] Load robot model from URDF ([example](examples/ex21_robot_model_from_disk.py))
+  * [x] Load complete robot ([example](examples/ex22_load_compas_fab_robot.py), [exercise](examples/ex22_load_compas_fab_robot_template.py))
+  * [x] Represent robot configurations / joint state ([example](examples/ex23_configuration.py))
+* ROS:
+  * > Before running the following examples, compose the `ROS Basic` system.
+  * [x] Hello ROS ([example](examples/ex30_hello_ros.py))
 * Robotic fabrication exercises:
   * [x] Create `RobotModel`
   * [x] Create `RobotArtist`
