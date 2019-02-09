@@ -3,7 +3,6 @@
 # of your choice, the second is a button to trigger publishing.
 
 import time
-import compas
 import roslibpy
 
 from compas.datastructures import Mesh
