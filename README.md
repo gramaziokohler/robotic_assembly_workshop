@@ -204,7 +204,7 @@ You have already installed an older, pre-release version of COMPAS. Please remov
 
 Your environment has an outdated version of OpenSSL. Go to your root environment (i.e. run `conda deactivate`) and then run the same command to install `shapely` on the workshop's environment.
 
-> Q: Docker contains fail to open GUI tools
+> Q: Docker containers fail to open GUI tools
 
 If you get errors like `cannot open display` or `cannot acquire screen ...` it means you have not configured the security of your X11 server correctly:
 
