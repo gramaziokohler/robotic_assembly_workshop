@@ -103,31 +103,33 @@ As a starting point, check the contents of the [`examples`](examples) folder and
 
 By now, you should be up and running and ready to start playing with **compas**, **compas_assembly** and **compas_fab**!
 
-* Assembly - Stack:
+* **Assembly - Stack**:
   * [x] Generate a stack ([example](examples/ex02_stack_generate.py))
   * [x] Identify interfaces of a stack ([example](examples/ex03_stack_interfaces.py))
   * [x] Compute contact forces required for static equilibrium of an assembly ([example](examples/ex04_stack_equilibrium.py))
   * [x] Draw stack in Rhino ([example](examples/ex05_stack_rhino.py))
-* Assembly - Brick wall:
+* **Assembly - Brick wall**:
   * [x] Generate an assembly for a brick wall ([example](examples/ex06_wall_generate.py))
   * [x] Add assembly support plate ([example](examples/ex07_wall_support.py))
   * [x] Identify interfaces of the brick wall assembly ([example](examples/ex08_wall_interfaces.py))
   * [x] Identify the courses of the assembly ([example](examples/ex09_wall_courses.py))
-* Robotic fundamentals:
+* **Robotic fundamentals**:
   * [x] Frame orientation specs ([example](examples/ex10_frame_orientation_specs.py))
   * [x] Expressing frames in different coordinate systems ([example](examples/ex11_transformation_frame.py))
   * [x] Create a robot model programmatically ([example](examples/ex20_robot_model))
   * [x] Load robot model from URDF ([example](examples/ex21_robot_model_from_disk.py))
   * [x] Load complete robot ([example](examples/ex22_load_compas_fab_robot.py) | [exercise](examples/ex22_load_compas_fab_robot_template.py))
   * [x] Represent robot configurations / joint state ([example](examples/ex23_configuration.py))
-* ROS:
+* **Using ROS**:
   > **NOTE:** These examples need ROS:
   > 1. Run *docker-compose* to start the [`ROS Basic`](docker/ros-systems/ros-basic/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
   * [x] Hello ROS ([example](examples/ex30_hello_ros.py))
   * [x] ROS Talker & Listener nodes ([talker](examples/ex31_talker.py) | [listener](examples/ex32_listener.py))
   * [x] Using ROS as mesh transport between CADs ([Grasshopper mesh publisher](examples/ex34_mesh_publisher.py) | [Grasshopper mesh subscriber](examples/ex34_mesh_listener.py))
-* Planning with robots:
+* **Planning with robots**:
   > **NOTE:** These examples need ROS with a UR5 model loaded:
+  > 1. Make sure your `X0.hosts` files is configured with your **current IP address** (<small>scroll down to [troubleshooting](#troubleshooting) for more details</small>).
+  > 1. Start your X11 server (`XMing` on Windows, `XQuartz` on Mac).
   > 1. Run *docker-compose* to start the [`ROS UR5`](docker/ros-systems/ros-ur5/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
   * [x] Calculate forward kinematics ([example](examples/ex40_calculate_fk.py))
   * [x] Calculate inverse kinematics ([example](examples/ex41_calculate_ik.py))
@@ -136,18 +138,22 @@ By now, you should be up and running and ready to start playing with **compas**,
   * [x] Add collision object attached to the robot ([example](examples/ex44_add_attached_collision_object.py))
   * [x] Add collision object to a scene ([example](examples/ex45_add_collision_object.py))
   * [x] Calculate kinematic path with attached collision object ([example](examples/ex46_calculate_kinematic_with_aco.py))
-* Planning robotic fabrication of assembly:
+* **Planning robotic fabrication of assembly**:
   > **NOTE:** These examples need ROS with the ABB linear axis loaded:
+  > 1. Make sure your `X0.hosts` files is configured with your **current IP address** (<small>scroll down to [troubleshooting](#troubleshooting) for more details</small>).
+  > 1. Start your X11 server (`XMing` on Windows, `XQuartz` on Mac).
   > 1. Run *docker-compose* to start the [`ROS ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
   * [x] Load ABB linear axis model ([example](examples/ex50_abb_linear_axis_robot.py))
   * [x] Search buildable bricks within robot's reach ([example](examples/ex51_buildable_bricks_within_reach.py) | [exercise](examples/ex51_buildable_bricks_within_reach_template.py))
   * [x] Generate paths for brick building sequence ([example](examples/ex52_generate_paths_for_all_bricks.py) | [exercise](examples/ex52_generate_paths_for_all_bricks_template.py))
-* Executing robotic fabrication:
+* **Executing robotic fabrication**:
   > **NOTE:** These examples need ROS with an ABB linear axis loaded and a real or simulated (via RobotStudio) ABB controller:
   > 1. Configure the `ROBOT_IP` environment variable to point to your controller.
   > 1. Run the RobotStudio station and start all tasks.
   > 1. Run *docker-compose* to start the [`ROS Real ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis-real/docker-compose.yml) system  [<small>(*need help?*)</small>](docker-help.md).
   * [x] ...
+
+Did you complete all up to here? Awesome! Have a cookie 🍪!
 
 ---
 
@@ -197,3 +203,15 @@ You have already installed an older, pre-release version of COMPAS. Please remov
 > Q: When installing `shapely`, I get the error: `HTTP 000 Connection Failed`
 
 Your environment has an outdated version of OpenSSL. Go to your root environment (i.e. run `conda deactivate`) and then run the same command to install `shapely` on the workshop's environment.
+
+> Q: Docker contains fail to open GUI tools
+
+If you get errors like `cannot open display` or `cannot acquire screen ...` it means you have not configured the security of your X11 server correctly:
+
+- On Windows using `XMing`, make sure you add your IP Address to the file `%ProgramFiles(x86)%\XMing\X0.hosts` (needs to be opened as administrator)
+- On Mac using `XQuartz`, run `xhost +local:root` (and remember to disable later with `xhost -local:root`)
+
+Remember to restart `XMing`/`XQuartz` after applying these changes.
+
+> NOTE: the previous setting is a lazy and unsecure way of giving access to your X11 server
+> There are better, more elaborate ways of doing this with less risk.
