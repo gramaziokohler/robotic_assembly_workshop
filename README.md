@@ -212,6 +212,3 @@ If you get errors like `cannot open display` or `cannot acquire screen ...` it m
 * On Mac using `XQuartz`, run `xhost +local:root` (and remember to disable later with `xhost -local:root`)
 
 Remember to restart `XMing`/`XQuartz` after applying these changes.
-
-> NOTE: the previous setting is a lazy and unsecure way of giving access to your X11 server
-> There are better, more elaborate ways of doing this with less risk.
