@@ -106,12 +106,16 @@ By now, you should be up and running and ready to start playing with **compas**,
 * Assembly stacking exercises:
   * [x] Generate a stack ([code](examples/ex02_stack_generate.py))
   * [x] Identify interfaces of a stack ([code](examples/ex03_stack_interfaces.py))
-  * [x] Compute the contact forces required for static equilibrium of an assembly ([code](examples/ex04_stack_equilibrium.py))
+  * [x] Compute contact forces required for static equilibrium of an assembly ([code](examples/ex04_stack_equilibrium.py))
   * [x] Draw stack in Rhino ([code](examples/ex05_stack_rhino.py))
 * Wall assembly exercises:
-  * [x] ...
+  * [x] Generate an assembly for a brick wall ([code](examples/ex06_wall_generate.py))
+  * [x] Add assembly support plate ([code](examples/ex07_wall_support.py))
+  * [x] Identify interfaces of the brick wall assembly ([code](examples/ex08_wall_interfaces.py))
+  * [x] Identify the courses of the assembly ([code](examples/ex09_wall_courses.py))
 * Robotic fundamental exercises:
-  * [x] ...
+  * [x] Frame orientation specs ([code](examples/ex10_frame_orientation_specs.py))
+  * [x] Expressing frames in multiple coordinate systems ([code](examples/ex11_transformation_frame.py))
 * ROS exercises:
   * [x] ...
 * Robotic fabrication exercises:
