@@ -4,13 +4,13 @@ from compas.geometry import Frame
 from compas.geometry import Transformation
 
 # Robot coordinate frame
-RCF = Frame(Point(1., -1., 0.), 
+RCF = Frame(Point(1., -1., 0.),
             Vector(0.707, -0.707, 0.),
             Vector(0.707, 0.707, 0.))
-            
+
 # Object coordinate frame
-OCF = Frame(Point(3., -3., 0.), 
-            Vector(0.456, 0.890, 0.), 
+OCF = Frame(Point(3., -3., 0.),
+            Vector(0.456, 0.890, 0.),
             Vector(-0.890, 0.456, 0.))
 
 # Frame defined in OCF

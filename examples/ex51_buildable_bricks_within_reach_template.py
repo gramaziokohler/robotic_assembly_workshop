@@ -4,7 +4,7 @@ Search for buildable bricks within the robot's reach.
 1. Add platform as collision mesh
 2. Load assembly from '01_wall_transformed.json'
 3. Generate building sequence from assembly by a defined key.
-4. Iterate over sequence and check inverse kinematic for placing_frame and 
+4. Iterate over sequence and check inverse kinematic for placing_frame and
    saveframe_place
 5. If solution is found for both, add {'is_buildable': True} as attribute to
    the assembly.
@@ -33,7 +33,7 @@ DATA = os.path.join(HERE, '../data')
 PATH_FROM = os.path.join(DATA, '01_wall_transformed.json')
 PATH_TO = os.path.join(DATA, '02_wall_buildable.json')
 
-robot.client = RosClient('127.0.0.1', 9090)
+robot.client = RosClient()
 robot.client.run()
 
 # Add the platform.stl as collision mesh to the planning scene

@@ -9,10 +9,10 @@ Generate paths for brick building sequence.
 6.   Calulate placing_frame and saveframe_place
 7.   Calculate kinematic path *p2* between last configuration of *p1* and frame
      saveframe_place by adding the brick as attached collision object.
-8.   Calculate cartesian path *p3* between last configuarion of *p2* and 
+8.   Calculate cartesian path *p3* between last configuarion of *p2* and
      placing_frame by adding the brick as attached collision object.
 9.   Add newly placed brick as collision object "brick_wall" to planning scence.
-10.  If solution is found for all 3 paths, add {'paths': [p1, p2, p3]} as 
+10.  If solution is found for all 3 paths, add {'paths': [p1, p2, p3]} as
      attribute to the brick of the assembly.
 11. Save assembly into '03_wall_paths.json'
 """
@@ -47,7 +47,7 @@ PATH_TO = os.path.join(DATA, '03_wall_paths.json')
 
 path = os.path.join(HERE, "robot_description")
 
-robot.client = RosClient('127.0.0.1', 9090)
+robot.client = RosClient()
 robot.client.run()
 
 # Add platform as collision mesh
@@ -74,7 +74,7 @@ aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick, group
 assembly = Assembly.from_json(PATH_FROM)
 
 # Define the sequence to be build
-#key = 33 
+#key = 33
 #placed = list(assembly.vertices_where({'is_placed': True}))
 #sequence = assembly_block_building_sequence(assembly, key)
 #sequence = list(set(sequence) - set(placed))
@@ -84,7 +84,7 @@ sequence = [3, 2, 1, 0, 8, 7, 6, 5, 13, 12, 11, 18, 17, 16, 23, 22, 27, 28, 33]
 picking_frame = Frame([1.926, 1.5, 1], [0, 1, 0], [1, 0, 0])
 picking_configuration = Configuration.from_prismatic_and_revolute_values([-1.800], [0.569, 0.849, -0.235, 6.283, 0.957, 2.140])
 
-# Constrain movement of one or several axes 
+# Constrain movement of one or several axes
 pc = Constraints()
 pc.joint_constraints.append(JointConstraint('joint_2', picking_configuration.values[2], math.pi/2, math.pi/2, 1.))
 #pc.joint_constraints.append(JointConstraint('joint_6', picking_configuration.values[6], math.pi/2, math.pi/2, 1.))
@@ -93,11 +93,11 @@ save_vector = Vector(0, 0, 0.1)
 saveframe_pick = Frame(picking_frame.point + save_vector, picking_frame.xaxis, picking_frame.yaxis)
 
 # Calculate cartesian path between picking frame and saveframe_pick
-response = robot.compute_cartesian_path(frames_WCF=[picking_frame, saveframe_pick], 
-                                        start_configuration=picking_configuration, 
-                                        max_step=0.01, 
-                                        avoid_collisions=True, 
-                                        group=group, 
+response = robot.compute_cartesian_path(frames_WCF=[picking_frame, saveframe_pick],
+                                        start_configuration=picking_configuration,
+                                        max_step=0.01,
+                                        avoid_collisions=True,
+                                        group=group,
                                         path_constraints=None)
 if response.fraction != 1.:
     print(response.fraction)
@@ -130,14 +130,14 @@ for key in sequence:
 
     # Calculate kinematic path between saveframe_pick and saveframe_place
     try:
-        response = robot.motion_plan_goal_frame(frame_WCF=saveframe_place, 
-                                                start_configuration=start_configuration, 
-                                                tolerance_position=0.005, 
-                                                tolerance_angle=math.radians(1), 
+        response = robot.motion_plan_goal_frame(frame_WCF=saveframe_place,
+                                                start_configuration=start_configuration,
+                                                tolerance_position=0.005,
+                                                tolerance_angle=math.radians(1),
                                                 group=group,
-                                                path_constraints=pc, 
+                                                path_constraints=pc,
                                                 planner_id='RRT',
-                                                num_planning_attempts=20, 
+                                                num_planning_attempts=20,
                                                 allowed_planning_time=8.,
                                                 attached_collision_object=aco)
         paths.append(response.trajectory)
@@ -147,7 +147,7 @@ for key in sequence:
     except RosError as error:
         print(error)
         break
-    
+
     print("last_configuration", last_configuration)
 
     # Calculate cartesian path between saveframe_place and placing_frame
@@ -156,11 +156,11 @@ for key in sequence:
 
     frames = [saveframe_place, placing_frame_tolerance]
     try:
-        response = robot.compute_cartesian_path(frames_WCF=frames, 
-                                                start_configuration=last_configuration, 
-                                                max_step=0.01, 
-                                                avoid_collisions=True, 
-                                                group=group, 
+        response = robot.compute_cartesian_path(frames_WCF=frames,
+                                                start_configuration=last_configuration,
+                                                max_step=0.01,
+                                                avoid_collisions=True,
+                                                group=group,
                                                 path_constraints=pc,
                                                 attached_collision_object=aco)
         if response.fraction == 1.:
@@ -172,8 +172,8 @@ for key in sequence:
     except RosError as error:
         print("Cartesian:", error)
         break
-    
-    assembly.blocks[key].attributes.update({'paths': [path.msg for path in paths]})  
+
+    assembly.blocks[key].attributes.update({'paths': [path.msg for path in paths]})
 
     # Add placed brick to planning scene
     brick_transformed = mesh_transformed(brick, Transformation.from_frame(placing_frame))

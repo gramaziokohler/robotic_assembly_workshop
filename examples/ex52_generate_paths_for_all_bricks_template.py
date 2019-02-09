@@ -9,10 +9,10 @@ Generate paths for brick building sequence.
 6.   Calulate placing_frame and saveframe_place
 7.   Calculate kinematic path *p2* between last configuration of *p1* and frame
      saveframe_place by adding the brick as attached collision object.
-8.   Calculate cartesian path *p3* between last configuarion of *p2* and 
+8.   Calculate cartesian path *p3* between last configuarion of *p2* and
      placing_frame by adding the brick as attached collision object.
 9.   Add newly placed brick as collision object "brick_wall" to planning scence.
-10.  If solution is found for all 3 paths, add {'paths': [p1, p2, p3]} as 
+10.  If solution is found for all 3 paths, add {'paths': [p1, p2, p3]} as
      attribute to the brick of the assembly.
 11. Save assembly into '03_wall_paths.json'
 """
@@ -45,7 +45,7 @@ DATA = os.path.join(HERE, '../data')
 PATH_FROM = os.path.join(DATA, '02_wall_buildable.json')
 PATH_TO = os.path.join(DATA, '03_wall_paths.json')
 
-robot.client = RosClient('127.0.0.1', 9090)
+robot.client = RosClient()
 robot.client.run()
 
 # Add the platform.stl as collision mesh to the planning scene
@@ -67,7 +67,7 @@ picking_configuration = ?
 save_vector = Vector(0, 0, 0.1)
 saveframe_pick = Frame(picking_frame.point + save_vector, picking_frame.xaxis, picking_frame.yaxis)
 
-# Optional: constrain movement of one or several axes 
+# Optional: constrain movement of one or several axes
 path_constraints = ?
 
 # Define the sequence to be build:
@@ -99,7 +99,7 @@ start_configuration = robot.merge_group_with_full_configuration(start_configurat
 
     # Calculate cartesian path between saveframe_place and placing_frame with
     # attached brick collision object
-    
+
 
     # Add placed brick as collision mesh to planning scene
 

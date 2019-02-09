@@ -4,7 +4,7 @@ Search for buildable bricks within the robot's reach.
 1. Add platform as collision mesh
 2. Load assembly from '01_wall_transformed.json'
 3. Generate building sequence from assembly by a defined key.
-4. Iterate over sequence and check inverse kinematic for placing_frame and 
+4. Iterate over sequence and check inverse kinematic for placing_frame and
    saveframe_place
 5. If solution is found for both, add {'is_buildable': True} as attribute to
    the assembly.
@@ -33,7 +33,7 @@ DATA = os.path.join(HERE, '../data')
 PATH_FROM = os.path.join(DATA, '01_wall_transformed.json')
 PATH_TO = os.path.join(DATA, '02_wall_buildable.json')
 
-robot.client = RosClient('127.0.0.1', 9090)
+robot.client = RosClient()
 robot.client.run()
 
 # Add platform as collision mesh
@@ -45,7 +45,7 @@ robot.add_collision_mesh_to_planning_scene('platform', mesh)
 assembly = Assembly.from_json(PATH_FROM)
 
 # Define the sequence to be build
-#key = 33 
+#key = 33
 #placed = list(assembly.vertices_where({'is_placed': True}))
 #sequence = assembly_block_building_sequence(assembly, key)
 #sequence = list(set(sequence) - set(placed))
@@ -75,22 +75,22 @@ for key in sequence:
     # Check ik for placing_frame and saveframe_place
     # Only if both work, save to solutions
     try:
-        response = robot.inverse_kinematics(frame_WCF=saveframe_place, 
-                                            start_configuration=start_configuration, 
-                                            group=group, 
-                                            constraints=None, 
+        response = robot.inverse_kinematics(frame_WCF=saveframe_place,
+                                            start_configuration=start_configuration,
+                                            group=group,
+                                            constraints=None,
                                             attempts=20)
         start_configuration = response.configuration
         try:
-            response = robot.inverse_kinematics(frame_WCF=placing_frame, 
-                                                start_configuration=start_configuration, 
-                                                group=group, 
-                                                constraints=None, 
+            response = robot.inverse_kinematics(frame_WCF=placing_frame,
+                                                start_configuration=start_configuration,
+                                                group=group,
+                                                constraints=None,
                                                 attempts=20)
             start_configuration = response.configuration
             #print(start_configuration)
             print("Brick with key %d is buildable" % key)
-            assembly.blocks[key].attributes.update({'is_buildable': True})   
+            assembly.blocks[key].attributes.update({'is_buildable': True})
 
         except RosError as error:
             print("Brick with key %d is NOT buildable" % key, error)
