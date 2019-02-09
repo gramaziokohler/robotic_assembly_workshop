@@ -47,7 +47,6 @@ Now, we can create the environment and install all packages. Start your Anaconda
       conda env create -f workshop.yml -n workshop
       conda activate workshop
 
-
 <details><summary>Not working?</summary>
 
 Make sure you really changed into the repository folder. For example, if you cloned the repository into a folder called `Code` in your home directory, you should type:
@@ -87,41 +86,42 @@ Congrats! 🎉 You are all set! Open Rhino and try to import `compas` to verify 
 
 ## Setting up your development environment
 
-You can use any development environment that you're comfortable with, but for this workshop, we suggest using [VS Code](https://code.visualstudio.com/), since it provides very deep integration with Anaconda, debugging and many other niceties.
+You can use any development environment that you're comfortable with, but for this workshop, we suggest using [VS Code](https://code.visualstudio.com/), since it provides very deep integration with Anaconda, Docker, Python debugging and many other niceties.
 
 * Install [VS Code](https://code.visualstudio.com/) and open it
 * Go to `Extensions` and install:
   * `Python` (official extension)
-  * `EditorConfig for VS Code` (optional -but recommended)
+  * `EditorConfig for VS Code` (optional)
   * `Docker` (official extension, optional)
 * On the bottom left status bar, select the python interpreter to use. The list will contain Anaconda environments, select the one created above: `workshop`.
 
 As a starting point, check the contents of the [`examples`](examples) folder and open it with VS Code (right-click the folder from Explorer -> `Open with Code`). Open `ex00_hello_compas.py` and press `F5` to run it.
 
+---
 
 ## Exercises
 
 By now, you should be up and running and ready to start playing with **compas**, **compas_assembly** and **compas_fab**!
 
-- Assembly stacking exercises:
-  - [x] Generate a stack ([code](examples/ex02_stack_generate.py))
-  - [x] Identify interfaces of a stack ([code](examples/ex03_stack_interfaces.py))
-  - [x] Compute the contact forces required for static equilibrium of an assembly ([code](examples/ex04_stack_equilibrium.py))
-  - [x] Draw stack in Rhino ([code](examples/ex05_stack_rhino.py))
-- Wall assembly exercises: 
-  - [x] ...
-- Robotic fundamental exercises:
-  - [x] ...
-- ROS exercises:
-  - [x] ...
-- Robotic fabrication exercises:
-  - [x] Create `RobotModel`
-  - [x] Create `RobotArtist`
-  - [x] Create `RobotClient`
-  - [x] Create `Robot`
-  - [x] Create a UR5 `Robot` from a `RobotModel` (URDF file), `RobotArtist` from compas_rhino, `RobotSemantics` (SRDF file), and a `RobotClient`.
-  - [x] Create `Configuration`
-  - [x] ..
+* Assembly stacking exercises:
+  * [x] Generate a stack ([code](examples/ex02_stack_generate.py))
+  * [x] Identify interfaces of a stack ([code](examples/ex03_stack_interfaces.py))
+  * [x] Compute the contact forces required for static equilibrium of an assembly ([code](examples/ex04_stack_equilibrium.py))
+  * [x] Draw stack in Rhino ([code](examples/ex05_stack_rhino.py))
+* Wall assembly exercises:
+  * [x] ...
+* Robotic fundamental exercises:
+  * [x] ...
+* ROS exercises:
+  * [x] ...
+* Robotic fabrication exercises:
+  * [x] Create `RobotModel`
+  * [x] Create `RobotArtist`
+  * [x] Create `RobotClient`
+  * [x] Create `Robot`
+  * [x] Create a UR5 `Robot` from a `RobotModel` (URDF file), `RobotArtist` from compas_rhino, `RobotSemantics` (SRDF file), and a `RobotClient`.
+  * [x] Create `Configuration`
+  * [x] ..
 
 ---
 
@@ -131,9 +131,9 @@ The focus of the workshop will be on Rhino 6.0 only. While most things will work
 
 However, if you do use Rhino 5.0, make sure to install the following:
 
- - [Grasshopper](https://www.grasshopper3d.com/)
- - [GHPython](https://www.food4rhino.com/app/ghpython)
- - [IronPython 2.7.5](https://github.com/IronLanguages/main/releases/tag/ipy-2.7.5) ([see here for details about this manual update](https://compas-dev.github.io/main/environments/rhino.html#ironpython-1)).
+* [Grasshopper](https://www.grasshopper3d.com/)
+* [GHPython](https://www.food4rhino.com/app/ghpython)
+* [IronPython 2.7.5](https://github.com/IronLanguages/main/releases/tag/ipy-2.7.5) ([see here for details about this manual update](https://compas-dev.github.io/main/environments/rhino.html#ironpython-1)).
 
 ## Troubleshooting
 
@@ -171,4 +171,3 @@ You have already installed an older, pre-release version of COMPAS. Please remov
 > Q: When installing `shapely`, I get the error: `HTTP 000 Connection Failed`
 
 Your environment has an outdated version of OpenSSL. Go to your root environment (i.e. run `conda deactivate`) and then run the same command to install `shapely` on the workshop's environment.
-
