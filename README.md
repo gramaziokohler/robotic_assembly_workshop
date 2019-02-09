@@ -66,6 +66,8 @@ If the command fails because you already have an environment with the same name,
 
 </details>
 
+<br/>
+
 Great! Now type `python` in your Anaconda Prompt, and test if the installation went well:
 
       >>> import compas
