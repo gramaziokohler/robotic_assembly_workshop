@@ -39,12 +39,12 @@ from compas.geometry import Frame
 from compas.geometry import Transformation
 
 F1 = Frame(Point(1., -1., 0.),
-            Vector(0.707, -0.707, 0.),
-            Vector(0.707, 0.707, 0.))
+           Vector(0.707, -0.707, 0.),
+           Vector(0.707, 0.707, 0.))
 
 F2 = Frame(Point(3., -3., 0.),
-            Vector(0.456, 0.890, 0.),
-            Vector(-0.890, 0.456, 0.))
+           Vector(0.456, 0.890, 0.),
+           Vector(-0.890, 0.456, 0.))
 
 frame_WCF = Frame(Point(1.141, -1.000, 0.100),
                   Vector(0.707, -0.707, 0.000),
@@ -61,4 +61,3 @@ print("frame_WCF_F2", frame_WCF_F2)
 T1 = Transformation.from_frame_to_frame(F1, Frame.worldXY())
 T2 = Transformation.from_frame(F2)
 print("frame_WCF_F2", frame_WCF.transformed(T2 * T1))
-

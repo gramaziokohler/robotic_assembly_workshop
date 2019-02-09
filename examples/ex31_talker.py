@@ -4,7 +4,7 @@ from compas_fab.backends import RosClient
 
 client = RosClient()
 client.run()
-    
+
 topic = Topic(client, '/messages', 'std_msgs/String')
 topic.advertise()
 

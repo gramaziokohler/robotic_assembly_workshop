@@ -19,11 +19,11 @@ message = shape_msgs.Mesh.from_mesh(compas_mesh)
 if publish:
     client = RosClient()
     client.run()
-    
+
     topic = roslibpy.Topic(client, '/meshes', 'shape_msgs/Mesh')
     topic.advertise()
     time.sleep(1)
     topic.publish(message.msg)
     time.sleep(1)
-    
+
     client.terminate()

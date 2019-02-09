@@ -4,7 +4,6 @@ import math
 from compas.geometry import Frame
 from compas_fab.robots import Configuration
 from compas_fab.backends import RosClient
-from compas_fab.backends.ros import MoveItErrorCodes
 
 robot.client = RosClient('127.0.0.1', 9090)
 robot.client.run()

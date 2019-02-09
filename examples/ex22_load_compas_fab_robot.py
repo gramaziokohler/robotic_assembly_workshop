@@ -9,7 +9,7 @@ from compas.robots import LocalPackageMeshLoader
 from compas_fab.robots import Robot
 from compas_fab.robots import RobotSemantics
 from compas_fab.backends import RosClient
-#from compas_fab.ghpython import RobotArtist
+# from compas_fab.ghpython import RobotArtist
 
 compas.PRECISION = '12f'
 
@@ -28,7 +28,7 @@ model = RobotModel.from_urdf_file(urdf_filename)
 # model.load_geometry(loader)
 
 artist = None
-#artist = RobotArtist(model)
+# artist = RobotArtist(model)
 
 semantics = RobotSemantics.from_srdf_file(srdf_filename, model)
 
