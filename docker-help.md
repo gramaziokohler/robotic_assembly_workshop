@@ -6,10 +6,10 @@ For this workshop, we start groups of containers all at once using a command cal
 
 This repository contains 4 groups of containers, each one provides an entire ROS system with different settings:
 
-* **ROS Basic**: a minimal ROS system containing just a master node and a few other nodes required to access it from Windows. [Configuration file](docker/ros-system/ros-basic/docker-compose.yml).
-* **ROS UR5 - Planning**: a ROS system configured with MoveIt! motion planning for a UR5 robot. [Configuration file](docker/ros-system/ros-ur5/docker-compose.yml).
-* **ROS ABB Linear axis - Planning**: a ROS system configured with MoveIt! motion planning for an ABB linear axis system. [Configuration file](docker/ros-system/ros-abb-linear-axis/docker-compose.yml).
-* **ROS ABB Linear axis - Execution**: a ROS system configured with MoveIt! motion planning for a ABB linear axis system and the ABB driver to execute trajectories on a real (or virtual) robot. [Configuration file](docker/ros-system/ros-abb-linear-axis/docker-compose.yml).
+* **ROS Basic**: a minimal ROS system containing just a master node and a few other nodes required to access it from Windows. [Configuration file](docker/ros-systems/ros-basic/docker-compose.yml).
+* **ROS UR5 - Planning**: a ROS system configured with MoveIt! motion planning for a UR5 robot. [Configuration file](docker/ros-systems/ros-ur5/docker-compose.yml).
+* **ROS ABB Linear axis - Planning**: a ROS system configured with MoveIt! motion planning for an ABB linear axis system. [Configuration file](docker/ros-systems/ros-abb-linear-axis/docker-compose.yml).
+* **ROS ABB Linear axis - Execution**: a ROS system configured with MoveIt! motion planning for a ABB linear axis system and the ABB driver to execute trajectories on a real (or virtual) robot. [Configuration file](docker/ros-systems/ros-abb-linear-axis/docker-compose.yml).
 
 ## How to start docker containers
 
