@@ -208,8 +208,8 @@ Your environment has an outdated version of OpenSSL. Go to your root environment
 
 If you get errors like `cannot open display` or `cannot acquire screen ...` it means you have not configured the security of your X11 server correctly:
 
-- On Windows using `XMing`, make sure you add your IP Address to the file `%ProgramFiles(x86)%\XMing\X0.hosts` (needs to be opened as administrator)
-- On Mac using `XQuartz`, run `xhost +local:root` (and remember to disable later with `xhost -local:root`)
+* On Windows using `XMing`, make sure you add your IP Address to the file `%ProgramFiles(x86)%\XMing\X0.hosts` (needs to be opened as administrator)
+* On Mac using `XQuartz`, run `xhost +local:root` (and remember to disable later with `xhost -local:root`)
 
 Remember to restart `XMing`/`XQuartz` after applying these changes.
 
