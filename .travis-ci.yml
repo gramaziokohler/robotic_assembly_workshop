@@ -1,0 +1,13 @@
+language: python
+
+python:
+  - "3.6"
+
+install:
+- conda env create -f environment.yml
+
+script:
+- conda activate workshop-01
+- python examples/ex06_wall_generate.py
+- python examples/ex07_wall_support.py
+- python examples/ex08_wall_interfaces.py
