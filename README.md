@@ -103,12 +103,12 @@ As a starting point, check the contents of the [`examples`](examples) folder and
 
 By now, you should be up and running and ready to start playing with **compas**, **compas_assembly** and **compas_fab**!
 
-* Assembly: stack:
+* Assembly - Stack:
   * [x] Generate a stack ([example](examples/ex02_stack_generate.py))
   * [x] Identify interfaces of a stack ([example](examples/ex03_stack_interfaces.py))
   * [x] Compute contact forces required for static equilibrium of an assembly ([example](examples/ex04_stack_equilibrium.py))
   * [x] Draw stack in Rhino ([example](examples/ex05_stack_rhino.py))
-* Assembly: brick wall:
+* Assembly - Brick wall:
   * [x] Generate an assembly for a brick wall ([example](examples/ex06_wall_generate.py))
   * [x] Add assembly support plate ([example](examples/ex07_wall_support.py))
   * [x] Identify interfaces of the brick wall assembly ([example](examples/ex08_wall_interfaces.py))
@@ -118,10 +118,10 @@ By now, you should be up and running and ready to start playing with **compas**,
   * [x] Expressing frames in different coordinate systems ([example](examples/ex11_transformation_frame.py))
   * [x] Create a robot model programmatically ([example](examples/ex20_robot_model))
   * [x] Load robot model from URDF ([example](examples/ex21_robot_model_from_disk.py))
-  * [x] Load complete robot ([example](examples/ex22_load_compas_fab_robot.py), [exercise](examples/ex22_load_compas_fab_robot_template.py))
+  * [x] Load complete robot ([example](examples/ex22_load_compas_fab_robot.py) | [exercise](examples/ex22_load_compas_fab_robot_template.py))
   * [x] Represent robot configurations / joint state ([example](examples/ex23_configuration.py))
 * ROS:
-  * > Before running the following examples, compose the `ROS Basic` system.
+  > **NOTE:** The following requires ROS. Make sure you run *docker-compose* to start the `ROS Basic` system ([docker instructions](docker-help.md)).
   * [x] Hello ROS ([example](examples/ex30_hello_ros.py))
 * Robotic fabrication exercises:
   * [x] Create `RobotModel`
