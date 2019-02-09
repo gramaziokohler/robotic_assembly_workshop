@@ -22,30 +22,63 @@ Materials for the Robotic Assembly workshop using COMPAS framework
 
 ## Getting started
 
-The very first thing to get started is to install **COMPAS** using Anaconda. Anaconda uses **environments** to create isolated spaces for projects' depedencies, it is recommendable that you do all the exercises in a newly created environment.
+We will install all the required **COMPAS** packages using Anaconda. Anaconda uses **environments** to create isolated spaces for projects' depedencies, it is recommendable that you do all the exercises in a newly created environment.
 
-Create an environment named `workshop` with Python 3.6:
+First, clone this repository. You have two options:
 
-      conda create --name workshop python=3.6
+<details><summary>1. Using a visual client <i>(e.g. SourceTree)</i></summary>
+Open your GIT visual client (e.g. SourceTree), and clone the repository (on SourceTree, `File -> Clone / New`) and enter the following URL and the destination folder:
+
+      https://github.com/gramaziokohler/robotic_assembly_workshop.git
+
+</details>
+
+<details><summary>2. Using git command line client</summary>
+Start your Anaconda Prompt, go to the destination folder where you wish to place all the workshop material and run:
+
+      git clone https://github.com/gramaziokohler/robotic_assembly_workshop.git
+
+</details>
+
+<br/>
+
+Now, we can create the environment and install all packages. Start your Anaconda Prompt (**run as administrator**), go to the repository folder you just cloned, and run:
+
+      conda env create -f workshop.yml -n workshop
       conda activate workshop
 
-To install the main library and the packages we will use, start your Anaconda Prompt and run the following:
 
-      conda config --add channels conda-forge
-      conda install compas compas_fab
+<details><summary>Not working?</summary>
 
-Great! Now type `python` in your Anaconda Prompt (**run as administrator**), and test if the installation went well:
+Make sure you really changed into the repository folder. For example, if you cloned the repository into a folder called `Code` in your home directory, you should type:
+
+**On Mac**
+
+      cd ~/Code/robotic_assembly_workshop
+
+**On Windows**
+
+      cd %USERPROFILE%\Code\robotic_assembly_workshop
+
+If the command fails because you already have an environment with the same name, choose a different one, or remove the old one before creating the new one:
+
+      conda remove -n workshop --all
+
+</details>
+
+Great! Now type `python` in your Anaconda Prompt, and test if the installation went well:
 
       >>> import compas
       >>> import compas_fab
+      >>> import compas_assembly
 
 If that doesn't fail, you're good to go! Exit the python interpreter (either typing `exit()` or pressing `CTRL+Z` followed by `Enter`).
 
-Now let's make **compas** and **compas_fab** packages available inside Rhino. On the Anaconda Prompt, type the following:
+Now let's make all the installed packages packages available inside Rhino. Still from the Anaconda Prompt, type the following:
 
-      python -m compas_fab.rhino.install 6.0
+      python -m compas_rhino.install -v 6.0 -p compas compas_ghpython compas_rhino compas_assembly compas_fab roslibpy
 
-Congrats! 🎉 You are all set! Open Rhino and try to import compas to verify everything is working fine.
+Congrats! 🎉 You are all set! Open Rhino and try to import `compas` to verify everything is working fine.
 
 > **NOTE:**
 > If the previous command throws an error, make sure you run the Anaconda Prompt as an **Administrator**.
