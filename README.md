@@ -153,7 +153,7 @@ By now, you should be up and running and ready to start playing with **compas**,
   > 1. Run *docker-compose* to start the [`ROS Real ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis-real/docker-compose.yml) system  [<small>(*need help?*)</small>](docker-help.md).
   * [x] ...
 
-Did you complete all up to here? Awesome! Have a cookie 🍪!
+Did you finish up all exercises up to here? Awesome!! Have a cookie 🍪!
 
 ---
 
