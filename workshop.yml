@@ -1,4 +1,4 @@
-name: workshop-01
+name: workshop
 channels:
     - conda-forge
     - ibmdecisionoptimization
