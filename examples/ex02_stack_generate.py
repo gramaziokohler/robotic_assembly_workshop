@@ -12,8 +12,6 @@ from math import pi
 from random import choice
 import os
 
-import compas_assembly
-
 from compas.geometry import Box
 from compas.geometry import Translation
 from compas.geometry import Rotation
@@ -30,6 +28,8 @@ from compas_assembly.plotter import AssemblyPlotter
 
 
 HERE = os.path.dirname(__file__)
+DATA = os.path.join(HERE, '../data')
+PATH = os.path.join(DATA, 'stack.json')
 
 # number of blocks
 
@@ -68,7 +68,7 @@ for i in range(N):
 
 # export to json
 
-assembly.to_json(os.path.join(HERE, 'stack.json'))
+assembly.to_json(PATH)
 
 # visualise
 

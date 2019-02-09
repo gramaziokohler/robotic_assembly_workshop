@@ -9,15 +9,19 @@ Notes
 This will only work as expected on *wall* assemblies that are properly supported.
 
 """
-import compas_assembly
+import os
 
 from compas_assembly.datastructures import Assembly
 from compas_assembly.datastructures import assembly_courses
 
+HERE = os.path.dirname(__file__)
+DATA = os.path.join(HERE, '../data')
+PATH_FROM = os.path.join(DATA, 'wall_interfaces.json')
+PATH_TO = os.path.join(DATA, 'wall_supported.json')
 
 # load an assembly
 
-assembly = Assembly.from_json(compas_assembly.get('wall_interfaces.json'))
+assembly = Assembly.from_json(PATH_FROM)
 
 # check if the assembly has supports
 
@@ -37,4 +41,4 @@ for i, course in enumerate(courses):
 
 # serialise the result
 
-assembly.to_json(compas_assembly.get('wall_courses.json'))
+assembly.to_json(PATH_TO)

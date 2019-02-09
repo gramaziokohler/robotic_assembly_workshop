@@ -7,7 +7,7 @@
 5. Serialise the result
 
 """
-import compas_assembly
+import os
 
 from compas.geometry import bounding_box_xy
 from compas.geometry import Scale
@@ -21,10 +21,14 @@ from compas.datastructures import mesh_transform
 from compas_assembly.datastructures import Assembly
 from compas_assembly.datastructures import Block
 
+HERE = os.path.dirname(__file__)
+DATA = os.path.join(HERE, '../data')
+PATH_FROM = os.path.join(DATA, 'wall.json')
+PATH_TO = os.path.join(DATA, 'wall_supported.json')
 
 # load assembly from JSON
 
-assembly = Assembly.from_json('data/wall.json')
+assembly = Assembly.from_json(PATH_FROM)
 
 # list the coordinates of all vertices of all blocks
 
@@ -65,4 +69,4 @@ assembly.add_block(support, is_support=True, is_placed=True)
 
 # serialise
 
-assembly.to_json('data/wall_supported.json')
+assembly.to_json(PATH_TO)

@@ -2,11 +2,16 @@ from ex22_load_compas_fab_robot import robot
 
 import os
 import math
+
 from compas.geometry import Frame
 from compas.datastructures import Mesh
 from compas_fab.robots import Configuration
 from compas_fab.backends import RosClient
 from compas_fab.backends.ros import MoveItErrorCodes
+
+HERE = os.path.dirname(__file__)
+DATA = os.path.join(HERE, '../data')
+PATH = os.path.join(DATA, 'brick.obj')
 
 robot.client = RosClient('127.0.0.1', 9090)
 robot.client.run()
@@ -17,7 +22,7 @@ start_configuration = Configuration.from_revolute_values([-0.042, 4.295, -4.110,
 group = robot.main_group_name
 
 # Create attached collision object
-brick = Mesh.from_obj(os.path.join(os.path.dirname(__file__), "brick.obj"))
+brick = Mesh.from_obj(PATH)
 aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick, group)
 
 response = robot.motion_plan_goal_frame(goal_frame,

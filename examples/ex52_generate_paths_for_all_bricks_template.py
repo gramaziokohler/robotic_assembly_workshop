@@ -41,6 +41,9 @@ from compas_assembly.datastructures import assembly_block_placing_frame
 from ex50_abb_linear_axis_robot import robot
 
 HERE = os.path.dirname(__file__)
+DATA = os.path.join(HERE, '../data')
+PATH_FROM = os.path.join(DATA, '02_wall_buildable.json')
+PATH_TO = os.path.join(DATA, '03_wall_paths.json')
 
 robot.client = RosClient('127.0.0.1', 9090)
 robot.client.run()
@@ -52,9 +55,7 @@ robot.client.run()
 # From the brick.obj create an attached collision object attached to the end-effector
 
 # Load assembly
-path = os.path.abspath(os.path.join(HERE, "..", "data"))
-filepath = os.path.join(path, "02_wall_buildable.json")
-assembly = Assembly.from_json(filepath)
+assembly = Assembly.from_json(PATH_FROM)
 
 # Settings
 group = "abb"
@@ -103,9 +104,7 @@ start_configuration = robot.merge_group_with_full_configuration(start_configurat
     # Add placed brick as collision mesh to planning scene
 
 # save assembly
-assembly.to_json(os.path.join(path, "03_wall_paths.json"))
+assembly.to_json(PATH_TO)
 
 robot.client.close()
 robot.client.terminate()
-
-

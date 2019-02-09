@@ -13,11 +13,12 @@ from compas_
 compas.PRECISION = '12f'
 
 HERE = os.path.dirname(__file__)
+DATA = os.path.join(HERE, '../data')
+PATH = os.path.join(DATA, 'robot_description')
 
 package = 'ur_description'
-path = os.path.join(HERE, "robot_description")
-urdf_filename = os.path.join(path, package, "urdf", "ur5.urdf")
-srdf_filename = os.path.join(path, package, "ur5.srdf")
+urdf_filename = os.path.join(PATH, package, "urdf", "ur5.urdf")
+srdf_filename = os.path.join(PATH, package, "ur5.srdf")
 
 model = 
 artist = 

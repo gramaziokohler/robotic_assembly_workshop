@@ -29,6 +29,9 @@ from compas_assembly.datastructures import assembly_block_placing_frame
 from ex50_abb_linear_axis_robot import robot
 
 HERE = os.path.dirname(__file__)
+DATA = os.path.join(HERE, '../data')
+PATH_FROM = os.path.join(DATA, '01_wall_transformed.json')
+PATH_TO = os.path.join(DATA, '02_wall_buildable.json')
 
 robot.client = RosClient('127.0.0.1', 9090)
 robot.client.run()
@@ -37,9 +40,7 @@ robot.client.run()
 ?
 
 # Load the assembly from the saved json file
-path = os.path.abspath(os.path.join(HERE, "..", "data"))
-filepath = os.path.join(path, "01_wall_transformed.json")
-assembly = Assembly.from_json(filepath)
+assembly = Assembly.from_json(PATH_FROM)
 
 # Define the sequence to be build:
 # Select a top brick and generate a building sequence from the assembly
@@ -69,7 +70,7 @@ saveframe_pick = Frame(picking_frame.point + save_vector, picking_frame.xaxis, p
     # Only if both work, save to solutions
 
 
-assembly.to_json(os.path.join(path, "02_wall_buildable.json"))     
+assembly.to_json(PATH_TO)
 
 robot.client.close()
 robot.client.terminate()

@@ -15,10 +15,12 @@ from compas_assembly.rhino import AssemblyHelper
 # just so Rhino(Mac) gets the filepaths right
 
 HERE = os.path.dirname(__file__)
+DATA = os.path.join(HERE, '../data')
+PATH = os.path.join(DATA, 'wall_courses.json')
 
 # load an assembly from a JSON file
 
-assembly = Assembly.from_json(os.path.join(HERE, '../data/wall_courses.json'))
+assembly = Assembly.from_json(PATH)
 
 # make a list of the blocks that were already placed
 

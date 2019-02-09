@@ -20,6 +20,9 @@ import compas
 from compas_rhino.utilities import XFunc
 from compas_assembly.datastructures import Assembly
 
+HERE = os.path.dirname(__file__)
+DATA = os.path.join(HERE, '../data')
+PATH = os.path.join(DATA, 'wall_courses.json')
 
 # make an XFunc version of the compute interfaces function
 
@@ -43,13 +46,9 @@ def compute_interface_forces(assembly, **kwargs):
     for key in assembly.blocks:
         assembly.blocks[key].data = result['blocks'][str(key)]
 
-# just so Rhino(Mac) gets the filepaths right
-
-HERE = os.path.dirname(__file__)
-
 # load an assembly from a JSON file
 
-assembly = Assembly.from_json(os.path.join(HERE, '../data/wall_courses.json'))
+assembly = Assembly.from_json(PATH)
 
 # define a sequence of buildable blocks
 

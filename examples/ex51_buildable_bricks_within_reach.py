@@ -29,21 +29,20 @@ from compas_assembly.datastructures import assembly_block_placing_frame
 from ex50_abb_linear_axis_robot import robot
 
 HERE = os.path.dirname(__file__)
-
-path = os.path.join(HERE, "robot_description")
+DATA = os.path.join(HERE, '../data')
+PATH_FROM = os.path.join(DATA, '01_wall_transformed.json')
+PATH_TO = os.path.join(DATA, '02_wall_buildable.json')
 
 robot.client = RosClient('127.0.0.1', 9090)
 robot.client.run()
 
 # Add platform as collision mesh
 package = "abb_linear_axis"
-mesh = Mesh.from_stl(os.path.join(path, package, 'meshes', 'collision', 'platform.stl'))
+mesh = Mesh.from_stl(os.path.join(DATA, 'robot_description', package, 'meshes', 'collision', 'platform.stl'))
 robot.add_collision_mesh_to_planning_scene('platform', mesh)
 
 # Load assembly
-path = os.path.abspath(os.path.join(HERE, "..", "data"))
-filepath = os.path.join(path, "01_wall_transformed.json")
-assembly = Assembly.from_json(filepath)
+assembly = Assembly.from_json(PATH_FROM)
 
 # Define the sequence to be build
 #key = 33 
@@ -98,7 +97,7 @@ for key in sequence:
     except RosError as error:
         print("Brick with key %d is NOT buildable" % key, error)
 
-assembly.to_json(os.path.join(path, "02_wall_buildable.json"))
+assembly.to_json(PATH_TO)
 
 robot.client.close()
 robot.client.terminate()

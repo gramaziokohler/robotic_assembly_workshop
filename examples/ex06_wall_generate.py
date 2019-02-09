@@ -20,7 +20,7 @@ Notes
 The script below does the same as ``compas_assembly.datastructures.assembly_construct_wall()``.
 
 """
-import compas_assembly
+import os
 
 from compas.geometry import Box
 from compas.geometry import Translation
@@ -29,6 +29,10 @@ from compas.datastructures import mesh_transform
 
 from compas_assembly.datastructures import Assembly
 from compas_assembly.datastructures import Block
+
+HERE = os.path.dirname(__file__)
+DATA = os.path.join(HERE, '../data')
+PATH = os.path.join(DATA, 'wall.json')
 
 
 # number of bricks in even courses
@@ -97,4 +101,4 @@ for i in range(number_of_courses):
 
 # export to json
 
-assembly.to_json('data/wall.json')
+assembly.to_json(PATH)
