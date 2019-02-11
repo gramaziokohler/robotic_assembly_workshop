@@ -1,6 +1,6 @@
 """
 Frames describe position and orientation, but can also represent (right-handed)
-coordinate systems. This is an example to bring a frame defined in the Object 
+coordinate systems. This is an example to bring a frame defined in the Object
 Coordinate Frame (OCF) into the Robot Coordinate Frame (RCF).
 """
 from compas.geometry import Point
@@ -26,9 +26,9 @@ frame_WCF = OCF.represent_frame_in_global_coordinates(frame_OCF)
 frame_RCF = RCF.represent_frame_in_local_coordinates(frame_WCF)
 print("Frame at TCP", frame_RCF)
 
-# **ADVANCED** 
-# Due to some problem in the robot's controller we cannot set the TCP of the 
-# robot. That's why, based on frame_RCF, we have to find the frame at the 
+# **ADVANCED**
+# Due to some problem in the robot's controller we cannot set the TCP of the
+# robot. That's why, based on frame_RCF, we have to find the frame at the
 # robot's flange T0CF
 
 # Tool coordinate frame
