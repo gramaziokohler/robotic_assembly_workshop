@@ -17,7 +17,7 @@ robot.client.run()
 
 goal_frame = Frame([0.20, 0.38, 0.32], [0, 1, 0], [0, 0, 1])
 
-start_configuration = Configuration.from_revolute_values([-0.042, 4.295, -4.110, -3.327, 4.755, 0.])
+start_configuration = Configuration.from_revolute_values((-0.042, -1.988, 2.174, -3.327, -1.528, -6.283))
 group = robot.main_group_name
 
 # Create attached collision object

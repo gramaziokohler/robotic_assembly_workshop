@@ -2,7 +2,7 @@
 Generate paths for brick building sequence.
 
 1. Add platform as collision mesh
-2. Load assembly from '02_wall_buildable.json'
+2. Load assembly from '52_wall_buildable.json'
 3. Generate building sequence from assembly through the defined key.
 4. Check cartesian path *p1* between picking_frame and saveframe_pick
 5. Iterate over assembly sequence
@@ -42,7 +42,7 @@ from ex50_abb_linear_axis_robot import robot
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH_FROM = os.path.join(DATA, '02_wall_buildable.json')
+PATH_FROM = os.path.join(DATA, '52_wall_buildable.json')
 PATH_TO = os.path.join(DATA, '03_wall_paths.json')
 
 robot.client = RosClient()
