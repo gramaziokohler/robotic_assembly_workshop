@@ -147,7 +147,7 @@ The following is a list of additional example code to complement the exercises a
   * [x] Create a robot model programmatically ([script](examples/ex20_robot_model.py))
   * [x] Load robot model from URDF ([script](examples/ex21_robot_model_from_disk.py))
   * [x] Create a robot artist for rhino ([rhino](examples/ex22_robot_artist.py))
-  * [x] Load complete robot ([script](examples/ex23_load_compas_fab_robot.py) | [exercise](examples/ex23_load_compas_fab_robot_template.py))
+  * [x] Load complete robot ([script](examples/ex23_load_robot.py) | [exercise](examples/ex23_load_robot_template.py))
   * [x] Represent robot configurations / joint state ([script](examples/ex24_configuration.py))
 * **Using ROS**:
   > **NOTE:** These examples need ROS:
