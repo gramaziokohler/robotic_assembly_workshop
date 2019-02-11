@@ -3,21 +3,27 @@
 Steps
 -----
 1. Load an assembly from a json file
-2. Compute the footprint of the assembly
+2. Compute the footprint of the assembly in the XY plane
 3. Add a support in the XY plane at least the size to the footprint
-4. Mark the support as *placed*.
+4. Mark the support as *placed*
 5. Serialise the result
 
 Parameters
 ----------
 PADDING : float
-    The padding around the footprint of the wall.
+    Size of the padding around the footprint of the wall.
 
 Exercise
 --------
 If brick courses were already assigned during the wall generation process,
-add a support per block of the bottom course to simplify interface detection
-afterwards.
+adding a separate support per block of the bottom course
+simplifies interface detection afterwards.
+
+a. Modify the process that generates the wall to set the courses on the go.
+b. Identify the courses based on height.
+c. Just identify the bottom course. Identify the other courses later.
+
+Add an individual support ber block of the bottom course.
 
 """
 import os

@@ -22,6 +22,10 @@ Exercise
 --------
 Change the values of ``NMAX`` and ``AMIN`` to understand their effect.
 
+Notes
+-----
+Increasing ``NMAX`` is not necessary if the bottom blocks each have an individual support.
+
 """
 import os
 
