@@ -117,9 +117,9 @@ By now, you should be up and running and ready to start playing with **compas**,
   > 1. Make sure your `X0.hosts` files is configured with your **current IP address** (<small>scroll down to [troubleshooting](#troubleshooting) for more details</small>).
   > 1. Start your X11 server (`XMing` on Windows, `XQuartz` on Mac).
   > 1. Run *docker-compose* to start the [`ROS ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
-  * [x] Load ABB linear axis model ([example](examples/ex50_abb_linear_axis_robot.py))
-  * [x] Search buildable bricks within robot's reach ([example](examples/ex51_buildable_bricks_within_reach.py) | [exercise](examples/ex51_buildable_bricks_within_reach_template.py))
-  * [x] Generate paths for brick building sequence ([example](examples/ex52_generate_paths_for_all_bricks.py) | [exercise](examples/ex52_generate_paths_for_all_bricks_template.py))
+  * [x] Load ABB linear axis model ([script](examples/ex50_abb_linear_axis_robot.py))
+  * [x] Search buildable bricks within robot's reach ([script](examples/ex51_buildable_bricks_within_reach.py) | [exercise](examples/ex51_buildable_bricks_within_reach_template.py))
+  * [x] Generate paths for brick building sequence ([script](examples/ex52_generate_paths_for_all_bricks.py) | [exercise](examples/ex52_generate_paths_for_all_bricks_template.py))
 * **Executing robotic fabrication**:
   > **NOTE:** These examples need ROS with an ABB linear axis loaded and a real or simulated (via RobotStudio) ABB controller:
   > 1. Configure the `ROBOT_IP` environment variable to point to your controller.
@@ -134,37 +134,37 @@ Did you finish up all exercises up to here? Awesome!! Have a cookie 🍪!
 The following is a list of additional example code to complement the exercises above:
 
 * **Assembly - Stack**:
-  * [x] Generate a stack ([example](examples/ex02_stack_generate.py))
-  * [x] Identify interfaces of a stack ([example](examples/ex03_stack_interfaces.py))
-  * [x] Compute contact forces required for static equilibrium of an assembly ([example](examples/ex04_stack_equilibrium.py))
-  * [x] Draw stack in Rhino ([example](examples/ex05_stack_rhino.py))
+  * [x] Generate a stack ([script](examples/ex02_stack_generate.py))
+  * [x] Identify interfaces of a stack ([script](examples/ex03_stack_interfaces.py))
+  * [x] Compute contact forces required for static equilibrium of an assembly ([script](examples/ex04_stack_equilibrium.py))
+  * [x] Draw stack in Rhino ([rhino](examples/ex05_stack_rhino.py))
 * **Robotic fundamentals**:
-  * [x] Frame orientation specs ([example](examples/ex10_frame_orientation_specs.py))
-  * [x] Expressing frames in different coordinate systems ([example](examples/ex11_transformation_frame.py))
-  * [x] Create a robot model programmatically ([example](examples/ex20_robot_model.py))
-  * [x] Load robot model from URDF ([example](examples/ex21_robot_model_from_disk.py))
-  * [x] Create a robot artist for rhino ([example](examples/ex22_robot_artist.py))
-  * [x] Load complete robot ([example](examples/ex23_load_compas_fab_robot.py) | [exercise](examples/ex23_load_compas_fab_robot_template.py))
-  * [x] Represent robot configurations / joint state ([example](examples/ex24_configuration.py))
+  * [x] Frame orientation specs ([script](examples/ex10_frame_orientation_specs.py))
+  * [x] Expressing frames in different coordinate systems ([script](examples/ex11_transformation_frame.py))
+  * [x] Create a robot model programmatically ([script](examples/ex20_robot_model.py))
+  * [x] Load robot model from URDF ([script](examples/ex21_robot_model_from_disk.py))
+  * [x] Create a robot artist for rhino ([rhino](examples/ex22_robot_artist.py))
+  * [x] Load complete robot ([script](examples/ex23_load_compas_fab_robot.py) | [exercise](examples/ex23_load_compas_fab_robot_template.py))
+  * [x] Represent robot configurations / joint state ([script](examples/ex24_configuration.py))
 * **Using ROS**:
   > **NOTE:** These examples need ROS:
   > 1. Run *docker-compose* to start the [`ROS Basic`](docker/ros-systems/ros-basic/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
-  * [x] Hello ROS ([example](examples/ex30_hello_ros.py))
+  * [x] Hello ROS ([script](examples/ex30_hello_ros.py))
   * [x] ROS Talker & Listener nodes ([talker](examples/ex31_talker.py) | [listener](examples/ex32_listener.py))
-  * [x] Using ROS as mesh transport between CADs ([Grasshopper mesh publisher](examples/ex34_mesh_publisher.py) | [Grasshopper mesh subscriber](examples/ex34_mesh_listener.py))
+  * [x] Using ROS as mesh transport between CADs ([grasshopper mesh publisher](examples/ex34_mesh_publisher.py) | [grasshopper mesh subscriber](examples/ex34_mesh_listener.py))
 * **Planning with robots**:
   > **NOTE:** These examples need ROS with a UR5 model loaded:
   > 1. Make sure your `X0.hosts` files is configured with your **current IP address** (<small>scroll down to [troubleshooting](#troubleshooting) for more details</small>).
   > 1. Start your X11 server (`XMing` on Windows, `XQuartz` on Mac).
   > 1. Run *docker-compose* to start the [`ROS UR5`](docker/ros-systems/ros-ur5/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
-  * [x] Calculate forward kinematics ([example](examples/ex40_calculate_fk.py))
-  * [x] Calculate inverse kinematics ([example](examples/ex41_calculate_ik.py))
-  * [x] Calculate cartesian path ([example](examples/ex42_calculate_cartesian.py))
-  * [x] Calculate kinematic path ([example](examples/ex43_calculate_kinematic.py))
-  * [x] Add collision object attached to the robot ([example](examples/ex44_add_attached_collision_object.py))
-  * [x] Add collision object to a scene ([example](examples/ex45_add_collision_object.py))
-  * [x] Calculate kinematic path with attached collision object ([example](examples/ex46_calculate_kinematic_with_aco.py))
-  * [x] Planning with robots using Grasshopper ([example](examples/abb_linear_axis.ghx))
+  * [x] Calculate forward kinematics ([script](examples/ex40_calculate_fk.py))
+  * [x] Calculate inverse kinematics ([script](examples/ex41_calculate_ik.py))
+  * [x] Calculate cartesian path ([script](examples/ex42_calculate_cartesian.py))
+  * [x] Calculate kinematic path ([script](examples/ex43_calculate_kinematic.py))
+  * [x] Add collision object attached to the robot ([script](examples/ex44_add_attached_collision_object.py))
+  * [x] Add collision object to a scene ([script](examples/ex45_add_collision_object.py))
+  * [x] Calculate kinematic path with attached collision object ([script](examples/ex46_calculate_kinematic_with_aco.py))
+  * [x] Planning with robots using Grasshopper ([grasshopper](examples/abb_linear_axis.ghx))
 
 ---
 
