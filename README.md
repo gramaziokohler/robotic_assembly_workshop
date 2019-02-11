@@ -22,6 +22,20 @@ Materials for the Robotic Assembly workshop using COMPAS framework
 
 <sup>(1): Windows 10 Home does not support running Docker.</sup>
 
+
+<details><summary>Rhino 5.0</summary>
+
+The focus of the workshop will be on Rhino 6.0 only. While most things will work on Rhino 5.0, it is not recommended as there are several manual steps required to get the software to run.
+
+However, if you do use Rhino 5.0, make sure to install the following:
+
+* [Grasshopper](https://www.grasshopper3d.com/)
+* [GHPython](https://www.food4rhino.com/app/ghpython)
+* [IronPython 2.7.5](https://github.com/IronLanguages/main/releases/tag/ipy-2.7.5) ([see here for details about this manual update](https://compas-dev.github.io/main/environments/rhino.html#ironpython-1)).
+
+</details>
+
+
 ## Getting started
 
 ![Progress](images/progress-1.png)
@@ -194,16 +208,6 @@ The following is a list of additional example code to complement the exercises a
   * [x] Planning with robots using Grasshopper ([grasshopper](examples/abb_linear_axis.ghx))
 
 ---
-
-## Rhino 5.0
-
-The focus of the workshop will be on Rhino 6.0 only. While most things will work on Rhino 5.0, it is not recommended as there are several manual steps required to get the software to run.
-
-However, if you do use Rhino 5.0, make sure to install the following:
-
-* [Grasshopper](https://www.grasshopper3d.com/)
-* [GHPython](https://www.food4rhino.com/app/ghpython)
-* [IronPython 2.7.5](https://github.com/IronLanguages/main/releases/tag/ipy-2.7.5) ([see here for details about this manual update](https://compas-dev.github.io/main/environments/rhino.html#ironpython-1)).
 
 ## System overview
 
