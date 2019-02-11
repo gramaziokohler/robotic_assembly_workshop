@@ -77,7 +77,7 @@ Great! Now type `python` in your Anaconda Prompt, and test if the installation w
 
 If that doesn't fail, you're good to go! Exit the python interpreter (either typing `exit()` or pressing `CTRL+Z` followed by `Enter`).
 
-Now let's make all the installed packages packages available inside Rhino. Still from the Anaconda Prompt, type the following:
+Now let's make all the installed packages available inside Rhino. Still from the Anaconda Prompt, type the following:
 
       python -m compas_rhino.install -v 6.0 -p compas compas_ghpython compas_rhino compas_assembly compas_fab roslibpy
 
