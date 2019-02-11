@@ -1,3 +1,8 @@
+"""
+Frames describe position and orientation, but can also represent (right-handed)
+coordinate systems. This is an example to bring a frame defined in the Object 
+Coordinate Frame (OCF) into the Robot Coordinate Frame (RCF).
+"""
 from compas.geometry import Point
 from compas.geometry import Vector
 from compas.geometry import Frame
@@ -17,47 +22,19 @@ OCF = Frame(Point(3., -3., 0.),
 frame_OCF = Frame([0.1, 0.1, 0.1], [1, 0, 0], [0, 1, 0])
 # Frame expressed in WCF
 frame_WCF = OCF.represent_frame_in_global_coordinates(frame_OCF)
+# Frame defined in RCF
+frame_RCF = RCF.represent_frame_in_local_coordinates(frame_WCF)
+print("Frame at TCP", frame_RCF)
 
-# Tool center frame, defined in the T0CF
+# **ADVANCED** 
+# Due to some problem in the robot's controller we cannot set the TCP of the 
+# robot. That's why, based on frame_RCF, we have to find the frame at the 
+# robot's flange T0CF
+
+# Tool coordinate frame
 TCF = Frame(Point(0., 0., 0.3), Vector(1, 0, 0.), Vector(0, 1, 0.))
 # The transformation from TCF to T0CF
 TC2T0 = Transformation.from_frame_to_frame(Frame.worldXY(), TCF)
 frame_WCF_T0 = frame_WCF.transformed(TC2T0)
-
-# Frame defined in RCF
-frame_RCF = RCF.represent_frame_in_local_coordinates(frame_WCF)
 frame_RCF_T0 = RCF.represent_frame_in_local_coordinates(frame_WCF_T0)
-
-print(frame_RCF_T0)
-
-# =================================
-# Example
-
-from compas.geometry import Point
-from compas.geometry import Vector
-from compas.geometry import Frame
-from compas.geometry import Transformation
-
-F1 = Frame(Point(1., -1., 0.),
-           Vector(0.707, -0.707, 0.),
-           Vector(0.707, 0.707, 0.))
-
-F2 = Frame(Point(3., -3., 0.),
-           Vector(0.456, 0.890, 0.),
-           Vector(-0.890, 0.456, 0.))
-
-frame_WCF = Frame(Point(1.141, -1.000, 0.100),
-                  Vector(0.707, -0.707, 0.000),
-                  Vector(0.707, 0.707, 0.000))
-
-# Represent frame_WCF in F1
-frame_F1 = F1.represent_frame_in_local_coordinates(frame_WCF)
-
-# If this frame was in F2, what would it global coordinates be?
-frame_WCF_F2 = F2.represent_frame_in_global_coordinates(frame_F1)
-print("frame_WCF_F2", frame_WCF_F2)
-
-# Alternative solution
-T1 = Transformation.from_frame_to_frame(F1, Frame.worldXY())
-T2 = Transformation.from_frame(F2)
-print("frame_WCF_F2", frame_WCF.transformed(T2 * T1))
+print("Frame at T0", frame_RCF_T0)
