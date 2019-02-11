@@ -14,7 +14,7 @@ Generate paths for brick building sequence.
 9.   Add newly placed brick as collision object "brick_wall" to planning scence.
 10.  If solution is found for all 3 paths, add {'paths': [p1, p2, p3]} as
      attribute to the brick of the assembly.
-11. Save assembly into '03_wall_paths.json'
+11. Save assembly into '53_wall_paths.json'
 """
 
 import os
@@ -43,7 +43,7 @@ from ex50_abb_linear_axis_robot import robot
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
 PATH_FROM = os.path.join(DATA, '52_wall_buildable.json')
-PATH_TO = os.path.join(DATA, '03_wall_paths.json')
+PATH_TO = os.path.join(DATA, '53_wall_paths.json')
 
 robot.client = RosClient()
 robot.client.run()
