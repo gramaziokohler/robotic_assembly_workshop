@@ -121,8 +121,9 @@ By now, you should be up and running and ready to start playing with **compas**,
   > 1. Start your X11 server (`XMing` on Windows, `XQuartz` on Mac).
   > 1. Run *docker-compose* to start the [`ROS ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
   * [x] Load ABB linear axis model ([script](examples/ex50_abb_linear_axis_robot.py))
-  * [x] Search buildable bricks within robot's reach ([script](examples/ex51_buildable_bricks_within_reach.py) | [exercise](examples/ex51_buildable_bricks_within_reach_template.py))
-  * [x] Generate paths for brick building sequence ([script](examples/ex52_generate_paths_for_all_bricks.py) | [exercise](examples/ex52_generate_paths_for_all_bricks_template.py))
+  * [x] Transform assembly to work station ([script](examples/ex51_transform_assembly_to_workstation.py))
+  * [x] Search buildable bricks within robot's reach ([script](examples/ex52_buildable_bricks_within_reach.py) | [exercise](examples/ex52_buildable_bricks_within_reach_template.py))
+  * [x] Generate paths for brick building sequence ([script](examples/ex53_generate_paths_for_all_bricks.py) | [exercise](examples/ex53_generate_paths_for_all_bricks_template.py))
 * **Executing robotic fabrication**:
   > **NOTE:** These examples need ROS with an ABB linear axis loaded and a real or simulated (via RobotStudio) ABB controller:
   > 1. Configure the `ROBOT_IP` environment variable to point to your controller.
