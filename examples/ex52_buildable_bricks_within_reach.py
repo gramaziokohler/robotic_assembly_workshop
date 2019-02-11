@@ -41,16 +41,6 @@ package = "abb_linear_axis"
 mesh = Mesh.from_stl(os.path.join(DATA, 'robot_description', package, 'meshes', 'collision', 'platform.stl'))
 robot.add_collision_mesh_to_planning_scene('platform', mesh)
 
-# Load assembly
-assembly = Assembly.from_json(PATH_FROM)
-
-# Define the sequence to be build
-#key = 33
-#placed = list(assembly.vertices_where({'is_placed': True}))
-#sequence = assembly_block_building_sequence(assembly, key)
-#sequence = list(set(sequence) - set(placed))
-sequence = [3, 2, 1, 0, 8, 7, 6, 5, 13, 12, 11, 18, 17, 16, 23, 22, 27, 28, 33]
-
 # Settings
 group = "abb"
 
@@ -60,42 +50,60 @@ picking_configuration = Configuration.from_prismatic_and_revolute_values([-1.800
 save_vector = Vector(0, 0, 0.1)
 saveframe_pick = Frame(picking_frame.point + save_vector, picking_frame.xaxis, picking_frame.yaxis)
 
-# Iterate over the assembly
-for key in sequence:
+# Load assembly
+assembly = Assembly.from_json(PATH_FROM)
 
-    start_configuration = picking_configuration
+c_max = max(assembly.get_vertices_attribute('course'))
+keys_on_top = list(assembly.vertices_where({'course': c_max}))
 
-    # Read the placing frame from brick, zaxis down
-    o, uvw = assembly_block_placing_frame(assembly, key)
-    placing_frame = Frame(o, uvw[1], uvw[0])
+for key_on_top in keys_on_top:
 
-    # Calculate saveframe at placing frame
-    saveframe_place = Frame(placing_frame.point + save_vector, placing_frame.xaxis, placing_frame.yaxis)
+    # Define the sequence to be checked if buildable
+    sequence = assembly_block_building_sequence(assembly, key_on_top)
+    # exclude all that are already checked
+    exclude_keys = [vkey for vkey, attr in assembly.vertices_where_predicate(lambda key, attr: \
+                    attr['is_support'] or \
+                    attr['is_built'] or \
+                    attr['is_planned'] or \
+                    attr['is_buildable'], True)]
+    sequence = [k for k in sequence if k not in exclude_keys] # keep order
+    print("sequence", sequence)
 
-    # Check ik for placing_frame and saveframe_place
-    # Only if both work, save to solutions
-    try:
-        response = robot.inverse_kinematics(frame_WCF=saveframe_place,
-                                            start_configuration=start_configuration,
-                                            group=group,
-                                            constraints=None,
-                                            attempts=20)
-        start_configuration = response.configuration
+    # Iterate over the assembly
+    for key in sequence:
+
+        start_configuration = picking_configuration
+
+        # Read the placing frame from brick, zaxis down
+        o, uvw = assembly_block_placing_frame(assembly, key)
+        placing_frame = Frame(o, uvw[1], uvw[0])
+
+        # Calculate saveframe at placing frame
+        saveframe_place = Frame(placing_frame.point + save_vector, placing_frame.xaxis, placing_frame.yaxis)
+
+        # Check ik for placing_frame and saveframe_place
+        # Only if both work, save to assembly
         try:
-            response = robot.inverse_kinematics(frame_WCF=placing_frame,
+            response = robot.inverse_kinematics(frame_WCF=saveframe_place,
                                                 start_configuration=start_configuration,
                                                 group=group,
                                                 constraints=None,
                                                 attempts=20)
             start_configuration = response.configuration
-            #print(start_configuration)
-            print("Brick with key %d is buildable" % key)
-            assembly.blocks[key].attributes.update({'is_buildable': True})
+            try:
+                response = robot.inverse_kinematics(frame_WCF=placing_frame,
+                                                    start_configuration=start_configuration,
+                                                    group=group,
+                                                    constraints=None,
+                                                    attempts=20)
+                start_configuration = response.configuration
+                print("Brick with key %d is buildable" % key)
+                assembly.set_vertex_attribute(key, 'is_buildable', True)
 
+            except RosError as error:
+                print("Brick with key %d is NOT buildable" % key, error)
         except RosError as error:
             print("Brick with key %d is NOT buildable" % key, error)
-    except RosError as error:
-        print("Brick with key %d is NOT buildable" % key, error)
 
 assembly.to_json(PATH_TO)
 

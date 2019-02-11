@@ -3559,7 +3559,7 @@
         "vertex": {
             "0": {
                 "course": 1,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3570,7 +3570,7 @@
             },
             "1": {
                 "course": 1,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3581,7 +3581,7 @@
             },
             "10": {
                 "course": 2,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3592,7 +3592,7 @@
             },
             "11": {
                 "course": 3,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3603,7 +3603,7 @@
             },
             "12": {
                 "course": 3,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3614,7 +3614,7 @@
             },
             "13": {
                 "course": 3,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3625,7 +3625,7 @@
             },
             "14": {
                 "course": 3,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3636,7 +3636,7 @@
             },
             "15": {
                 "course": 3,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3647,7 +3647,7 @@
             },
             "16": {
                 "course": 4,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3658,7 +3658,7 @@
             },
             "17": {
                 "course": 4,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3669,7 +3669,7 @@
             },
             "18": {
                 "course": 4,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3680,7 +3680,7 @@
             },
             "19": {
                 "course": 4,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3691,7 +3691,7 @@
             },
             "2": {
                 "course": 1,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3702,7 +3702,7 @@
             },
             "20": {
                 "course": 4,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3713,7 +3713,7 @@
             },
             "21": {
                 "course": 4,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3724,7 +3724,7 @@
             },
             "22": {
                 "course": 5,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3735,7 +3735,7 @@
             },
             "23": {
                 "course": 5,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3746,7 +3746,7 @@
             },
             "24": {
                 "course": 5,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3757,7 +3757,7 @@
             },
             "25": {
                 "course": 5,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3768,7 +3768,7 @@
             },
             "26": {
                 "course": 5,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3779,7 +3779,7 @@
             },
             "27": {
                 "course": 6,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3790,7 +3790,7 @@
             },
             "28": {
                 "course": 6,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3801,7 +3801,7 @@
             },
             "29": {
                 "course": 6,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3812,7 +3812,7 @@
             },
             "3": {
                 "course": 1,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3823,7 +3823,7 @@
             },
             "30": {
                 "course": 6,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3834,7 +3834,7 @@
             },
             "31": {
                 "course": 6,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3845,7 +3845,7 @@
             },
             "32": {
                 "course": 6,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3856,7 +3856,7 @@
             },
             "33": {
                 "course": 7,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3867,7 +3867,7 @@
             },
             "34": {
                 "course": 7,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3878,7 +3878,7 @@
             },
             "35": {
                 "course": 7,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3889,7 +3889,7 @@
             },
             "36": {
                 "course": 7,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3900,7 +3900,7 @@
             },
             "37": {
                 "course": 7,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3922,7 +3922,7 @@
             },
             "4": {
                 "course": 1,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3933,7 +3933,7 @@
             },
             "5": {
                 "course": 2,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3944,7 +3944,7 @@
             },
             "6": {
                 "course": 2,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3955,7 +3955,7 @@
             },
             "7": {
                 "course": 2,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3966,7 +3966,7 @@
             },
             "8": {
                 "course": 2,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
@@ -3977,7 +3977,7 @@
             },
             "9": {
                 "course": 2,
-                "is_buildable": false,
+                "is_buildable": true,
                 "is_built": false,
                 "is_placed": false,
                 "is_planned": false,
