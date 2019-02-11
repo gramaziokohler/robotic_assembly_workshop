@@ -256,3 +256,9 @@ Remember to restart `XMing`/`XQuartz` after applying these changes.
 > Q: How do I set environment variables?
 
 Using [VS Code](https://code.visualstudio.com/) (also supported in some other editors), the easiest option is to place a file called `.env` in the root folder of your workspace (i.e. this repository) and enter the variables there, one variable per line, e.g. `ROBOT_IP=10.0.75.1`.
+
+> Q: Python crashes when i run a *Plotter* example
+
+This may be related to the version of Matplotlib. For example, we have seen tis problem on OSX with Matplotlib version 3+.
+Try downgrading to `2.1.0`: `conda install matplotlib=2.1.0`. Make sure the correct environment is active...
+
