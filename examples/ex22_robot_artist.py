@@ -4,9 +4,12 @@ and draws it in rhino.
 """
 import os
 
+import compas
 from compas.robots import RobotModel
 from compas.robots import LocalPackageMeshLoader
 from compas_fab.rhino import RobotArtist
+
+compas.PRECISION = '12f'
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
