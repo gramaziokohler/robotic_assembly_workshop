@@ -129,20 +129,15 @@ By now, you should be up and running and ready to start playing with **compas**,
 
 Did you finish up all exercises up to here? Awesome!! Have a cookie 🍪!
 
-## Full list of examples
+## Additional examples
 
-The following is a complete list of example code to complement the exercises above:
+The following is a list of additional example code to complement the exercises above:
 
 * **Assembly - Stack**:
   * [x] Generate a stack ([example](examples/ex02_stack_generate.py))
   * [x] Identify interfaces of a stack ([example](examples/ex03_stack_interfaces.py))
   * [x] Compute contact forces required for static equilibrium of an assembly ([example](examples/ex04_stack_equilibrium.py))
   * [x] Draw stack in Rhino ([example](examples/ex05_stack_rhino.py))
-* **Assembly - Brick wall**:
-  * [x] Generate an assembly for a brick wall ([example](examples/ex06_wall_generate.py))
-  * [x] Add assembly support plate ([example](examples/ex07_wall_support.py))
-  * [x] Identify interfaces of the brick wall assembly ([example](examples/ex08_wall_interfaces.py))
-  * [x] Identify the courses of the assembly ([example](examples/ex09_wall_courses.py))
 * **Robotic fundamentals**:
   * [x] Frame orientation specs ([example](examples/ex10_frame_orientation_specs.py))
   * [x] Expressing frames in different coordinate systems ([example](examples/ex11_transformation_frame.py))
@@ -170,20 +165,6 @@ The following is a complete list of example code to complement the exercises abo
   * [x] Add collision object to a scene ([example](examples/ex45_add_collision_object.py))
   * [x] Calculate kinematic path with attached collision object ([example](examples/ex46_calculate_kinematic_with_aco.py))
   * [x] Planning with robots using Grasshopper ([example](examples/abb_linear_axis.ghx))
-* **Planning robotic fabrication of assembly**:
-  > **NOTE:** These examples need ROS with the ABB linear axis loaded:
-  > 1. Make sure your `X0.hosts` files is configured with your **current IP address** (<small>scroll down to [troubleshooting](#troubleshooting) for more details</small>).
-  > 1. Start your X11 server (`XMing` on Windows, `XQuartz` on Mac).
-  > 1. Run *docker-compose* to start the [`ROS ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
-  * [x] Load ABB linear axis model ([example](examples/ex50_abb_linear_axis_robot.py))
-  * [x] Search buildable bricks within robot's reach ([example](examples/ex51_buildable_bricks_within_reach.py) | [exercise](examples/ex51_buildable_bricks_within_reach_template.py))
-  * [x] Generate paths for brick building sequence ([example](examples/ex52_generate_paths_for_all_bricks.py) | [exercise](examples/ex52_generate_paths_for_all_bricks_template.py))
-* **Executing robotic fabrication**:
-  > **NOTE:** These examples need ROS with an ABB linear axis loaded and a real or simulated (via RobotStudio) ABB controller:
-  > 1. Configure the `ROBOT_IP` environment variable to point to your controller.
-  > 1. Run the RobotStudio station and start all tasks.
-  > 1. Run *docker-compose* to start the [`ROS Real ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis-real/docker-compose.yml) system  [<small>(*need help?*)</small>](docker-help.md).
-  * [x] ...
 
 ---
 
