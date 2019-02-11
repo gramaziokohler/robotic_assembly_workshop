@@ -39,12 +39,6 @@ robot.client.run()
 # Add the platform.stl as collision mesh to the planning scene
 ?
 
-# Load the assembly from the saved json file
-assembly = Assembly.from_json(PATH_FROM)
-
-# Define the sequence to be build:
-# Select a top brick and generate a building sequence from the assembly
-sequence = ?
 
 # Settings
 group = "abb"
@@ -57,17 +51,31 @@ save_vector = Vector(0, 0, 0.1)
 saveframe_pick = Frame(picking_frame.point + save_vector, picking_frame.xaxis, picking_frame.yaxis)
 
 
-# Iterate over the assembly
+# Load assembly
+assembly = Assembly.from_json(PATH_FROM)
 
-    # Read the placing frame from brick, zaxis down
-    o, uvw = assembly_block_placing_frame(assembly, key)
-    placing_frame = Frame(o, uvw[1], uvw[0])
+c_max = max(assembly.get_vertices_attribute('course'))
+keys_on_top = list(assembly.vertices_where({'course': c_max}))
 
-    # Calculate the saveframe at placing frame
-    saveframe_place = Frame(placing_frame.point + save_vector, placing_frame.xaxis, placing_frame.yaxis)
+# Iterate over the keys on top of the assembly
+for key_on_top in keys_on_top:
 
-    # Check ik for placing_frame and for saveframe_place
-    # Only if both work, save to solutions
+    # Define the sequence to be build:
+    # generate a building sequence from the key of the assembly
+    sequence = ?
+    # exclude the keys that have been already checked
+
+    # Iterate over the assembly
+
+        # Read the placing frame from brick, zaxis down
+        o, uvw = assembly_block_placing_frame(assembly, key)
+        placing_frame = Frame(o, uvw[1], uvw[0])
+
+        # Calculate the saveframe at placing frame
+        saveframe_place = Frame(placing_frame.point + save_vector, placing_frame.xaxis, placing_frame.yaxis)
+
+        # Check ik for placing_frame and for saveframe_place
+        # Only if both work, save to solutions
 
 
 assembly.to_json(PATH_TO)
