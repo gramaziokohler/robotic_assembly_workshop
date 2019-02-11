@@ -62,10 +62,10 @@ for key_on_top in keys_on_top:
     # Define the sequence to be checked if buildable
     sequence = assembly_block_building_sequence(assembly, key_on_top)
     # exclude all that are already checked
-    exclude_keys = [vkey for vkey, attr in assembly.vertices_where_predicate(lambda key, attr: \
-                    attr['is_support'] or \
-                    attr['is_built'] or \
-                    attr['is_planned'] or \
+    exclude_keys = [vkey for vkey, attr in assembly.vertices_where_predicate(lambda key, attr:
+                    attr['is_support'] or
+                    attr['is_built'] or
+                    attr['is_planned'] or
                     attr['is_buildable'], True)]
     sequence = [k for k in sequence if k not in exclude_keys] # keep order
     print("sequence", sequence)
