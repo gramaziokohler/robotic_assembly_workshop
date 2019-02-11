@@ -114,14 +114,18 @@ By now, you should be up and running and ready to start playing with **compas**,
 
 ![Progress](images/progress-3.png)
 
+*Basic setup*
+
 * [x] Generate an assembly for a brick wall ([script](examples/ex06_wall_generate.py) | [plot](examples/ex06_wall_generate_plot.py))
 * [x] Add assembly support plate ([script](examples/ex07_wall_support.py) | [plot](examples/ex07_wall_support_plot.py))
 * [x] Identify interfaces of the assembly ([script](examples/ex08_wall_interfaces.py) | [plot](examples/ex08_wall_interfaces_plot.py))
 * [x] Identify the courses of the assembly ([script](examples/ex090_wall_courses.py) | [plot](examples/ex090_wall_courses_plot.py))
-* [x] Compute the building sequence for a selected brick ([script](examples/ex092_wall_sequence.py) | [rhino](examples/ex092_wall_sequence_rhino.py))
+
+*Examples of useful functions for robotic assebmly*
+
+* [x] Compute the building sequence for a selected brick ([plot](examples/ex092_wall_sequence.py) | [iplot](examples/ex092_wall_sequence_iplot.py) | [rhino](examples/ex092_wall_sequence_rhino.py))
 * [x] Compute the equilibrium of the building sequence ([script](examples/ex093_wall_sequence_equilibrium.py) | [rhino](examples/ex093_wall_sequence_equilibrium_rhino.py))
 * [x] Compute the hull of the building sequence ([rhino](examples/ex094_wall_sequence_hull_rhino.py))
-* [x] Inspect the datastructure ([exercise](examples/ex095_wall_inspect.py))
 
 ### Planning robotic fabrication of assembly
 

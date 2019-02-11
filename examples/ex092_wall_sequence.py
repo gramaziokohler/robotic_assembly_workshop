@@ -35,7 +35,9 @@ assembly = Assembly.from_json(PATH)
 # get a random block from the top course
 
 c_max = max(assembly.get_vertices_attribute('course'))
-key = choice(list(assembly.vertices_where({'course': c_max})))
+
+top = list(assembly.vertices_where({'course': c_max}))
+key = choice(top)
 
 # get the sequence
 
@@ -48,7 +50,6 @@ R = Rotation.from_axis_and_angle([1.0, 0, 0], -pi / 2)
 assembly_transform(assembly, R)
 
 plotter = AssemblyPlotter(assembly, figsize=(16, 6), tight=True)
-plotter.assembly_plotter.defaults['vertex.fontsize'] = 10
 
 i_min = 0
 i_max = len(sequence)
