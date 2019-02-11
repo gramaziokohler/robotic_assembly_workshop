@@ -6,7 +6,6 @@ import os
 
 from compas.robots import RobotModel
 from compas.robots import LocalPackageMeshLoader
-from compas_fab.robots import Robot
 from compas_fab.rhino import RobotArtist
 
 HERE = os.path.dirname(__file__)
