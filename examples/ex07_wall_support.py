@@ -1,10 +1,23 @@
 """Add a support plate to a wll assembly and identify the interfaces.
 
+Steps
+-----
 1. Load an assembly from a json file
 2. Compute the footprint of the assembly
 3. Add a support in the XY plane at least the size to the footprint
-4. Compute the interfaces of the assembly
+4. Mark the support as *placed*.
 5. Serialise the result
+
+Parameters
+----------
+PADDING : float
+    The padding around the footprint of the wall.
+
+Exercise
+--------
+If brick courses were already assigned during the wall generation process,
+add a support per block of the bottom course to simplify interface detection
+afterwards.
 
 """
 import os
@@ -26,6 +39,10 @@ DATA = os.path.join(HERE, '../data')
 PATH_FROM = os.path.join(DATA, 'wall.json')
 PATH_TO = os.path.join(DATA, 'wall_supported.json')
 
+# parameters
+
+PADDING = 0.1
+
 # load assembly from JSON
 
 assembly = Assembly.from_json(PATH_FROM)
@@ -46,14 +63,15 @@ bbox = bounding_box_xy(points)
 
 support = Block.from_vertices_and_faces(bbox, [[0, 1, 2, 3]])
 
-# scale the support
+# scale the support according to the padding
 
 lx = length_vector(subtract_vectors(bbox[1], bbox[0]))
 ly = length_vector(subtract_vectors(bbox[2], bbox[1]))
-sx = (0.0 + lx) / lx
-sy = (0.0 + ly) / ly
+sx = (PADDING + lx) / lx
+sy = (PADDING + ly) / ly
 
 S = Scale([sx, sy, 1.0])
+
 mesh_transform(support, S)
 
 # align the centroid of the support with the centroid of the bounding box
@@ -64,6 +82,7 @@ a = support.centroid()
 mesh_transform(support, Translation(subtract_vectors(b, a)))
 
 # add the support to the assembly
+# and mark it as placed
 
 assembly.add_block(support, is_support=True, is_placed=True)
 

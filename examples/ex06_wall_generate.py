@@ -1,5 +1,13 @@
 """Generate an assembly describing a brick wall.
 
+Steps
+-----
+1. Create brick geometry
+2. Create half brick geometry
+3. Make an empty assembly
+4. Add bricks in staggered pattern
+5. Serialise the result
+
 Parameters
 ----------
 number_of_even_bricks : int
@@ -15,9 +23,15 @@ depth : float
 gap : float
     The horizontal gap between the bricks.
 
-Notes
------
-The script below does the same as ``compas_assembly.datastructures.assembly_construct_wall()``.
+Warning
+-------
+Don't go crazy with the number of bricks.
+The CPLEX community edition of the solver only allows for 1000 variables,
+and you reach that number really quickly...
+
+Exercise
+--------
+Mark courses of bricks already during the wall generation process.
 
 """
 import os
@@ -33,7 +47,6 @@ from compas_assembly.datastructures import Block
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
 PATH = os.path.join(DATA, 'wall.json')
-
 
 # number of bricks in even courses
 
