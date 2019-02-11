@@ -19,8 +19,8 @@ package = 'ur_description'
 urdf_filename = os.path.join(PATH, package, "urdf", "ur5.urdf")
 srdf_filename = os.path.join(PATH, package, "ur5.srdf")
 
-model =
-artist =
-semantics =
-robot =
+model = None
+artist = None
+semantics = None
+robot = None
 robot.info()
