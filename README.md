@@ -121,7 +121,7 @@ By now, you should be up and running and ready to start playing with **compas**,
 * [x] Identify interfaces of the assembly ([script](examples/ex08_wall_interfaces.py) | [plot](examples/ex08_wall_interfaces_plot.py))
 * [x] Identify the courses of the assembly ([script](examples/ex090_wall_courses.py) | [plot](examples/ex090_wall_courses_plot.py))
 
-*Examples of useful functions for robotic assebmly*
+*Examples of useful functions for robotic assembly*
 
 * [x] Compute the building sequence for a selected brick ([plot](examples/ex092_wall_sequence.py) | [iplot](examples/ex092_wall_sequence_iplot.py) | [rhino](examples/ex092_wall_sequence_rhino.py))
 * [x] Compute the equilibrium of the building sequence ([script](examples/ex093_wall_sequence_equilibrium.py) | [rhino](examples/ex093_wall_sequence_equilibrium_rhino.py))
