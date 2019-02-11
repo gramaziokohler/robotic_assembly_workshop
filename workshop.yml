@@ -5,6 +5,7 @@ channels:
 
 dependencies:
    - python=3.6
+   - pip=19.0.1
    - compas
    - compas_fab
    - shapely
@@ -18,7 +19,6 @@ dependencies:
    - CVXcanon >=0.0.22
    - cplex
    - pip:
-     - git+https://github.com/pypa/pip.git@6cdecce71d540dba4df9b415dbdbd9bc4107be86#egg=pip
      - git+https://github.com/BlockResearchGroup/compas_assembly.git#egg=compas_assembly
      - git+https://github.com/BlockResearchGroup/compas_rbe.git#egg=compas_rbe
      - cvxpy  # The version in conda is outdated on some channels and is skipped for Windows on another
