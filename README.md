@@ -1,4 +1,6 @@
-**Quick links:** [compas: main library docs](https://compas-dev.github.io/main/) | [compas_assembly docs](https://blockresearchgroup.github.io/compas_assembly/) | [compas_fab docs](https://gramaziokohler.github.io/compas_fab/latest/) | [slides](https://docs.google.com/presentation/d/1PsRl-eQNKiS1NvbXI4aQfWoPb0sP291kvo6l8Ps3w20/edit?usp=sharing)
+**Quick links:** [compas docs](https://compas-dev.github.io/main/) | [compas_assembly docs](https://blockresearchgroup.github.io/compas_assembly/) | [compas_fab docs](https://gramaziokohler.github.io/compas_fab/latest/) | [slides](https://docs.google.com/presentation/d/1PsRl-eQNKiS1NvbXI4aQfWoPb0sP291kvo6l8Ps3w20/edit?usp=sharing) | [system overview](#communication-overview) | [troubleshooting](#troubleshooting)
+
+**Progress:** [0. requirements](#requirements) | [1. installation](#getting-started) | [2. editor setup](#setting-up-your-development-environment) | [3. create assembly](#create-an-assembly---brick-wall) | [4. robotic planning](#planning-robotic-fabrication-of-assembly) | [5. robotic execution](#executing-robotic-fabrication)
 
 # Workshop: Robotic Assembly with COMPAS framework
 
@@ -202,6 +204,16 @@ However, if you do use Rhino 5.0, make sure to install the following:
 * [Grasshopper](https://www.grasshopper3d.com/)
 * [GHPython](https://www.food4rhino.com/app/ghpython)
 * [IronPython 2.7.5](https://github.com/IronLanguages/main/releases/tag/ipy-2.7.5) ([see here for details about this manual update](https://compas-dev.github.io/main/environments/rhino.html#ironpython-1)).
+
+## System overview
+
+Environments? Containers? Processes? Confused? 😵 What is connected to what and how?
+
+The following diagram shows how the different parts are interconnected and which one calls which other:
+
+![System overview](images/overview.png)
+
+---
 
 ## Troubleshooting
 
