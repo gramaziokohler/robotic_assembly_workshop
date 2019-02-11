@@ -111,6 +111,7 @@ By now, you should be up and running and ready to start playing with **compas**,
   * [x] Compute the building sequence for a selected brick ([script](examples/ex092_wall_sequence.py) | [rhino](examples/ex092_wall_sequence_rhino.py))
   * [x] Compute the equilibrium of the building sequence ([script](examples/ex093_wall_sequence_equilibrium.py) | [rhino](examples/ex093_wall_sequence_equilibrium_rhino.py))
   * [x] Compute the hull of the building sequence ([rhino](examples/ex094_wall_sequence_hull_rhino.py))
+  * [x] Inspect the datastructure ([exercise](examples/ex095_wall_inspect.py))
 * **Planning robotic fabrication of assembly**:
   > **NOTE:** These examples need ROS with the ABB linear axis loaded:
   > 1. Make sure your `X0.hosts` files is configured with your **current IP address** (<small>scroll down to [troubleshooting](#troubleshooting) for more details</small>).
