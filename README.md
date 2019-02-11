@@ -95,7 +95,10 @@ You can use any development environment that you're comfortable with, but for th
   * `Docker` (official extension, optional)
 * On the bottom left status bar, select the python interpreter to use. The list will contain Anaconda environments, select the one created above: `workshop`.
 
-As a starting point, check the contents of the [`examples`](examples) folder and open it with VS Code (right-click the folder from Explorer -> `Open with Code`). Open `ex00_hello_compas.py` and press `F5` to run it.
+To start off playing with COMPAS:
+
+* Open the folder where you cloned this repository with VS Code (right-click the folder from Explorer -> `Open with Code`)
+* Open the [`Hello COMPAS` example script](examples/ex00_hello_compas.py) and press `F5` to run it.
 
 ---
 
@@ -223,3 +226,7 @@ If you get errors like `cannot open display` or `cannot acquire screen ...` it m
 * On Mac using `XQuartz`, run `xhost +local:root` (and remember to disable later with `xhost -local:root`)
 
 Remember to restart `XMing`/`XQuartz` after applying these changes.
+
+> Q: How do I set environment variables?
+
+Using [VS Code](https://code.visualstudio.com/) (also supported in some other editors), the easiest option is to place a file called `.env` in the root folder of your workspace (i.e. this repository) and enter the variables there, one variable per line, e.g. `ROBOT_IP=10.0.75.1`.
