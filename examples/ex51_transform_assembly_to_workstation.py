@@ -11,9 +11,8 @@ from compas_assembly.datastructures import assembly_transform
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH_FROM = os.path.join(DATA, 'wall_courses.json')
-PATH_TO = os.path.join(DATA, 'wall_transformed.json')
-print("PATH_TO ", PATH_TO)
+PATH_FROM = os.path.join(DATA, '08_wall_interfaces.json')
+PATH_TO = os.path.join(DATA, '51_wall_transformed.json')
 
 assembly = Assembly.from_json(PATH_FROM)
 

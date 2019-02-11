@@ -30,8 +30,8 @@ from compas_assembly.datastructures import assembly_interfaces_numpy
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH_FROM = os.path.join(DATA, 'wall_supported.json')
-PATH_TO = os.path.join(DATA, 'wall_interfaces.json')
+PATH_FROM = os.path.join(DATA, '07_wall_supported.json')
+PATH_TO = os.path.join(DATA, '08_wall_interfaces.json')
 
 # parameters
 

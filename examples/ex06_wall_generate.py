@@ -46,7 +46,7 @@ from compas_assembly.datastructures import Block
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH = os.path.join(DATA, 'wall.json')
+PATH = os.path.join(DATA, '06_wall.json')
 
 # number of bricks in even courses
 

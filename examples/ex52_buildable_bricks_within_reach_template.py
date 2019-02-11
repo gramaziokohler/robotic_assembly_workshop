@@ -30,8 +30,8 @@ from ex50_abb_linear_axis_robot import robot
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH_FROM = os.path.join(DATA, '01_wall_transformed.json')
-PATH_TO = os.path.join(DATA, '02_wall_buildable.json')
+PATH_FROM = os.path.join(DATA, '51_wall_transformed.json')
+PATH_TO = os.path.join(DATA, '52_wall_buildable.json')
 
 robot.client = RosClient()
 robot.client.run()

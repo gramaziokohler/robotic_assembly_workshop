@@ -36,8 +36,8 @@ from compas_assembly.datastructures import Block
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH_FROM = os.path.join(DATA, 'wall.json')
-PATH_TO = os.path.join(DATA, 'wall_supported.json')
+PATH_FROM = os.path.join(DATA, '06_wall.json')
+PATH_TO = os.path.join(DATA, '07_wall_supported.json')
 
 # parameters
 
