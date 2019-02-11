@@ -219,6 +219,10 @@ Make sure docker is running. Especially after a fresh install, docker does not s
 
 Try running them from the *Conda Prompt*. Depending on how you installed Anaconda, it might not be available by default on the normal Windows command prompt.
 
+> Q: `conda activate workshop` fails
+
+Make sure you have conda 4.6 or higher.
+
 > Q: When trying to install the framework in Rhino, it fails indicating the lib folder of IronPython does not exist.
 
 Make sure you have opened Rhino 6 and Grasshopper at least once, so that it finishes setting up all its internal folder structure.
