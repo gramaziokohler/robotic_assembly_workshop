@@ -10,7 +10,7 @@ from compas_fab.backends import RosClient
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH = os.path.join(DATA, 'brick.obj')
+PATH = os.path.join(DATA, 'cylinder.obj')
 
 robot.client = RosClient()
 robot.client.run()
@@ -21,8 +21,8 @@ start_configuration = Configuration.from_revolute_values([-0.042, 4.295, -4.110,
 group = robot.main_group_name
 
 # Create attached collision object
-brick = Mesh.from_obj(PATH)
-aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick, group)
+cylinder = Mesh.from_obj(PATH)
+aco = robot.create_collision_mesh_attached_to_end_effector('cylinder', cylinder, group)
 
 response = robot.motion_plan_goal_frame(goal_frame,
                                         start_configuration,
