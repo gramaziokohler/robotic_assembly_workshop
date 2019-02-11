@@ -104,10 +104,13 @@ As a starting point, check the contents of the [`examples`](examples) folder and
 By now, you should be up and running and ready to start playing with **compas**, **compas_assembly** and **compas_fab**!
 
 * **Assembly - Brick wall**:
-  * [x] Generate an assembly for a brick wall ([example](examples/ex06_wall_generate.py))
-  * [x] Add assembly support plate ([example](examples/ex07_wall_support.py))
-  * [x] Identify interfaces of the brick wall assembly ([example](examples/ex08_wall_interfaces.py))
-  * [x] Identify the courses of the assembly ([example](examples/ex09_wall_courses.py))
+  * [x] Generate an assembly for a brick wall ([script](examples/ex06_wall_generate.py) | [plot](examples/ex06_wall_generate_plot.py))
+  * [x] Add assembly support plate ([script](examples/ex07_wall_support.py) | [plot](examples/ex07_wall_support_plot.py))
+  * [x] Identify interfaces of the assembly ([script](examples/ex08_wall_interfaces.py) | [plot](examples/ex08_wall_interfaces_plot.py))
+  * [x] Identify the courses of the assembly ([script](examples/ex090_wall_courses.py) | [plot](examples/ex090_wall_courses_plot.py))
+  * [x] Compute the building sequence for a selected brick ([script](examples/ex092_wall_sequence.py) | [rhino](examples/ex092_wall_sequence_rhino.py))
+  * [x] Comnpute the equilibrium of the building sequence ([script](examples/ex093_wall_sequence_equilibrium.py) | [rhino](examples/ex093_wall_sequence_equilibrium_rhino.py))
+  * [x] Compute the hull of the building sequence ([rhino](examples/ex094_wall_sequence_hull_rhino.py))
 * **Planning robotic fabrication of assembly**:
   > **NOTE:** These examples need ROS with the ABB linear axis loaded:
   > 1. Make sure your `X0.hosts` files is configured with your **current IP address** (<small>scroll down to [troubleshooting](#troubleshooting) for more details</small>).
