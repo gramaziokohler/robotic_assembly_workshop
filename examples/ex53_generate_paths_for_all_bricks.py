@@ -14,7 +14,7 @@ Generate paths for brick building sequence.
 9.     Add newly placed brick as collision object "brick_wall" to planning scence.
 10.    If solution is found for all 3 paths, add {'paths': [traj1, traj2, traj3]} as
        attribute to the brick of the assembly.
-11. Save assembly into '03_wall_paths.json'
+11. Save assembly into '53_wall_paths.json'
 """
 
 import os
@@ -182,11 +182,11 @@ for key_on_top in keys_on_top:
         # Update attributes
         assembly.set_vertex_attribute(key, 'is_planned', True)
         assembly.set_vertex_attribute(key, 'paths', [path.msg for path in paths])
-    
+
         # Add placed brick to planning scene
         brick_transformed = mesh_transformed(brick, Transformation.from_frame(placing_frame))
         robot.append_collision_mesh_to_planning_scene('brick_wall', brick)
-    
+
 assembly.to_json(PATH_TO)
 
 robot.client.close()
