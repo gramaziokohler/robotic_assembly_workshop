@@ -24,7 +24,6 @@ R = Rotation.from_axis_and_angle([1.0, 0, 0], -pi / 2)
 assembly_transform(assembly, R)
 
 plotter = AssemblyPlotter(assembly, figsize=(16, 6))
-plotter.assembly_plotter.defaults['vertex.fontsize'] = 10
 
 courses = assembly.get_vertices_attribute('course')
 
