@@ -1,3 +1,7 @@
+"""
+Creates a `Robot` representing an ABB on a linear axis from a urdf model and the
+semantics from a srdf file.
+"""
 import os
 
 import compas
