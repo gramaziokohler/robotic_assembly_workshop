@@ -109,7 +109,7 @@ By now, you should be up and running and ready to start playing with **compas**,
   * [x] Identify interfaces of the assembly ([script](examples/ex08_wall_interfaces.py) | [plot](examples/ex08_wall_interfaces_plot.py))
   * [x] Identify the courses of the assembly ([script](examples/ex090_wall_courses.py) | [plot](examples/ex090_wall_courses_plot.py))
   * [x] Compute the building sequence for a selected brick ([script](examples/ex092_wall_sequence.py) | [rhino](examples/ex092_wall_sequence_rhino.py))
-  * [x] Comnpute the equilibrium of the building sequence ([script](examples/ex093_wall_sequence_equilibrium.py) | [rhino](examples/ex093_wall_sequence_equilibrium_rhino.py))
+  * [x] Compute the equilibrium of the building sequence ([script](examples/ex093_wall_sequence_equilibrium.py) | [rhino](examples/ex093_wall_sequence_equilibrium_rhino.py))
   * [x] Compute the hull of the building sequence ([rhino](examples/ex094_wall_sequence_hull_rhino.py))
 * **Planning robotic fabrication of assembly**:
   > **NOTE:** These examples need ROS with the ABB linear axis loaded:
