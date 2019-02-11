@@ -1,6 +1,6 @@
 """
 Creates a robot model of a UR5 robot
-from URDF/SRDF files.
+from a URDF file.
 """
 import os
 
@@ -14,7 +14,6 @@ PATH = os.path.join(DATA, 'robot_description')
 
 package = 'ur_description'
 urdf_filename = os.path.join(PATH, package, "urdf", "ur5.urdf")
-srdf_filename = os.path.join(PATH, package, "ur5.srdf")
 
 model = RobotModel.from_urdf_file(urdf_filename)
 
