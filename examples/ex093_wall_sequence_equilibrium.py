@@ -18,8 +18,8 @@ from compas_rbe.equilibrium import compute_interface_forces_cvx
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH_FROM = os.path.join(DATA, 'wall_courses.json')
-PATH_TO = os.path.join(DATA, 'wall_sequence_equilibrium.json')
+PATH_FROM = os.path.join(DATA, '090_wall_courses.json')
+PATH_TO = os.path.join(DATA, '093_wall_sequence_equilibrium.json')
 
 # load an assembly
 

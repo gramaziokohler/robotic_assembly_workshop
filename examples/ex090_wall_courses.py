@@ -22,8 +22,8 @@ from compas_assembly.datastructures import assembly_courses
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH_FROM = os.path.join(DATA, 'wall_interfaces.json')
-PATH_TO = os.path.join(DATA, 'wall_courses.json')
+PATH_FROM = os.path.join(DATA, '08_wall_interfaces.json')
+PATH_TO = os.path.join(DATA, '090_wall_courses.json')
 
 # load an assembly from JSON
 

@@ -26,7 +26,7 @@ from compas_assembly.plotter import AssemblyPlotter
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH = os.path.join(DATA, 'wall_courses.json')
+PATH = os.path.join(DATA, '090_wall_courses.json')
 
 # load an assembly from a JSON file
 

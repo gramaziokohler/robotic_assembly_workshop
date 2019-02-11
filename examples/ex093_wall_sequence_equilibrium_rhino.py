@@ -16,7 +16,7 @@ from compas_assembly.datastructures import Assembly
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
-PATH = os.path.join(DATA, 'wall_sequence_equilibrium.json')
+PATH = os.path.join(DATA, '093_wall_sequence_equilibrium.json')
 
 # load an assembly
 

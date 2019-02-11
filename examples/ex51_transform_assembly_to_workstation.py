@@ -1,5 +1,5 @@
 """
-Moves the assembly to the workstation and .
+Move the assembly to the workstation and write assembly to json.
 """
 import os
 
