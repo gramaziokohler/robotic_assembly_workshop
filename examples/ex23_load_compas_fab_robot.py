@@ -1,6 +1,6 @@
 """
-Creates a full *COMPAS_FAB* robot class representing
-a UR5 robot from a urdf model and the semantics from a srdf file.
+Creates a `Robot` representing a UR5 robot from a urdf model and the semantics 
+from a srdf file.
 """
 import os
 import compas

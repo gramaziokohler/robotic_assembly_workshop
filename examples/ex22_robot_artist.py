@@ -1,12 +1,13 @@
 """
 Creates a robot model of a UR5 robot
-from a URDF file.
+and draws it in rhino.
 """
 import os
 
 from compas.robots import RobotModel
 from compas.robots import LocalPackageMeshLoader
 from compas_fab.robots import Robot
+from compas_fab.rhino import RobotArtist
 
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
@@ -21,4 +22,5 @@ model = RobotModel.from_urdf_file(urdf_filename)
 loader = LocalPackageMeshLoader(PATH, package)
 model.load_geometry(loader)
 
-print(model)
+artist = RobotArtist(model)
+artist.draw_visual()
