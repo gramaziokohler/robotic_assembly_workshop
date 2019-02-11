@@ -22,6 +22,8 @@ Materials for the Robotic Assembly workshop using COMPAS framework
 
 ## Getting started
 
+![Progress](images/progress-1.png)
+
 We will install all the required **COMPAS** packages using Anaconda. Anaconda uses **environments** to create isolated spaces for projects' depedencies, it is recommendable that you do all the exercises in a newly created environment.
 
 First, clone this repository. You have two options:
@@ -86,6 +88,8 @@ Congrats! 🎉 You are all set! Open Rhino and try to import `compas` to verify 
 
 ## Setting up your development environment
 
+![Progress](images/progress-2.png)
+
 You can use any development environment that you're comfortable with, but for this workshop, we suggest using [VS Code](https://code.visualstudio.com/), since it provides very deep integration with Anaconda, Docker, Python debugging and many other niceties.
 
 * Install [VS Code](https://code.visualstudio.com/) and open it
@@ -106,30 +110,43 @@ To start off playing with COMPAS:
 
 By now, you should be up and running and ready to start playing with **compas**, **compas_assembly** and **compas_fab**!
 
-* **Assembly - Brick wall**:
-  * [x] Generate an assembly for a brick wall ([script](examples/ex06_wall_generate.py) | [plot](examples/ex06_wall_generate_plot.py))
-  * [x] Add assembly support plate ([script](examples/ex07_wall_support.py) | [plot](examples/ex07_wall_support_plot.py))
-  * [x] Identify interfaces of the assembly ([script](examples/ex08_wall_interfaces.py) | [plot](examples/ex08_wall_interfaces_plot.py))
-  * [x] Identify the courses of the assembly ([script](examples/ex090_wall_courses.py) | [plot](examples/ex090_wall_courses_plot.py))
-  * [x] Compute the building sequence for a selected brick ([script](examples/ex092_wall_sequence.py) | [rhino](examples/ex092_wall_sequence_rhino.py))
-  * [x] Compute the equilibrium of the building sequence ([script](examples/ex093_wall_sequence_equilibrium.py) | [rhino](examples/ex093_wall_sequence_equilibrium_rhino.py))
-  * [x] Compute the hull of the building sequence ([rhino](examples/ex094_wall_sequence_hull_rhino.py))
-  * [x] Inspect the datastructure ([exercise](examples/ex095_wall_inspect.py))
-* **Planning robotic fabrication of assembly**:
-  > **NOTE:** These examples need ROS with the ABB linear axis loaded:
-  > 1. Make sure your `X0.hosts` files is configured with your **current IP address** (<small>scroll down to [troubleshooting](#troubleshooting) for more details</small>).
-  > 1. Start your X11 server (`XMing` on Windows, `XQuartz` on Mac).
-  > 1. Run *docker-compose* to start the [`ROS ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
-  * [x] Load ABB linear axis model ([script](examples/ex50_abb_linear_axis_robot.py))
-  * [x] Transform assembly to work station ([script](examples/ex51_transform_assembly_to_workstation.py))
-  * [x] Search buildable bricks within robot's reach ([script](examples/ex52_buildable_bricks_within_reach.py) | [exercise](examples/ex52_buildable_bricks_within_reach_template.py))
-  * [x] Generate paths for brick building sequence ([script](examples/ex53_generate_paths_for_all_bricks.py) | [exercise](examples/ex53_generate_paths_for_all_bricks_template.py))
-* **Executing robotic fabrication**:
-  > **NOTE:** These examples need ROS with an ABB linear axis loaded and a real or simulated (via RobotStudio) ABB controller:
-  > 1. Configure the `ROBOT_IP` environment variable to point to your controller.
-  > 1. Run the RobotStudio station and start all tasks.
-  > 1. Run *docker-compose* to start the [`ROS Real ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis-real/docker-compose.yml) system  [<small>(*need help?*)</small>](docker-help.md).
-  * [x] ...
+### Create an Assembly - Brick wall
+
+![Progress](images/progress-3.png)
+
+* [x] Generate an assembly for a brick wall ([script](examples/ex06_wall_generate.py) | [plot](examples/ex06_wall_generate_plot.py))
+* [x] Add assembly support plate ([script](examples/ex07_wall_support.py) | [plot](examples/ex07_wall_support_plot.py))
+* [x] Identify interfaces of the assembly ([script](examples/ex08_wall_interfaces.py) | [plot](examples/ex08_wall_interfaces_plot.py))
+* [x] Identify the courses of the assembly ([script](examples/ex090_wall_courses.py) | [plot](examples/ex090_wall_courses_plot.py))
+* [x] Compute the building sequence for a selected brick ([script](examples/ex092_wall_sequence.py) | [rhino](examples/ex092_wall_sequence_rhino.py))
+* [x] Compute the equilibrium of the building sequence ([script](examples/ex093_wall_sequence_equilibrium.py) | [rhino](examples/ex093_wall_sequence_equilibrium_rhino.py))
+* [x] Compute the hull of the building sequence ([rhino](examples/ex094_wall_sequence_hull_rhino.py))
+* [x] Inspect the datastructure ([exercise](examples/ex095_wall_inspect.py))
+
+### Planning robotic fabrication of assembly
+
+![Progress](images/progress-4.png)
+
+> **NOTE:** These examples need ROS with the ABB linear axis loaded:
+> 1. Make sure your `X0.hosts` files is configured with your **current IP address** (<small>scroll down to [troubleshooting](#troubleshooting) for more details</small>).
+> 1. Start your X11 server (`XMing` on Windows, `XQuartz` on Mac).
+> 1. Run *docker-compose* to start the [`ROS ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
+
+* [x] Load ABB linear axis model ([script](examples/ex50_abb_linear_axis_robot.py))
+* [x] Transform assembly to work station ([script](examples/ex51_transform_assembly_to_workstation.py))
+* [x] Search buildable bricks within robot's reach ([script](examples/ex52_buildable_bricks_within_reach.py) | [exercise](examples/ex52_buildable_bricks_within_reach_template.py))
+* [x] Generate paths for brick building sequence ([script](examples/ex53_generate_paths_for_all_bricks.py) | [exercise](examples/ex53_generate_paths_for_all_bricks_template.py))
+
+### Executing robotic fabrication
+
+![Progress](images/progress-5.png)
+
+> **NOTE:** These examples need ROS with an ABB linear axis loaded and a real or simulated (via RobotStudio) ABB controller:
+> 1. Configure the `ROBOT_IP` environment variable to point to your controller.
+> 1. Run the RobotStudio station and start all tasks.
+> 1. Run *docker-compose* to start the [`ROS Real ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis-real/docker-compose.yml) system  [<small>(*need help?*)</small>](docker-help.md).
+
+* [x] ...
 
 Did you finish up all exercises up to here? Awesome!! Have a cookie 🍪!
 
