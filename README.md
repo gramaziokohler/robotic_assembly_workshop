@@ -151,7 +151,7 @@ The following is a list of additional example code to complement the exercises a
   > 1. Run *docker-compose* to start the [`ROS Basic`](docker/ros-systems/ros-basic/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).
   * [x] Hello ROS ([script](examples/ex30_hello_ros.py))
   * [x] ROS Talker & Listener nodes ([talker](examples/ex31_talker.py) | [listener](examples/ex32_listener.py))
-  * [x] Using ROS as mesh transport between CADs ([grasshopper mesh publisher](examples/ex34_mesh_publisher.py) | [grasshopper mesh subscriber](examples/ex34_mesh_listener.py))
+  * [x] Using ROS as mesh transport between CADs ([grasshopper mesh publisher](examples/ex34_mesh_publisher.py) | [grasshopper mesh subscriber](examples/ex34_mesh_subscriber.py))
 * **Planning with robots**:
   > **NOTE:** These examples need ROS with a UR5 model loaded:
   > 1. Make sure your `X0.hosts` files is configured with your **current IP address** (<small>scroll down to [troubleshooting](#troubleshooting) for more details</small>).
