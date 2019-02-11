@@ -2,7 +2,7 @@
 Generate paths for brick building sequence.
 
 1. Add platform as collision mesh
-2. Load assembly from '52_wall_buildable.json'
+2. Load assembly from '02_wall_buildable.json'
 3. Generate building sequence from assembly through the defined key.
 4. Check cartesian path *p1* between picking_frame and saveframe_pick
 5. Iterate over assembly sequence
@@ -14,7 +14,7 @@ Generate paths for brick building sequence.
 9.   Add newly placed brick as collision object "brick_wall" to planning scence.
 10.  If solution is found for all 3 paths, add {'paths': [p1, p2, p3]} as
      attribute to the brick of the assembly.
-11. Save assembly into '53_wall_paths.json'
+11. Save assembly into '03_wall_paths.json'
 """
 
 import os
@@ -40,6 +40,8 @@ from compas_assembly.datastructures import assembly_block_placing_frame
 
 from ex50_abb_linear_axis_robot import robot
 
+# SETTINGS =====================================================================
+
 HERE = os.path.dirname(__file__)
 DATA = os.path.join(HERE, '../data')
 PATH_FROM = os.path.join(DATA, '52_wall_buildable.json')
@@ -53,11 +55,18 @@ robot.client.run()
 # Add platform as collision mesh
 package = "abb_linear_axis"
 
-#group = "axis_abb"
 group = "abb"
 
-# tolerance vector for placing the brick at placing_frame, otherwise collision
-tolerance_vector = Vector(0, 0, 0.003)
+picking_frame = Frame([1.926, 1.5, 1], [0, 1, 0], [1, 0, 0])
+picking_configuration = Configuration.from_prismatic_and_revolute_values([-1.800], [0.569, 0.849, -0.235, 6.283, 0.957, 2.140])
+
+save_vector = Vector(0, 0, 0.1)
+saveframe_pick = Frame(picking_frame.point + save_vector, picking_frame.xaxis, picking_frame.yaxis)
+
+# Load assembly
+assembly = Assembly.from_json(PATH_FROM)
+
+# COLLISION ====================================================================
 
 # Add platform as collision mesh
 mesh = Mesh.from_stl(os.path.join(DATA, 'robot_description', package, 'meshes', 'collision', 'platform.stl'))
@@ -70,27 +79,10 @@ robot.remove_collision_mesh_from_planning_scene("brick_wall")
 brick = Mesh.from_obj(os.path.join(DATA, "brick.obj"))
 aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick, group)
 
-# Load assembly
-assembly = Assembly.from_json(PATH_FROM)
+# tolerance vector for placing the brick at placing_frame, otherwise collision
+tolerance_vector = Vector(0, 0, 0.003)
 
-# Define the sequence to be build
-#key = 33
-#placed = list(assembly.vertices_where({'is_placed': True}))
-#sequence = assembly_block_building_sequence(assembly, key)
-#sequence = list(set(sequence) - set(placed))
-sequence = [3, 2, 1, 0, 8, 7, 6, 5, 13, 12, 11, 18, 17, 16, 23, 22, 27, 28, 33]
-
-# Settings
-picking_frame = Frame([1.926, 1.5, 1], [0, 1, 0], [1, 0, 0])
-picking_configuration = Configuration.from_prismatic_and_revolute_values([-1.800], [0.569, 0.849, -0.235, 6.283, 0.957, 2.140])
-
-# Constrain movement of one or several axes
-pc = Constraints()
-pc.joint_constraints.append(JointConstraint('joint_2', picking_configuration.values[2], math.pi/2, math.pi/2, 1.))
-#pc.joint_constraints.append(JointConstraint('joint_6', picking_configuration.values[6], math.pi/2, math.pi/2, 1.))
-
-save_vector = Vector(0, 0, 0.1)
-saveframe_pick = Frame(picking_frame.point + save_vector, picking_frame.xaxis, picking_frame.yaxis)
+# PICKING PATH =================================================================
 
 # Calculate cartesian path between picking frame and saveframe_pick
 response = robot.compute_cartesian_path(frames_WCF=[picking_frame, saveframe_pick],
@@ -111,74 +103,94 @@ start_configuration = picking_configurations[-1]
 # Since the start configuration is only for one group, merge with full configuration
 start_configuration = robot.merge_group_with_full_configuration(start_configuration, picking_configuration, group)
 
-# Iterate over placing frames
-for key in sequence:
+# PATH CALCULATION =============================================================
 
-    start_configuration = picking_configuration
+c_max = max(assembly.get_vertices_attribute('course'))
+keys_on_top = list(assembly.vertices_where({'course': c_max}))
 
-    # Read the placing frame from brick, zaxis down
-    o, uvw = assembly_block_placing_frame(assembly, key)
-    placing_frame = Frame(o, uvw[1], uvw[0])
+# Iterate over keys on top
+for key_on_top in keys_on_top:
 
-    # create attached collision object
-    brick = assembly.blocks[key]
-    brick_tcp = mesh_transformed(brick, Transformation.from_frame_to_frame(placing_frame, Frame.worldXY()))
-    aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick_tcp, group)
+    # Define the sequence to be checked if buildable
+    sequence = assembly_block_building_sequence(assembly, key_on_top)
+    # exclude all that are already checked
+    exclude_keys = [vkey for vkey, attr in assembly.vertices_where_predicate(lambda key, attr: \
+                    attr['is_support'] or \
+                    attr['is_built'] or \
+                    attr['is_planned'], True)]
+    sequence = [k for k in sequence if k not in exclude_keys] # keep order
+    print("sequence", sequence)
 
-    saveframe_place = Frame(placing_frame.point + save_vector, placing_frame.xaxis, placing_frame.yaxis)
-    paths = [start_trajectory]
+    # Iterate over placing frames
+    for key in sequence:
 
-    # Calculate kinematic path between saveframe_pick and saveframe_place
-    try:
-        response = robot.motion_plan_goal_frame(frame_WCF=saveframe_place,
-                                                start_configuration=start_configuration,
-                                                tolerance_position=0.005,
-                                                tolerance_angle=math.radians(1),
-                                                group=group,
-                                                path_constraints=pc,
-                                                planner_id='RRT',
-                                                num_planning_attempts=20,
-                                                allowed_planning_time=8.,
-                                                attached_collision_object=aco)
-        paths.append(response.trajectory)
-        last_configuration = response.configurations[-1]
-        last_configuration = robot.merge_group_with_full_configuration(last_configuration, picking_configuration, group)
+        start_configuration = picking_configuration
 
-    except RosError as error:
-        print(error)
-        break
+        # Read the placing frame from brick, zaxis down
+        o, uvw = assembly_block_placing_frame(assembly, key)
+        placing_frame = Frame(o, uvw[1], uvw[0])
 
-    print("last_configuration", last_configuration)
+        # create attached collision object
+        brick = assembly.blocks[key]
+        brick_tcp = mesh_transformed(brick, Transformation.from_frame_to_frame(placing_frame, Frame.worldXY()))
+        aco = robot.create_collision_mesh_attached_to_end_effector('brick', brick_tcp, group)
 
-    # Calculate cartesian path between saveframe_place and placing_frame
-    placing_frame_tolerance = placing_frame.copy()
-    placing_frame_tolerance.point += tolerance_vector
+        saveframe_place = Frame(placing_frame.point + save_vector, placing_frame.xaxis, placing_frame.yaxis)
+        paths = [start_trajectory]
 
-    frames = [saveframe_place, placing_frame_tolerance]
-    try:
-        response = robot.compute_cartesian_path(frames_WCF=frames,
-                                                start_configuration=last_configuration,
-                                                max_step=0.01,
-                                                avoid_collisions=True,
-                                                group=group,
-                                                path_constraints=pc,
-                                                attached_collision_object=aco)
-        if response.fraction == 1.:
-            paths.append(response.solution)
+        # Calculate kinematic path between saveframe_pick and saveframe_place
+        try:
+            response = robot.motion_plan_goal_frame(frame_WCF=saveframe_place,
+                                                    start_configuration=start_configuration,
+                                                    tolerance_position=0.005,
+                                                    tolerance_angle=math.radians(1),
+                                                    group=group,
+                                                    path_constraints=None,
+                                                    planner_id='RRT',
+                                                    num_planning_attempts=20,
+                                                    allowed_planning_time=8.,
+                                                    attached_collision_object=aco)
+            paths.append(response.trajectory)
             last_configuration = response.configurations[-1]
-        else:
-            print("Cartesian computed only %d percent of the path" % (response.fraction * 100))
+            last_configuration = robot.merge_group_with_full_configuration(last_configuration, picking_configuration, group)
+
+        except RosError as error:
+            print(error)
             break
-    except RosError as error:
-        print("Cartesian:", error)
-        break
 
-    assembly.blocks[key].attributes.update({'paths': [path.msg for path in paths]})
+        print("last_configuration", last_configuration)
 
-    # Add placed brick to planning scene
-    brick_transformed = mesh_transformed(brick, Transformation.from_frame(placing_frame))
-    robot.append_collision_mesh_to_planning_scene('brick_wall', brick)
+        # Calculate cartesian path between saveframe_place and placing_frame
+        placing_frame_tolerance = placing_frame.copy()
+        placing_frame_tolerance.point += tolerance_vector
 
+        frames = [saveframe_place, placing_frame_tolerance]
+        try:
+            response = robot.compute_cartesian_path(frames_WCF=frames,
+                                                    start_configuration=last_configuration,
+                                                    max_step=0.01,
+                                                    avoid_collisions=True,
+                                                    group=group,
+                                                    path_constraints=None,
+                                                    attached_collision_object=aco)
+            if response.fraction == 1.:
+                paths.append(response.solution)
+                last_configuration = response.configurations[-1]
+            else:
+                print("Cartesian computed only %d percent of the path" % (response.fraction * 100))
+                break
+        except RosError as error:
+            print("Cartesian:", error)
+            break
+
+        # Update attributes
+        assembly.set_vertex_attribute(key, 'is_planned', True)
+        assembly.set_vertex_attribute(key, 'paths', [path.msg for path in paths])
+    
+        # Add placed brick to planning scene
+        brick_transformed = mesh_transformed(brick, Transformation.from_frame(placing_frame))
+        robot.append_collision_mesh_to_planning_scene('brick_wall', brick)
+    
 assembly.to_json(PATH_TO)
 
 robot.client.close()
