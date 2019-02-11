@@ -56,6 +56,7 @@ assembly = Assembly.from_json(PATH_FROM)
 c_max = max(assembly.get_vertices_attribute('course'))
 keys_on_top = list(assembly.vertices_where({'course': c_max}))
 
+# Iterate over keys on top
 for key_on_top in keys_on_top:
 
     # Define the sequence to be checked if buildable
@@ -69,7 +70,7 @@ for key_on_top in keys_on_top:
     sequence = [k for k in sequence if k not in exclude_keys] # keep order
     print("sequence", sequence)
 
-    # Iterate over the assembly
+    # Iterate over the keys in the assembly
     for key in sequence:
 
         start_configuration = picking_configuration
@@ -98,6 +99,7 @@ for key_on_top in keys_on_top:
                                                     attempts=20)
                 start_configuration = response.configuration
                 print("Brick with key %d is buildable" % key)
+                # Update attribute
                 assembly.set_vertex_attribute(key, 'is_buildable', True)
 
             except RosError as error:

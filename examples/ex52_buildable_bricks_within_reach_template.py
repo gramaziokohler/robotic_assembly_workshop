@@ -50,7 +50,6 @@ picking_configuration = ?
 save_vector = Vector(0, 0, 0.1)
 saveframe_pick = Frame(picking_frame.point + save_vector, picking_frame.xaxis, picking_frame.yaxis)
 
-
 # Load assembly
 assembly = Assembly.from_json(PATH_FROM)
 
