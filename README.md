@@ -142,10 +142,11 @@ The following is a complete list of example code to complement the exercises abo
 * **Robotic fundamentals**:
   * [x] Frame orientation specs ([example](examples/ex10_frame_orientation_specs.py))
   * [x] Expressing frames in different coordinate systems ([example](examples/ex11_transformation_frame.py))
-  * [x] Create a robot model programmatically ([example](examples/ex20_robot_model))
+  * [x] Create a robot model programmatically ([example](examples/ex20_robot_model.py))
   * [x] Load robot model from URDF ([example](examples/ex21_robot_model_from_disk.py))
-  * [x] Load complete robot ([example](examples/ex22_load_compas_fab_robot.py) | [exercise](examples/ex22_load_compas_fab_robot_template.py))
-  * [x] Represent robot configurations / joint state ([example](examples/ex23_configuration.py))
+  * [x] Create a robot artist for rhino ([example](examples/ex22_robot_artist.py))
+  * [x] Load complete robot ([example](examples/ex23_load_compas_fab_robot.py) | [exercise](examples/ex23_load_compas_fab_robot_template.py))
+  * [x] Represent robot configurations / joint state ([example](examples/ex24_configuration.py))
 * **Using ROS**:
   > **NOTE:** These examples need ROS:
   > 1. Run *docker-compose* to start the [`ROS Basic`](docker/ros-systems/ros-basic/docker-compose.yml) system [<small>(*need help?*)</small>](docker-help.md).

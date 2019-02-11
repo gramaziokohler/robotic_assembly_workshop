@@ -1,6 +1,6 @@
 """
 Creates a robot model of a UR5 robot
-from URDF/SRDF files.
+and draws it in rhino.
 """
 import os
 
@@ -23,5 +23,4 @@ loader = LocalPackageMeshLoader(PATH, package)
 model.load_geometry(loader)
 
 artist = RobotArtist(model)
-M = artist.draw_visual()
-print M
+artist.draw_visual()
