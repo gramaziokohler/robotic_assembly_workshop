@@ -2,13 +2,13 @@
 Search for buildable bricks within the robot's reach.
 
 1. Add platform as collision mesh
-2. Load assembly from '01_wall_transformed.json'
+2. Load assembly from '51_wall_transformed.json'
 3. Generate building sequence from assembly by a defined key.
 4. Iterate over sequence and check inverse kinematic for placing_frame and
    saveframe_place
 5. If solution is found for both, add {'is_buildable': True} as attribute to
    the assembly.
-4. Save the assembly as '02_wall_buildable.json'.
+4. Save the assembly as '52_wall_buildable.json'.
 """
 
 import os
