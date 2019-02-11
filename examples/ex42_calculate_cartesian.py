@@ -1,7 +1,7 @@
 """
 Compute the cartesian path based on 2 frames and a starting configuration.
 """
-from ex22_load_compas_fab_robot import robot
+from ex23_load_robot import robot
 
 from compas.geometry import Frame
 from compas_fab.backends import RosClient

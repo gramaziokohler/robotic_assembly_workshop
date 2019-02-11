@@ -1,4 +1,4 @@
-from ex22_load_compas_fab_robot import robot
+from ex23_load_robot import robot
 
 import math
 from compas.geometry import Frame
