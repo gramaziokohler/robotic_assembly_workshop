@@ -1,4 +1,6 @@
-**Quick links:** [compas: main library docs](https://compas-dev.github.io/main/) | [compas_assembly docs](https://blockresearchgroup.github.io/compas_assembly/) | [compas_fab docs](https://gramaziokohler.github.io/compas_fab/latest/) | [slides](https://docs.google.com/presentation/d/1PsRl-eQNKiS1NvbXI4aQfWoPb0sP291kvo6l8Ps3w20/edit?usp=sharing)
+**Quick links:** [compas docs](https://compas-dev.github.io/main/) | [compas_assembly docs](https://blockresearchgroup.github.io/compas_assembly/) | [compas_fab docs](https://gramaziokohler.github.io/compas_fab/latest/) | [slides](slides.pdf) | [system overview](#system-overview) | [troubleshooting](#troubleshooting)
+
+**Progress:** [0. requirements](#requirements) | [1. installation](#getting-started) | [2. editor setup](#setting-up-your-development-environment) | [3. create assembly](#create-an-assembly---brick-wall) | [4. robotic planning](#planning-robotic-fabrication-of-assembly) | [5. robotic execution](#executing-robotic-fabrication)
 
 # Workshop: Robotic Assembly with COMPAS framework
 
@@ -19,6 +21,20 @@ Materials for the Robotic Assembly workshop using COMPAS framework
 > Note: if you get an error, scroll down to the [Troubleshooting](#troubleshooting) section.
 
 <sup>(1): Windows 10 Home does not support running Docker.</sup>
+
+
+<details><summary>Rhino 5.0</summary>
+
+The focus of the workshop will be on Rhino 6.0 only. While most things will work on Rhino 5.0, it is not recommended as there are several manual steps required to get the software to run.
+
+However, if you do use Rhino 5.0, make sure to install the following:
+
+* [Grasshopper](https://www.grasshopper3d.com/)
+* [GHPython](https://www.food4rhino.com/app/ghpython)
+* [IronPython 2.7.5](https://github.com/IronLanguages/main/releases/tag/ipy-2.7.5) ([see here for details about this manual update](https://compas-dev.github.io/main/environments/rhino.html#ironpython-1)).
+
+</details>
+
 
 ## Getting started
 
@@ -150,7 +166,8 @@ By now, you should be up and running and ready to start playing with **compas**,
 > 1. Run the RobotStudio station and start all tasks.
 > 1. Run *docker-compose* to start the [`ROS Real ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis-real/docker-compose.yml) system  [<small>(*need help?*)</small>](docker-help.md).
 
-* [x] ...
+* [x] Execute paths for brick assembly ([script](examples/ex54_execute_paths_for_all_bricks.py))
+* [x] Full example of planning + execution using Grasshopper ([grasshopper](examples/abb_linear_axis.ghx))
 
 Did you finish up all exercises up to here? Awesome!! Have a cookie 🍪!
 
@@ -189,19 +206,18 @@ The following is a list of additional example code to complement the exercises a
   * [x] Add collision object attached to the robot ([script](examples/ex44_add_attached_collision_object.py))
   * [x] Add collision object to a scene ([script](examples/ex45_add_collision_object.py))
   * [x] Calculate kinematic path with attached collision object ([script](examples/ex46_calculate_kinematic_with_aco.py))
-  * [x] Planning with robots using Grasshopper ([grasshopper](examples/abb_linear_axis.ghx))
 
 ---
 
-## Rhino 5.0
+## System overview
 
-The focus of the workshop will be on Rhino 6.0 only. While most things will work on Rhino 5.0, it is not recommended as there are several manual steps required to get the software to run.
+Environments? Containers? Processes? Confused? 😵 What is connected to what and how?
 
-However, if you do use Rhino 5.0, make sure to install the following:
+The following diagram shows how the different parts are interconnected and which one calls which other:
 
-* [Grasshopper](https://www.grasshopper3d.com/)
-* [GHPython](https://www.food4rhino.com/app/ghpython)
-* [IronPython 2.7.5](https://github.com/IronLanguages/main/releases/tag/ipy-2.7.5) ([see here for details about this manual update](https://compas-dev.github.io/main/environments/rhino.html#ironpython-1)).
+![System overview](images/overview.png)
+
+---
 
 ## Troubleshooting
 
