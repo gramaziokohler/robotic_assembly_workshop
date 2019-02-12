@@ -2,6 +2,9 @@
 Execute fabrication process for all bricks.
 
 1. Load assembly from '53_wall_paths.json'
+2. For each top brick, get its sequence of non-built ones
+3. Execute all the path / trajectories stored per brick (on the vertices of the assembly)
+
 """
 
 import os
