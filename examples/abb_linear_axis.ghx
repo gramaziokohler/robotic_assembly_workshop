@@ -1148,7 +1148,7 @@ blue = Color.FromArgb(0, 0, 255)
 frame_colors = [red, green, blue]
 
 # TODO: move to frame artist?
-def pipes_from_frame(frame, size, radius): 
+def pipes_from_frame(frame, size, radius):
     pipes = []
     for axis in [frame.xaxis, frame.yaxis, frame.zaxis]:
         pipe = {}
@@ -1158,21 +1158,21 @@ def pipes_from_frame(frame, size, radius):
     return pipes
 
 if robot and configuration:
-    
+
     pipe_size = 0.1 * robot.scale_factor
     pipe_radius = 0.001 * robot.scale_factor
-    
+
     robot.update(configuration, collision=show_collision)
-    
+
     print("Configuration:")
     print(configuration.values)
-    
+
     if show_visual:
         visual = robot.draw_visual()
-        
+
     if show_collision:
         collision = robot.draw_collision()
-    
+
     if show_axes:
         pipes = []
         axes_color = []
@@ -1180,26 +1180,26 @@ if robot and configuration:
             pipes += pipes_from_frame(frame, pipe_size, pipe_radius)
             axes_color += frame_colors
         axes = xdraw_pipes(pipes, cap=1)
-    
+
     ee_frame = robot.get_end_effector_frame()
     ee_plane = xdraw_frame(ee_frame)
-    
+
     print("End-effector frame:")
     print(ee_frame)
-    
+
     if show_end_effector_frame:
         ee_pipes = pipes_from_frame(ee_frame, pipe_size, pipe_radius)
         ee_frame_geo = xdraw_pipes(ee_pipes, cap=1)
         ee_frame_color = frame_colors
-        
+
     base_frame = robot.get_base_frame()
     base_plane = xdraw_frame(base_frame)
-    
+
     if show_base_frame:
         base_pipes = pipes_from_frame(base_frame, pipe_size, pipe_radius)
         base_frame_geo = xdraw_pipes(base_pipes, cap=1)
         base_frame_color = frame_colors
-        
+
 
 print robot.frames</item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
@@ -2577,10 +2577,10 @@ if robot and robot.client:
     if robot.client.is_connected:
         if take_current_configuration:
             start_configuration = robot.get_configuration()
-        response = robot.inverse_kinematics(frame_WCF=frame, 
-                                            start_configuration=start_configuration, 
-                                            group=group, 
-                                            constraints=None, 
+        response = robot.inverse_kinematics(frame_WCF=frame,
+                                            start_configuration=start_configuration,
+                                            group=group,
+                                            constraints=None,
                                             attempts=20)
         configuration = response.configuration
         error = response.error_code.human_readable
@@ -3320,16 +3320,16 @@ if response_key not in st:
 
 # conversion necessary because GHPython component converts None into something like &lt;type 'NoneType'&gt;
 if not attached_collision_object:
-    attached_collision_object = None 
-    
+    attached_collision_object = None
+
 if robot and robot.client:
     if robot.client.is_connected:
         if start_configuration and compute:
             if take_current_configuration:
                 start_configuration = robot.get_configuration()
             frames = [Frame(plane.Origin, plane.XAxis, plane.YAxis) for plane in planes]
-            st[response_key] = robot.compute_cartesian_path(frames, 
-                                                            start_configuration, 
+            st[response_key] = robot.compute_cartesian_path(frames,
+                                                            start_configuration,
                                                             float(max_step),
                                                             bool(avoid_collisions),
                                                             group,
@@ -3337,7 +3337,7 @@ if robot and robot.client:
     else:
         print("Robot is not connected")
         st[response_key] = None
- 
+
 response = st[response_key]
 </item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
@@ -6105,7 +6105,7 @@ if load:
     artist = RobotArtist(model)
     semantics = RobotSemantics.from_srdf_file(srdf_filename, model)
     robot = Robot(model, artist, semantics, client=None)
-    
+
     st[robot_key] = robot
 
 robot = st[robot_key]
@@ -6454,7 +6454,7 @@ if robot:
 from compas_fab.robots import Configuration
 
 if robot:
-    
+
     types = robot.get_configurable_joint_types()
     print types
     joint_positions = [cart]
@@ -7238,7 +7238,7 @@ if robot and robot.client and configuration:
     else:
         print("Robot is not connected")
         frame_WCF = None
-    
+
 print frame_WCF</item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
                     <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
@@ -8856,20 +8856,20 @@ frame = Frame(goal_plane.Origin, goal_plane.XAxis, goal_plane.YAxis)
 
 # conversion necessary because GHPython component converts None into something like &lt;type 'NoneType'&gt;
 if not attached_collision_object:
-    attached_collision_object = None 
+    attached_collision_object = None
 
 if take_current_configuration:
     start_configuration = robot.get_configuration()
 
 if robot and robot.client and robot.client.is_connected and start_configuration and compute:
     tolerance_angle = math.radians(tolerance_angle_deg)
-    st[response_key] = robot.motion_plan_goal_frame(frame, 
-                                                    start_configuration, 
-                                                    float(tolerance_position), 
-                                                    tolerance_angle, 
-                                                    group, 
-                                                    path_constraints=None, 
-                                                    trajectory_constraints=None, 
+    st[response_key] = robot.motion_plan_goal_frame(frame,
+                                                    start_configuration,
+                                                    float(tolerance_position),
+                                                    tolerance_angle,
+                                                    group,
+                                                    path_constraints=None,
+                                                    trajectory_constraints=None,
                                                     planner_id='RRT',
                                                     num_planning_attempts=10,
                                                     allowed_planning_time=5.,
@@ -9340,7 +9340,7 @@ if response:
     if response.error_code == MoveItErrorCodes.SUCCESS:
         print response.trajectory_start
         print response.planning_time
-        
+
         configurations = response.configurations
         start_configuration = response.start_configuration
     error = response.error_code.human_readable
@@ -10051,17 +10051,17 @@ if response:
     velocities = []
     accelerations = []
     time_from_start = []
-    
+
     for p in response.trajectory.joint_trajectory.points:
         positions.append(p.positions)
         velocities.append(p.velocities)
         accelerations.append(p.accelerations)
         time_from_start.append(p.time_from_start.seconds())
-    
+
     P = list_to_ghtree(list(zip(*positions)))
     V = list_to_ghtree(list(zip(*velocities)))
     A = list_to_ghtree(list(zip(*accelerations)))
-    
+
     time = time_from_start[-1]
     print time</item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
@@ -10416,7 +10416,7 @@ if response:
         robot.remove_collision_mesh_from_planning_scene(id_name)
 else:
     print("Robot is not connected")
-    
+
 
 </item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
@@ -11459,10 +11459,10 @@ if counter_key not in st or reset:
 
 if step:
     st[counter_key] += 1
-    
+
 if len(L):
     st[counter_key] = min(st[counter_key], len(L) - 1)
-    
+
     item = L[st[counter_key]]
 
 i = st[counter_key]
@@ -12752,7 +12752,7 @@ M = mesh_draw(compas_mesh)
         robot.remove_collision_mesh_from_planning_scene(id_name)
 else:
     print("Robot is not connected")
-    
+
 
 </item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
@@ -13388,7 +13388,7 @@ join meshes</item>
             break
     print(last_link_with_geometry)
     touch_links = [last_link_with_geometry]
-    
+
     aco = robot.create_collision_mesh_attached_to_end_effector(id_name, compas_mesh, group)
     #aco = robot.build_attached_collision_mesh(id_name,  compas_mesh, group=None, touch_links=touch_links, scale=False)</item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
@@ -14287,7 +14287,7 @@ compas_mesh.to_obj(os.path.join(ghfile_path,'brick.obj'))</item>
         robot.remove_collision_mesh_from_planning_scene(id_name)
 else:
     print("Robot is not connected")
-    
+
 
 </item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
@@ -14850,17 +14850,17 @@ if response:
     velocities = []
     accelerations = []
     time_from_start = []
-    
+
     for p in response.solution.joint_trajectory.points:
         positions.append(p.positions)
         velocities.append(p.velocities)
         accelerations.append(p.accelerations)
         time_from_start.append(p.time_from_start.seconds())
-    
+
     P = list_to_ghtree(list(zip(*positions)))
     V = list_to_ghtree(list(zip(*velocities)))
     A = list_to_ghtree(list(zip(*accelerations)))
-    
+
     time = time_from_start[-1]
     print time</item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
@@ -15387,7 +15387,7 @@ blue = Color.FromArgb(0, 0, 255)
 frame_colors = [red, green, blue]
 
 # TODO: move to frame artist?
-def pipes_from_frame(frame, size, radius): 
+def pipes_from_frame(frame, size, radius):
     pipes = []
     for axis in [frame.xaxis, frame.yaxis, frame.zaxis]:
         pipe = {}
@@ -15737,7 +15737,7 @@ blue = Color.FromArgb(0, 0, 255)
 frame_colors = [red, green, blue]
 
 # TODO: move to frame artist?
-def pipes_from_frame(frame, size, radius): 
+def pipes_from_frame(frame, size, radius):
     pipes = []
     for axis in [frame.xaxis, frame.yaxis, frame.zaxis]:
         pipe = {}
@@ -16199,10 +16199,10 @@ if sub:
 
         def received_joint_states(message):
             sc.sticky['joint_states'] = message
-    
+
         topic = roslibpy.Topic(robot.client, '/joint_states', 'sensor_msgs/JointState', throttle_rate=THROTTLE_RATE)
         topic.subscribe(received_joint_states)
-    
+
         sc.sticky[key] = topic
         print('Subscribed')
     else:
@@ -16378,7 +16378,7 @@ if 'joint_states' in sc.sticky:
     for joint in robot.get_configurable_joints():
         values.append(joint_states[joint.name])
         types.append(joint.type)
-    
+
     configuration = Configuration(values, types)
     print(configuration)
 
@@ -16903,13 +16903,13 @@ if robot and robot.client.is_connected:
                 sc.sticky[key]['exception'] = e
 
         print('Executing trajectory of %d points' % len(points))
-        cancellable = robot.client.follow_joint_trajectory(joint_trajectory, completion, failure)
+        cancellable = robot.client.follow_joint_trajectory(joint_trajectory, completion, failure, timeout=None)
         sc.sticky[key]['cancellable'] = cancellable
 
     if cancel and 'cancellable' in sc.sticky[key]:
         sc.sticky[key]['state'] = 'CANCELLED'
         sc.sticky[key]['cancellable'].cancel()
-        
+
 else:
     status = 'NOT CONNECTED'
 
@@ -16918,14 +16918,14 @@ try:
     completed_at = sc.sticky[key].get('completed_at', 'n/a')
     exception = sc.sticky[key].get('exception', '')
     execution_state = sc.sticky[key].get('state', '')
-    
+
     if started_at != 'n/a':
         started_at = datetime.datetime.fromtimestamp(started_at).strftime('%H:%M:%S')
     if completed_at != 'n/a':
         completed_at = datetime.datetime.fromtimestamp(completed_at).strftime('%H:%M:%S')
     if exception:
         exception = 'Found an exception during execution: ' + str(exception)
-    
+
     if not joint_trajectory:
         status = 'No trajectory available'
     else:
@@ -16937,7 +16937,7 @@ try:
                                           completed_at,
                                           len(points),
                                           exception)
-    
+
     print(status)
 except KeyError:
     pass</item>
@@ -17613,7 +17613,7 @@ assembly_transform(assembly, T)
 
 K = []
 for key, attr in assembly.vertices(True):
-    K.append(key) 
+    K.append(key)
 
 # draw the assembly
 artist = AssemblyArtist(assembly)
@@ -18762,7 +18762,7 @@ blue = Color.FromArgb(0, 0, 255)
 frame_colors = [red, green, blue]
 
 # TODO: move to frame artist?
-def pipes_from_frame(frame, size, radius): 
+def pipes_from_frame(frame, size, radius):
     pipes = []
     for axis in [frame.xaxis, frame.yaxis, frame.zaxis]:
         pipe = {}
@@ -19532,7 +19532,7 @@ assembly.to_json(filepath)</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">Save transformed 
+                    <item name="UserText" type_name="gh_string" type_code="10">Save transformed
 assembly</item>
                   </items>
                   <chunks count="2">
@@ -19857,7 +19857,7 @@ blue = Color.FromArgb(0, 0, 255)
 frame_colors = [red, green, blue]
 
 # TODO: move to frame artist?
-def pipes_from_frame(frame, size, radius): 
+def pipes_from_frame(frame, size, radius):
     pipes = []
     for axis in [frame.xaxis, frame.yaxis, frame.zaxis]:
         pipe = {}

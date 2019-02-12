@@ -166,7 +166,8 @@ By now, you should be up and running and ready to start playing with **compas**,
 > 1. Run the RobotStudio station and start all tasks.
 > 1. Run *docker-compose* to start the [`ROS Real ABB Linear Axis`](docker/ros-systems/ros-abb-linear-axis-real/docker-compose.yml) system  [<small>(*need help?*)</small>](docker-help.md).
 
-* [x] ...
+* [x] Execute paths for brick assembly ([script](examples/ex54_execute_paths_for_all_bricks.py))
+* [x] Full example of planning + execution using Grasshopper ([grasshopper](examples/abb_linear_axis.ghx))
 
 Did you finish up all exercises up to here? Awesome!! Have a cookie 🍪!
 
@@ -205,7 +206,6 @@ The following is a list of additional example code to complement the exercises a
   * [x] Add collision object attached to the robot ([script](examples/ex44_add_attached_collision_object.py))
   * [x] Add collision object to a scene ([script](examples/ex45_add_collision_object.py))
   * [x] Calculate kinematic path with attached collision object ([script](examples/ex46_calculate_kinematic_with_aco.py))
-  * [x] Planning with robots using Grasshopper ([grasshopper](examples/abb_linear_axis.ghx))
 
 ---
 
