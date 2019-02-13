@@ -113,12 +113,11 @@ You can use any development environment that you're comfortable with, but for th
   * `Python` (official extension)
   * `EditorConfig for VS Code` (optional)
   * `Docker` (official extension, optional)
-* On the bottom left status bar, select the python interpreter to use. The list will contain Anaconda environments, select the one created above: `workshop`.
-
-To start off playing with COMPAS:
-
-* Open the folder where you cloned this repository with VS Code (right-click the folder from Explorer -> `Open with Code`)
-* Open the [`Hello COMPAS` example script](examples/ex00_hello_compas.py) and press `F5` to run it.
+* Run your first example:
+  * Open the folder where you cloned this repository with VS Code (right-click the folder from Explorer -> `Open with Code`)
+  * Open the [`Hello COMPAS` example script](examples/ex00_hello_compas.py)
+  * On the bottom left status bar, make sure you select the python interpreter to use. The list will contain Anaconda environments, select the one created above: `workshop`.
+  * Press `F5` to run it.
 
 ---
 
